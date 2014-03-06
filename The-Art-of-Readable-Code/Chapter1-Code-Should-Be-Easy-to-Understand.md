@@ -35,4 +35,8 @@ if (bucket != null) {
     assert(!bucket.isOccupied());
 }
 ```
-虽然第一段代码更短，但是第二段代码更容易让人快速理解。
+虽然第一段代码更短，但是第二段代码更容易让人快速理解。另外，有效的注释也能增强代码的可读性，虽然这会增加代码的行数。
+```js
+// Fast version of "hash = (65599 * hash) + c"
+hash = (hash << 6) + (hash << 16) - hash + c;
+```
