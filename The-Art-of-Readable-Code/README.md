@@ -1,2 +1,3 @@
 # The Art of Readable Code
-1. [Chapter1: Code should be easy to understand](Chapter1-Code-Should-Be-Easy-to-Understand.md)
+1. [Chapter 1: Code should be easy to understand](Chapter1-Code-Should-Be-Easy-to-Understand.md)
+2. 2. [Chapter 2: packing information into names](Chapter2-Packing-Information-into-Names.md)
