@@ -10,4 +10,12 @@ function getPage(url) {
 ```
 在上面的例子中，`get` 是一个非常宽泛的词，`getPage` 并不能明确的表达这个方法的用途，它有可能是从缓存或数据库中获取页面，也有可能从网络中抓取。如果是从网络中抓取页面，那么 `fetchPage` 或者 `downloadPage` 可能更好。
 ## Finding more “Colorful” words
-在写作中，普通的文章和优秀的文章的差别也体现在选词上，普通的文章可能用了很多平白无奇的词汇，或者一个词反复用了很多次，而优秀的文章相比而言则可能是词藻华丽。
+在写作中，普通的文章和优秀的文章的差别也体现在选词上，普通的文章可能用了很多平白无奇的词汇，或者一个词反复用了很多次，而优秀的文章相比而言则可能是词藻华丽。同样的，在命名的时候，也不要千篇一律的用同一个词，换一个词可能会更准确的表达你的意图。下面就是一些例子：
+
+| Word | Alternatives |
+| ---- | ------------ |
+| send | deliver, dispatch, announce, distribute, route |
+| find | search, extract, locate, recover |
+| start | launch, create, begin, open |
+| make | create, set up, build, generate, compose, add, new |
+
