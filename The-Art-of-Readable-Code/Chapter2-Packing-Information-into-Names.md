@@ -121,3 +121,6 @@ numbers.sort(compare);
 ```
 ### The verdict on generic names
 **Advice: If you’re going to use a generic name like tmp, it, or retval, have a good reason for doing so.**
+## Prefer concrete names over abstract names
+命名应当足够具体，尽量准确表达出其真实的含义。比如有一个方法叫做 `ServerCanStart`，用来判断服务器是否能监听某个指定的 TCP/IP 端口。但是 `ServerCanStart` 这个名字并不能反映出这个方法的作用，原因是不够具体，所以可能的比较好的命名是 `CanListenOnPort`。相较 `ServerCanStart`，`CanListenOnPort` 清楚地表达了这个方法的作用。
+## Attaching extra information to a name
