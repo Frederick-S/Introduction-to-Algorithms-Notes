@@ -18,4 +18,30 @@ function getPage(url) {
 | find | search, extract, locate, recover |
 | start | launch, create, begin, open |
 | make | create, set up, build, generate, compose, add, new |
+## Key idea 2: It’s better to be clear and precise than to be cute
+不管选择什么样的词，最根本的目的是为了代码的易于理解，而不是为了选词而选词。
+## Avoid generic names like tmp and retval
+类似 `tmp`，`temp`，`retval` 是比较常见的命名，但是，一般情况下，这样的命名并没有包含足够的信息。如果这个变量只出现在几行代码里，那么我们可能并不难理解它的含义，但是如果它出现在了一段较长的代码里，在阅读代码的过程中，如果只凭 `tmp` 这样的命名，我们可能已经忘了它是做什么的了。
+```js
+// 虽然使用了 tmp 来命名，但是我们还是可以明白 tmp 表示当前用户
+var tmp = Context.getCurrent().getCurrentUser();
+if (tmp.isAdmin) {
+    // Do something
+} else {
+    // Do something
+}
+```
+```js
+var tmp = Context.getCurrent().getCurrentUser();
+if (tmp.isAdmin) {
+    // Do something
+} else {
+    // Do something
+}
 
+...
+
+// 100 行代码之后
+// tmp 是什么？？？
+var accountName = tmp.accountName;
+```
