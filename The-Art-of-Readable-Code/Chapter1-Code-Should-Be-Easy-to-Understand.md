@@ -1,8 +1,8 @@
 # Chapter 1: Code should be easy to understand
-## Key Idea 1: Code should be easy to understand
-这是贯穿全书的一个核心，书中剩下的部分都是围绕这个核心展开的，也就是如何使得代码易于理解。 
-## Key Idea 2: Code should be written to minimize the time it would take for someone else to understand it
-什么样的代码是可读性强的？一个最基本的原则就是尽可能的减少理解代码所需要的时间。
+## Key ideas
+1. Code should be easy to understand.
+2. Code should be written to minimize the time it would take for someone else to understand it.
+
 ## Smaller is not always better
 一般来说，精简的代码很可能会比冗长的代码更容易理解。比如下面这组例子：
 ```js
