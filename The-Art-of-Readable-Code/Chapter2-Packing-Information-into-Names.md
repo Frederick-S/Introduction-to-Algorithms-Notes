@@ -1,6 +1,8 @@
 # Chapter 2: Packing information into names
-## Key idea 1: Pack information into your names
-一个良好的命名就像一段简短的注释，它能清晰的表达一个变量或者一个方法的含义。然而在实际情况中命名并不是一件容易的事，很多的命名要么没有实际意义，要么含义模糊，不够明确。
+## Key ideas
+1. Pack information into your names.
+2. It’s better to be clear and precise than to be cute.
+
 ## Choose specific words
 正如用外语和别人交谈一样，即使发音不太标准，但只要用词准确，听的人也一样能听明白。而如果用词不当，哪怕发音再标准，听的人也可能会一头雾水。所以选择明确的用词对于命名是很重要的，反之，则可能会让阅读代码的人产生困惑，例如：
 ```js
@@ -18,8 +20,7 @@ function getPage(url) {
 | find | search, extract, locate, recover |
 | start | launch, create, begin, open |
 | make | create, set up, build, generate, compose, add, new |
-## Key idea 2: It’s better to be clear and precise than to be cute
-不管选择什么样的词，最根本的目的是为了代码的易于理解，而不是为了选词而选词。
+
 ## Avoid generic names like tmp and retval
 类似 `tmp`，`temp`，`retval` 是比较常见的命名，但是，一般情况下，这样的命名并没有包含足够的信息。如果这个变量只出现在几行代码里，那么我们可能并不难理解它的含义，但是如果它出现在了一段较长的代码里，在阅读代码的过程中，如果只凭 `tmp` 这样的命名，我们可能已经忘了它是做什么的了。
 ```js
