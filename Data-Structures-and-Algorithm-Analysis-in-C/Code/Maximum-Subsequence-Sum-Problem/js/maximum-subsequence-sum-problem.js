@@ -17,7 +17,7 @@ function solution1(numbers) {
     return max;
 }
 
-// 2. solution 2
+// 2. Solution 2
 function solution2(numbers) {
     var length = numbers.length, max = 0, sum = 0;
     for (var i = 0; i < length; i++) {
