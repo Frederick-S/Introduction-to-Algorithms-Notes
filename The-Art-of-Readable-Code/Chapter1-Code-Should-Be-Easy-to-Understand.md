@@ -10,6 +10,7 @@ for (var node = list.head; node != null; node = node.next) {
     print(node.data);
 }
 ```
+和
 ```js
 var node = list.node;
 if (node == null) {
@@ -29,13 +30,14 @@ if (node != null) {
 ```js
 assert((!(bucket = findBucket(key))) || !bucket.isOccupied());
 ```
+虽然这段代码很短，但是并不能让人快速理解，一个较清晰易懂的替代方案是：
 ```js
 bucket = findBucket(key);
 if (bucket != null) {
     assert(!bucket.isOccupied());
 }
 ```
-虽然第一段代码更短，但是第二段代码更容易让人快速理解。另外，有效的注释也能增强代码的可读性，虽然这会增加代码的行数。例如：
+另外，有效的注释也能增强代码的可读性，虽然这会增加代码的行数。例如：
 ```js
 // Fast version of "hash = (65599 * hash) + c"
 hash = (hash << 6) + (hash << 16) - hash + c;
