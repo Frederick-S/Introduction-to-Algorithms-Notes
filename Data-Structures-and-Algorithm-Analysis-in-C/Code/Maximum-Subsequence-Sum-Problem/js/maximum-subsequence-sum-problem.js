@@ -65,3 +65,20 @@ function solution3(numbers, left, right) {
 
     return Math.max(maxLeftSum, maxRightSum, maxLeftBorderSum + maxRightBorderSum);
 }
+
+// 4. Solution 4
+function solution4(numbers) {
+    var thisSum = 0, maxSum = 0;
+
+    for (var i = 0, length = numbers.length; i < length; i++) {
+        thisSum += numbers[i];
+
+        if (thisSum > maxSum) {
+            maxSum = thisSum;
+        } else if (thisSum < 0) {
+            thisSum = 0;
+        }
+    }
+
+    return maxSum;
+}
