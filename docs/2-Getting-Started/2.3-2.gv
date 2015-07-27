@@ -1,0 +1,34 @@
+digraph mergeSort {
+	node[shape=record];
+	rankdir=BT;
+	splines=false;
+	subarray1 [label="<f0> 3"];
+	subarray2 [label="<f0> 41"];
+	subarray3 [label="<f0> 52"];
+	subarray4 [label="<f0> 26"];
+	subarray5 [label="<f0> 38"];
+	subarray6 [label="<f0> 57"];
+	subarray7 [label="<f0> 9"];
+	subarray8 [label="<f0> 49"];
+	subarray9 [label="<f0> 3|<f1> 41"];
+	subarray10 [label="<f0> 26|<f1> 52"];
+	subarray11 [label="<f0> 38|<f1> 57"];
+	subarray12 [label="<f0> 9|<f1> 49"];
+	subarray13 [label="<f0> 3|<f1> 26|<f2> 41|<f3> 52"];
+	subarray1:f0 -> subarray9: f0;
+	subarray2:f0 -> subarray9: f1;
+	subarray3:f0 -> subarray10: f0;
+	subarray4:f0 -> subarray10: f1;
+	subarray5:f0 -> subarray11: f0;
+	subarray6:f0 -> subarray11: f1;
+	subarray7:f0 -> subarray12: f0;
+	subarray8:f0 -> subarray12: f1;
+	subarray9:f1 -> subarray13: f1;
+	subarray10:f0 -> subarray13: f2;
+	subarray14 [label="<f0> 9|<f1> 38|<f2> 49|<f3> 57"];
+	subarray11:f1 -> subarray14: f1;
+	subarray12:f0 -> subarray14: f2;
+	subarray15 [label="<f0> 3|<f1> 9|<f2> 26|<f3> 38|<f4> 41|<f5> 49|<f6> 52|<f7> 57"];
+	subarray13:f2 -> subarray15: f3;
+	subarray14:f1 -> subarray15: f4;
+}
