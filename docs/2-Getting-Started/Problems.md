@@ -50,3 +50,29 @@ d. What is the worst-case running time of bubblesort? How does it compare to the
 The worst-case running time of bubblesort is approximately $n + (n - 1) + \ldots + 3 = \Theta(n^2)$.
 
 The worst-case running time of insertion sort is also $\Theta(n^2)$, but the best-case running time of insertion sort is $\Theta(n)$. For bubblesort, the best-case running time is still $\Theta(n^2)$, because a best-case input could not reduce the cost of the for loop of lines 2-4.
+
+## 2-3 Correctness of Horner's rule
+a. In terms of $\Theta$-notation, what is the running time of this code fragment for Horner's rule?
+
+It's $\Theta(n)$.
+
+b. Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial from scratch. What is the running time of this algorithm? How does it compare to Horner's rule?
+
+The pseudocode of the naive polynomial-evaluation algorithm:
+
+```
+POLYNOMIAL-EVALUATION(A, x)
+
+y = 0
+
+for i = 0 to n
+    a = A[i]
+    x_product = 1
+
+    for j = 1 to i
+        x_product = x_product * x
+
+    y = y + a * x_product
+```
+
+The running time of this algorithm is $\Theta(n^2)$. It's slower than the Horner's rule.
