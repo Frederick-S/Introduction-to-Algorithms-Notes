@@ -76,3 +76,31 @@ for i = 0 to n
 ```
 
 The running time of this algorithm is $\Theta(n^2)$. It's slower than the Horner's rule.
+
+c. Use the loop invariant to show that, at termination, $y = \sum_{k = 0}^{n} a_k{x^k}$.
+
+**Initialization**: at the start of the iteration of the for loop, i is n, and $y = \sum_{k = 0}^{-1} a_{k + n + 1}{x^k}$, this is not a valid summation, so y is still 0. Thus the loop invariant is correct.
+
+**Maintenance**: at the start of the ith iteration, we have:
+$$y = \sum_{k = 0}^{n - (i + 1)} a_{k + i + 1}{x^k}$$
+
+And after the ith iteration, we have:
+
+$$
+\begin{eqnarray}
+y &=& a_i + xy = a_i + x\sum_{k = 0}^{n - (i + 1)} a_{k + i + 1}{x^k} \\\\\\
+&=& a_i + x(a_{i + 1}x^0 + a_{i + 2}x^1 + \ldots + a_nx^{n - i - 1}) \\\\\\
+&=& a_i + a_{i + 1}x^1 + a_{i + 2}x^2 + \ldots + a_nx^{n - i} \\\\\\
+&=& a_ix^0 + a_{i + 1}x^1 + a_{i + 2}x^2 + \ldots + a_nx^{n - i} \\\\\\
+&=& \sum_{k = 0}^{n - i} a_{k + i}{x^k} \\\\\\
+&=& \sum_{k = 0}^{n - ((i - 1) + 1)} a_{k + (i - 1) + 1}{x^k}
+\end{eqnarray}
+$$
+
+So the loop invariant is still true after the end of ith iteration.
+
+**Termination**: when the for loop terminates, i is -1, and we replace i with -1 in the summation:
+
+$$y = \sum_{k = 0}^{n - (-1 + 1)} a_{k + -1 + 1}{x^k} = \sum_{k = 0}^{n} a_{k}{x^k}$$
+
+So the loop invariant is correct.
