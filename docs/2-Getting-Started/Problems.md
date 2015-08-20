@@ -104,3 +104,28 @@ So the loop invariant is still true after the end of ith iteration.
 $$y = \sum_{k = 0}^{n - (-1 + 1)} a_{k + -1 + 1}{x^k} = \sum_{k = 0}^{n} a_{k}{x^k}$$
 
 So the loop invariant is correct.
+
+d. Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients $a_0, a_1, \ldots, a_n$.
+
+At the end of the iteration of the for loop of lines 2-3, we have $y = \sum_{k = 0}^{n} a_{k}{x^k}$, so it's correct.
+
+## 2-4 Inversions
+a. List the five inversions of the array $\langle 2, 3, 8, 6, 1\rangle$.
+
+$\langle 0, 4\rangle, \langle 1, 4\rangle, \langle 2, 3\rangle, \langle 2, 4\rangle, \langle 6, 1\rangle$.
+
+b. What array with elements from the set $\lbrace 1, 2, \ldots, n \rbrace$ has the most inversions? How many does it have?
+
+The array $\lbrace n, \ldots, 2, 1\rbrace$ has the most inversions. It has:
+
+$$(n - 1) + (n - 2) + \ldots + 1 = \frac{n(n - 1)}{2}$$
+
+c. What is the relationship between the running time of insertion sort and the number of inversions in the input array?
+
+Let's go back to the pseudocode of insertion sort. We know the running time of insertion sort is:
+
+$$T(n) = c_1n + c_2(n - 1) + c_4(n - 1) + c_5\sum_{j = 2}^{n} t_j + c_6\sum_{j = 2}^{n} (t_j - 1) + c_7\sum_{j = 2}^{n} (t_j - 1) + c_8(n - 1)$$
+
+where $t_j$ is the number of times the while loop test in line 5 is executed for the jth outer for loop.
+
+We can see lines 6 and 7 will be executed when there is an inversion,
