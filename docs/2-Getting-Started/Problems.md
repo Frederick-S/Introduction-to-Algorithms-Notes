@@ -128,4 +128,54 @@ $$T(n) = c_1n + c_2(n - 1) + c_4(n - 1) + c_5\sum_{j = 2}^{n} t_j + c_6\sum_{j =
 
 where $t_j$ is the number of times the while loop test in line 5 is executed for the jth outer for loop.
 
-We can see lines 6 and 7 will be executed when there is an inversion,
+We can see lines 6 and 7 will be executed when there is an inversion, let's denote $p_j$ the number of inversions in the subarray A[1..j]. So we have $p_j = t_j - 1$. When j is increasing, the number of inversions in the whole array A[1..n] is decreasing, but it doesn't create new inversions in eath iteration, since the relative order in subarray A[1..j] and A[j + 1..n] are not changed. So if we denote $m$ the number of inversions in the whole array A, we have $\sum_{j = 2}^{n} p_j = \sum_{j = 2}^{n} (t_j - 1) = m$. So:
+
+$$T(n) = c_1n + c_2(n - 1) + c_4(n - 1) + c_5(m + n - 1) + c_6m + c_7m + c_8(n - 1)$$
+
+d. Give an algorithm that determines the number of inversions in any permutation on n elements in $\Theta(n\lg{n})$ worst-case time.
+
+```
+NUMBER-OF-INVERSIONS(A)
+	n = A.length
+	
+	return MERGE-SORT(A, 1, n)
+
+MERGE-SORT(A, p, r)
+	inversions = 0
+	
+	if p < r
+		q = [(p + q) / 2]
+		
+		inversions += MERGE-SORT(A, p, q)
+		inversions += MERGE-SORT(A, q + 1, r)
+		inversions += MERGE(A, p, q, r)
+	
+	return inversions
+
+MERGE(A, p, q, r)
+
+n1 = q - p + 1
+n2 = r - q
+let L[1..n1] and R[1..n2] be new arrays
+for i = 1 to n1
+    L[i] = A[p + i - 1]
+for j = 1 to n2
+    R[j] = A[q + j]
+i = 1
+j = 1
+inversions = 0
+for k = p to r
+    if i > n1:
+        A[k] = R[j]
+        j = j + 1
+    else if j > n2:
+        A[k] = L[i]
+        i = i + 1
+    else if L[i] <= R[j]:
+        A[k] = L[i]
+        i = i + 1
+    else
+        A[k] = R[j]
+        j = j + 1
+        inversions += n1 - i + 1
+```
