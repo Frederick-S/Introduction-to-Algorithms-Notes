@@ -8,3 +8,5 @@ pages:
     - '2.2 Analyzing algorithms': '2-Getting-Started/2.2-Analyzing-algorithms.md'
     - '2.3 Designing algorithms': '2-Getting-Started/2.3-Designing-algorithms.md'
     - 'Problems': '2-Getting-Started/Problems.md'
+- '3 Growth of Functions':
+    - '3.1 Asymptotic notation': '3-Growth-of-Functions/3.1-Asymptotic-notation.md'
