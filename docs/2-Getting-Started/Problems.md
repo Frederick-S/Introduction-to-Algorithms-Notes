@@ -1,27 +1,27 @@
 # Problems
-## 2-1 Insertion sort on small arrays in merge sort
-a. Show that insertion sort can sort the $n / k$ sublists, each of length k, in $\Theta(nk)$ worst-case time.
+## 2-1
+### a
 
 We know that the worst-case running time of sorting $n$ elements with insertion sort is $\Theta(n^2)$. So the running time of sorting $k$ elements is $\Theta(k^2)$. And there are $\frac{n}{k}$ sublists of length $k$, so the whole running time is $\frac{n}{k} * \Theta(k^2) = \Theta(nk)$.
 
-b. Show how to merge the sublists in $\Theta(n\lg{n / k})$ worst-case time.
+### b
 
 We can go back to look at figure 2.5 in the book. In original merge sort, there are $n$ elements at the bottom in recursion tree. In each step, current array will be divided into two subarrays, until the array only contains one element. But in the modified algorithm, this operation stops when current array contains less than $k$ elements. Thus, it stops after $\lg{\frac{n}{k}}$ recursions. So the height of recursion tree is $\lg{\frac{n}{k}} + 1$. Because each level contributes a cost of $\Theta(n)$ merge operation, the total merge running time is $\Theta(n)(\lg{\frac{n}{k}} + 1) = \Theta(n\lg{\frac{n}{k}})$.
 
-c. What is the largest value of $k$ as a function of $n$ for which the modified algorithm has the same running time as standard merge sort, in terms of $\Theta$-notation?
+### c
 
 Given the modified algorithm runs in $\Theta(nk + n\lg{\frac{n}{k}})$ worst-case time, we know $n\lg{\frac{n}{k}} \leq n\lg{n}$, so this part will not influence the upper bound running time. Thus $nk$ is responsible for the worst-case running time of the modified algorithm. And we can see if $k$ is larger than $\lg{n}$, the modified algorithm will not have the same running time as the standard merge sort algorithm. So the largest value of $k$ is $\lg{n}$.
 
-d. How should we choose $k$ in practice?
+### d
 
 The optimum value of $k$ is system dependent. A optimum value on one machine may not be optimum on another machine.
 
-## 2-2 Correctness of bubblesort
-a. In order to show that BUBBLESORT actually sorts, what else do we need to prove?
+## 2-2
+### a
 
 We need to prove the array A' consists of the elements originally in A.
 
-b. State precisely a loop invariant for the for loop in lines 2-4, and prove that this loop invariant holds.
+### b
 
 Loop invariant:
 
@@ -33,7 +33,7 @@ Loop invariant:
 
 **Termination**: it terminates when j equals to i. And when it terminates, we know A[i] is the smallest element in the subarray A[i..n]. So the loop invariant is correct.
 
-c. Using the termination condition of the loop invariant proved in part (b), state a loop invariant for the for loop in lines 1-4 that will allow you to prove inequality (2.3).
+### c
 
 Loop invariant:
 
@@ -45,18 +45,18 @@ Loop invariant:
 
 **Termination**: it terminates when i is n. Substituting n for i in the wording of loop invariant, we have that the subarray A[1..n - 1] is in sorted order, and the elements in the subarray A[1..n - 1] is not larger than the elements in the subarray A[n..n], so the subarray A[1..n] is in sorted order. And the subarray A[1..n] is the entire array, we conclude that the entire array is sorted. Hence, the algorithm is correct.
 
-d. What is the worst-case running time of bubblesort? How does it compare to the running time of insertion sort?
+### d
 
 The worst-case running time of bubblesort is approximately $n + (n - 1) + \ldots + 3 = \Theta(n^2)$.
 
 The worst-case running time of insertion sort is also $\Theta(n^2)$, but the best-case running time of insertion sort is $\Theta(n)$. For bubblesort, the best-case running time is still $\Theta(n^2)$, because a best-case input could not reduce the cost of the for loop of lines 2-4.
 
-## 2-3 Correctness of Horner's rule
-a. In terms of $\Theta$-notation, what is the running time of this code fragment for Horner's rule?
+## 2-3
+### a
 
 It's $\Theta(n)$.
 
-b. Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial from scratch. What is the running time of this algorithm? How does it compare to Horner's rule?
+### b
 
 The pseudocode of the naive polynomial-evaluation algorithm:
 
@@ -77,7 +77,7 @@ for i = 0 to n
 
 The running time of this algorithm is $\Theta(n^2)$. It's slower than the Horner's rule.
 
-c. Use the loop invariant to show that, at termination, $y = \sum_{k = 0}^{n} a_k{x^k}$.
+### c
 
 **Initialization**: at the start of the iteration of the for loop, i is n, and $y = \sum_{k = 0}^{-1} a_{k + n + 1}{x^k}$, this is not a valid summation, so y is still 0. Thus the loop invariant is correct.
 
@@ -105,22 +105,22 @@ $$y = \sum_{k = 0}^{n - (-1 + 1)} a_{k + -1 + 1}{x^k} = \sum_{k = 0}^{n} a_{k}{x
 
 So the loop invariant is correct.
 
-d. Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients $a_0, a_1, \ldots, a_n$.
+### d
 
 At the end of the iteration of the for loop of lines 2-3, we have $y = \sum_{k = 0}^{n} a_{k}{x^k}$, so it's correct.
 
-## 2-4 Inversions
-a. List the five inversions of the array $\langle 2, 3, 8, 6, 1\rangle$.
+## 2-4
+### a
 
 $\langle 0, 4\rangle, \langle 1, 4\rangle, \langle 2, 3\rangle, \langle 2, 4\rangle, \langle 6, 1\rangle$.
 
-b. What array with elements from the set $\lbrace 1, 2, \ldots, n \rbrace$ has the most inversions? How many does it have?
+### b
 
 The array $\lbrace n, \ldots, 2, 1\rbrace$ has the most inversions. It has:
 
 $$(n - 1) + (n - 2) + \ldots + 1 = \frac{n(n - 1)}{2}$$
 
-c. What is the relationship between the running time of insertion sort and the number of inversions in the input array?
+### c
 
 Let's go back to the pseudocode of insertion sort. We know the running time of insertion sort is:
 
@@ -132,24 +132,24 @@ We can see lines 6 and 7 will be executed when there is an inversion, let's deno
 
 $$T(n) = c_1n + c_2(n - 1) + c_4(n - 1) + c_5(m + n - 1) + c_6m + c_7m + c_8(n - 1)$$
 
-d. Give an algorithm that determines the number of inversions in any permutation on n elements in $\Theta(n\lg{n})$ worst-case time.
+### d
 
 ```
 NUMBER-OF-INVERSIONS(A)
 	n = A.length
-	
+
 	return MERGE-SORT(A, 1, n)
 
 MERGE-SORT(A, p, r)
 	inversions = 0
-	
+
 	if p < r
 		q = [(p + q) / 2]
-		
+
 		inversions += MERGE-SORT(A, p, q)
 		inversions += MERGE-SORT(A, q + 1, r)
 		inversions += MERGE(A, p, q, r)
-	
+
 	return inversions
 
 MERGE(A, p, q, r)
