@@ -10,3 +10,4 @@ pages:
     - 'Problems': '2-Getting-Started/Problems.md'
 - '3 Growth of Functions':
     - '3.1 Asymptotic notation': '3-Growth-of-Functions/3.1-Asymptotic-notation.md'
+    - '3.2 Standard notations and common functions': '3-Growth-of-Functions/3.2-Standard-notations-and-common-functions.md'
