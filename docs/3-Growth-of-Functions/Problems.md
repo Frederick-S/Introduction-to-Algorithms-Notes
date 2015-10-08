@@ -18,4 +18,6 @@ Let $n_2 = max(1, \lceil \frac{da_{absmax}}{a_d - 1} \rceil)$, so there exist po
 Let $n_3 = (n_0 \text{ in question a})$ and $n_4 = (n_0 \text{ in question b})$. From the questions a and b we know there exist positive constants $c_1 = 1$, $c_2 = (d + 1)a_{max}$ and $n_0 = max(n_3, n_4)$ such that $0 \leq c_1n^d \leq p(n) \leq c_2n^d \text{ for all } n \geq n_0$. Because k = d, so this also holds true for k, so $p(n) = \Theta(n^k)$.
 
 ### d
-From question a we know $p(n) \leq (d + 1)a_{max}n^d$,
+From question a we know $p(n) \leq (d + 1)a_{max}n^d$, because k > d, let $(d + 1)a_{max}n^d < cn^k$, then we have $n > (\frac{(d + 1)a_{max}}{c})^{\frac{1}{k - d}}$. So for any positive constant c, we can find a positive constant $n_0 = \lceil (\frac{(d + 1)a_{max}}{c})^{\frac{1}{k - d}} \rceil + 1$ such that $0 \leq p(n) < cn^k \text{ for all } n \geq n_0$. So $p(n) = o(n^k)$.
+
+### e
