@@ -21,3 +21,6 @@ Let $n_3 = (n_0 \text{ in question a})$ and $n_4 = (n_0 \text{ in question b})$.
 From question a we know $p(n) \leq (d + 1)a_{max}n^d$, because k > d, let $(d + 1)a_{max}n^d < cn^k$, then we have $n > (\frac{(d + 1)a_{max}}{c})^{\frac{1}{k - d}}$. So for any positive constant c, we can find a positive constant $n_0 = \lceil (\frac{(d + 1)a_{max}}{c})^{\frac{1}{k - d}} \rceil + 1$ such that $0 \leq p(n) < cn^k \text{ for all } n \geq n_0$. So $p(n) = o(n^k)$.
 
 ### e
+From question b we know $p(n) \geq n^{d - 1}(a_dn - da_{absmax})$, let $f(n) = n^{d - 1}(a_dn - da_{absmax}) - cn^k = n^k(n^{d - k}(a_d - \frac{da_{absmax}}{n}) - c)$, because k < d, so it's obvious that f(n) is a  monotonically increasing function. First let $a_d - \frac{da_{absmax}}{n} > \frac{a_d}{2}$ and we get $n > \frac{2da_{absmax}}{a_d}$. So $f(n) > n^k(n^{d - k}\frac{a_d}{2} - c) \text{ for all } n >= \lceil \frac{2da_{absmax}}{a_d} \rceil + 1$. Then let $n^{d - k}\frac{a_d}{2} - c > 0$ and we have $n > (\frac{2c}{a_d})^{\frac{1}{d - k}}$. So for any given positive constant c we can find a positive constant $n_0 = max(\lceil \frac{2da_{absmax}}{a_d} \rceil + 1, \lceil (\frac{2c}{a_d})^{\frac{1}{d - k}} \rceil + 1)$ such that $0 \leq cn^k < p(n) \text{ for all } n \geq n_0$. So $p(n) = w(n^k)$.
+
+## 3.2
