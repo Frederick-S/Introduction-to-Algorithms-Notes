@@ -25,4 +25,25 @@ From question b we know $p(n) \geq n^{d - 1}(a_dn - da_{absmax})$, let $f(n) = n
 
 ## 3.2
 ### a
-Note that $n = 2^{\lg{n}}$. So $(\lg{n})^k = (2^{\lg{\lg{n}}})^k = 2^{k\lg{\lg{n}}}$, $n^\epsilon = (2^{\lg{n}})^{\epsilon} = 2^{\epsilon\lg{n}}$.
+Note that $n = 2^{\lg{n}}$. So $\lg^k{n} = (2^{\lg{\lg{n}}})^k = 2^{k\lg{\lg{n}}}$, $n^\epsilon = (2^{\lg{n}})^{\epsilon} = 2^{\epsilon\lg{n}}$. It's obvious that $\epsilon\lg{n}$ grows faster than 
+$k\lg{\lg{n}}$. Let $\lg{n} = x, x > 0$, so $k\lg{\lg{n}} = k\lg{x}$, $\epsilon\lg{n} = \epsilon{x}$. Let $f(x) = \epsilon{x} - k\lg{x}$, so $f'(x) = \epsilon - \frac{k}{x}$. Because $\epsilon > 0$ and $k \geq 1$, we 
+have $f'(x) >= 0 \text{ when } x \geq \frac{k}{\epsilon}$. So f(x) is a monotonically increasing function when $x \geq \frac{k}{\epsilon}$. So $f(x) \geq f(\frac{k}{\epsilon}) = k(1 - \lg{\frac{k}{\epsilon}})$.
+ 
+If $k \leq 2\epsilon$, then $k(1 - \lg{\frac{k}{\epsilon}}) \geq 0$, so $f(x) \geq 0 \text{ for all } x \geq \frac{k}{\epsilon}$.
+ 
+If $k > 2\epsilon$, then $k(1 - \lg{\frac{k}{\epsilon}}) < 0$. In order to solve $\epsilon{x} - k\lg{x} > 0$, we only have to solve $\frac{x}{\lg{x}} > \frac{k}{\epsilon}$, since $\lim_{x \to +\infty} \frac{x}{\lg{x}} = +\infty$, so there exists a constant $x_0$ such that $\frac{x_0}{\lg{x_0}} > \frac{k}{\epsilon}$, so $f(x_0) > 0$.
+ 
+So either way we can find a constant $x_0$ such that $f(x) \geq 0$. Thus $\epsilon\lg{n} \geq k\lg{\lg{n}} \text{ for all } n \geq 2^{x_0}$. Therefore we proved there exist positive constants c = 1 and $n_0 = 2^{x_0}$ 
+such that $0 \leq \lg^k{n} \leq n^{\epsilon} \text{ for all } n \geq n_0$. So $\lg^k{n} = O(n^{\epsilon})$.
+ 
+### Summay
+ 
+|A   |B   |O   |o   |$\Omega$   |w   |$\Theta$   |
+|---|---|---|---|---|---|---|
+|$\lg^k{n}$   |$n^{\epsilon}$   |yes   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+
