@@ -43,13 +43,21 @@ Notice that $\epsilon{x} - k\lg{x} = f(x)$ and f(x) is a a monotonically increas
 So, for any given constant c, we can find a $x_0$ such that $g(x_0) > 0$. Thus, for any positive constant c, there exists positive constant $n_0 = 2^{x_0}$ such that $0 \leq \lg^k{n} < cn^{\epsilon} \text{ for all } n \geq n_0$. So $\lg^k{n} = o(n^{\epsilon})$.
 
 Since $\lg^k{n} = o(n^{\epsilon})$, then $\lg^k{n}$ could not be $\Omega(n^{\epsilon})$, $w(n^{\epsilon})$, $\Theta(n^{\epsilon})$.
- 
+
+### b
+$n^k = (2^{\lg{n}})^k = 2^{k\lg{n}}$, $c^n = (2^{\lg{c}})^n = 2^{n\lg{c}}$. So it's also obvious that $n\lg{c}$ grows faster than $k\lg{n}$. Let $f(n) = n\lg{c} - k\lg{n}$. Because $c > 1$, so $\lg{c} > 0$. Thus we 
+have the same function $f(x)$ defined in question a. So similarly, we know $n^k = O(c^n)$.
+
+Now let's compare $n^k$ and $bc^n$. $bc^n = 2^{\lg{b}}(2^{\lg{c}})^n = 2^{\lg{b} + n\lg{c}}$. Let $g(n) = \lg{b} + n\lg{c} - k\lg{n}$, and again we have the same function g(x) defined in question a. 
+So $n^k = o(c^n)$.
+
+### c 
 ### Summay
  
 |A   |B   |O   |o   |$\Omega$   |w   |$\Theta$   |
 |---|---|---|---|---|---|---|
 |$\lg^k{n}$   |$n^{\epsilon}$   |yes   |yes   |no   |no   |no   |
-|   |   |   |   |   |   |   |
+|$n^k$   |$c^n$   |yes   |yes   |no   |no   |no   |
 |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |
