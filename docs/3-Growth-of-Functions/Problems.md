@@ -27,20 +27,28 @@ From question b we know $p(n) \geq n^{d - 1}(a_dn - da_{absmax})$, let $f(n) = n
 ### a
 Note that $n = 2^{\lg{n}}$. So $\lg^k{n} = (2^{\lg{\lg{n}}})^k = 2^{k\lg{\lg{n}}}$, $n^\epsilon = (2^{\lg{n}})^{\epsilon} = 2^{\epsilon\lg{n}}$. It's obvious that $\epsilon\lg{n}$ grows faster than 
 $k\lg{\lg{n}}$. Let $\lg{n} = x, x > 0$, so $k\lg{\lg{n}} = k\lg{x}$, $\epsilon\lg{n} = \epsilon{x}$. Let $f(x) = \epsilon{x} - k\lg{x}$, so $f'(x) = \epsilon - \frac{k}{x}$. Because $\epsilon > 0$ and $k \geq 1$, we 
-have $f'(x) >= 0 \text{ when } x \geq \frac{k}{\epsilon}$. So f(x) is a monotonically increasing function when $x \geq \frac{k}{\epsilon}$. So $f(x) \geq f(\frac{k}{\epsilon}) = k(1 - \lg{\frac{k}{\epsilon}})$.
+have $f'(x) >= 0 \text{ when } x \geq \frac{k}{\epsilon}$. So f(x) is a monotonically increasing function when $x \geq \frac{k}{\epsilon}$.
  
-If $k \leq 2\epsilon$, then $k(1 - \lg{\frac{k}{\epsilon}}) \geq 0$, so $f(x) \geq 0 \text{ for all } x \geq \frac{k}{\epsilon}$.
+In order to solve $\epsilon{x} - k\lg{x} > 0$, we only have to solve $\frac{x}{\lg{x}} > \frac{k}{\epsilon}$, since $\lim_{x \to +\infty} \frac{x}{\lg{x}} = +\infty$, so there exists a constant $x_0$ such that $\frac{x_0}{\lg{x_0}} > \frac{k}{\epsilon}$, so $f(x_0) > 0$.
  
-If $k > 2\epsilon$, then $k(1 - \lg{\frac{k}{\epsilon}}) < 0$. In order to solve $\epsilon{x} - k\lg{x} > 0$, we only have to solve $\frac{x}{\lg{x}} > \frac{k}{\epsilon}$, since $\lim_{x \to +\infty} \frac{x}{\lg{x}} = +\infty$, so there exists a constant $x_0$ such that $\frac{x_0}{\lg{x_0}} > \frac{k}{\epsilon}$, so $f(x_0) > 0$.
- 
-So either way we can find a constant $x_0$ such that $f(x) \geq 0$. Thus $\epsilon\lg{n} \geq k\lg{\lg{n}} \text{ for all } n \geq 2^{x_0}$. Therefore we proved there exist positive constants c = 1 and $n_0 = 2^{x_0}$ 
+So we can find a constant $x_0$ such that $f(x) \geq 0 \text{ for all } x \geq x_0$. Thus $\epsilon\lg{n} \geq k\lg{\lg{n}} \text{ for all } n \geq 2^{x_0}$. Therefore we proved there exist positive constants c = 1 and $n_0 = 2^{x_0}$ 
 such that $0 \leq \lg^k{n} \leq n^{\epsilon} \text{ for all } n \geq n_0$. So $\lg^k{n} = O(n^{\epsilon})$.
+
+Now let's compare $\lg^k{n}$ and $cn^{\epsilon}$. Similarly, $cn^{\epsilon} = 2^{\lg{c}}(2^{\lg{n}})^{\epsilon} = 2^{\lg{c} + \epsilon\lg{n}}$. So let $\lg{n} = x$, so $\lg{c} + \epsilon\lg{n} - k\lg{\lg{n}} = \lg{c} + \epsilon{x} - k\lg{x}$. 
+Let $g(x) = \epsilon{x} - k\lg{x} + \lg{c}$. And $g'(x) = \epsilon - \frac{k}{x}$, $g'(x) >= 0 \text{ when } x \geq \frac{k}{\epsilon}$. So g(x) is a monotonically increasing function when $x \geq \frac{k}{\epsilon}$.
+
+In order to solve $g(x) > 0$, we need to solve $\epsilon{x} - k\lg{x} > -\lg{c}$. Namely, for any given positive constant c, we need to find a $x_0$ such that $g(x_0)$ is greater than $-\lg{c}$. 
+Notice that $\epsilon{x} - k\lg{x} = f(x)$ and f(x) is a a monotonically increasing function. For a given constant, we can find a $x_0$ such that $f(x_0)$ is greater than that constant.
+
+So, for any given constant c, we can find a $x_0$ such that $g(x_0) > 0$. Thus, for any positive constant c, there exists positive constant $n_0 = 2^{x_0}$ such that $0 \leq \lg^k{n} < cn^{\epsilon} \text{ for all } n \geq n_0$. So $\lg^k{n} = o(n^{\epsilon})$.
+
+Since $\lg^k{n} = o(n^{\epsilon})$, then $\lg^k{n}$ could not be $\Omega(n^{\epsilon})$, $w(n^{\epsilon})$, $\Theta(n^{\epsilon})$.
  
 ### Summay
  
 |A   |B   |O   |o   |$\Omega$   |w   |$\Theta$   |
 |---|---|---|---|---|---|---|
-|$\lg^k{n}$   |$n^{\epsilon}$   |yes   |   |   |   |   |
+|$\lg^k{n}$   |$n^{\epsilon}$   |yes   |yes   |no   |no   |no   |
 |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |
