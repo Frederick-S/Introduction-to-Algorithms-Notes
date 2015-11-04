@@ -71,7 +71,8 @@ $n^{\lg{c}} = (2^{\lg{n}})^{\lg{c}} = 2^{\lg{c}\lg{n}}$, $c^{\lg{n}} = (2^{\lg{c
 Since $n^{\lg{c}}$ and $c^{\lg{n}}$ are the same functions, so for any positive constant b, we cannot find a positive constant $n_0$ such that $n^{\lg{c}} < bc^{\lg{n}}$ or $n^{\lg{c}} > bc^{\lg{n}}$ for all $n \geq n_0$.
 
 ### f
-Since $n! \leq n^n \text{ for all } n \geq 1$, so we can find a positive constant c = 1 and $n_0 = 1$ such that $0 \leq \lg(n!) \leq c\lg({n^n}) \text{ for all } n \geq n_0$, so $\lg(n!) = O(\lg({n^n}))$.
+In question 3.2-3, we've already proved that $\lg{(n!)} = \Theta(n\lg{n})$, notice that $\lg(n^n) = n\lg{n}$, so $\lg{(n!)} = \Theta(\lg{n^n})$. And $\lg{(n!)} = O(\lg{n^n})$, $\lg{(n!)} = \Omega(\lg{n^n})$.
+
 ### Summay
 
 |A   |B   |O   |o   |$\Omega$   |w   |$\Theta$   |
@@ -81,5 +82,6 @@ Since $n! \leq n^n \text{ for all } n \geq 1$, so we can find a positive constan
 |$\sqrt{n}$   |$n^{\sin{n}}$   |no   |no   |no   |no   |no   |
 |$2^n$   |$2^{\frac{n}{2}}$   |no   |no   |yes   |yes   |no   |
 |$n^{\lg{c}}$   |$c^{\lg{n}}$   |yes   |no   |yes   |no   |yes   |
-|   |   |   |   |   |   |   |
+|$\lg(n!)$   |$\lg(n^n)$   |yes   |no   |yes   |no   |yes   |
 
+## 3-3
