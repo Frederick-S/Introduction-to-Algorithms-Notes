@@ -73,7 +73,7 @@ Since $n^{\lg{c}}$ and $c^{\lg{n}}$ are the same functions, so for any positive 
 ### f
 In question 3.2-3, we've already proved that $\lg{(n!)} = \Theta(n\lg{n})$, notice that $\lg(n^n) = n\lg{n}$, so $\lg{(n!)} = \Theta(\lg{n^n})$. And $\lg{(n!)} = O(\lg{n^n})$, $\lg{(n!)} = \Omega(\lg{n^n})$.
 
-### Summay
+### Summary
 
 |A   |B   |O   |o   |$\Omega$   |w   |$\Theta$   |
 |---|---|---|---|---|---|---|
@@ -85,3 +85,17 @@ In question 3.2-3, we've already proved that $\lg{(n!)} = \Theta(n\lg{n})$, noti
 |$\lg(n!)$   |$\lg(n^n)$   |yes   |no   |yes   |no   |yes   |
 
 ## 3-3
+First, let's compare $2^{2^{n + 1}}$ and $2^{2^n}$, it's easy to see $2^{2^n} = O(2^{2^{n + 1}})$. But could $2^{2^n} = \Omega(2^{2^{n + 1}})$? If it's true, then there exist a positive constant c and $n_0$ such that $0 \leq c2^{2^{n + 1}} \leq 2^{2^n}$ for all $n \geq n_0$. But $\frac{2^{2^n}}{c2^{2^{n + 1}}} = \frac{1}{c2^{2^{n + 1} - 2^n}} = \frac{1}{c2^{2^n}}$. No matter how small c is, $2^{2^n}$ will be greater than $\frac{1}{c}$. So $2^{2^n} = \Omega(2^{2^{n + 1}})$ could not be true.
+
+Then let's compare $n!$ and $e^n$. We know $n! = 2^{\lg{(n!)}}$, and $e^n = (2^{\lg{e}})^n = 2^{n\lg{e}}$. In question 3.2-3 we know $\lg{(n!)} = \Theta(n\lg{n})$, so $\lg{(n!)}$ grows faster than $n\lg{e}$. So $n!$ grows faster than $e^n$, thus $n! = \Omega(e^n)$.
+
+And it's obvious $(n + 1)! = \Omega(n!)$. Notice that $\frac{n!}{c(n + 1)!} = \frac{1}{c(n + 1)}$, which will eventually smaller than 1. So $n!$ could not be $\Omega((n + 1)!)$.
+
+And what about $(n + 1)!$ and $2^{2^n}$? $(n + 1)! = 2^{\lg{(n + 1)!}} = 2^{\Theta((n + 1)\lg{(n + 1)})} = 2^{O((n + 1)^2)} = 2^{O(n^2)}$. So $2^{2^{n}}$ grows faster, $2^{2^n} = \Omega((n + 1)!)$.
+
+### Summary
+* $g_1 = 2^{2^{n + 1}}$
+* $g_2 = 2^{2^n}$
+* $g_3 = (n + 1)!$
+* $g_4 = n!$
+* $g_5 = e^n$
