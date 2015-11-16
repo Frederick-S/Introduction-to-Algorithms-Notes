@@ -93,9 +93,18 @@ And it's obvious $(n + 1)! = \Omega(n!)$. Notice that $\frac{n!}{c(n + 1)!} = \f
 
 And what about $(n + 1)!$ and $2^{2^n}$? $(n + 1)! = 2^{\lg{(n + 1)!}} = 2^{\Theta((n + 1)\lg{(n + 1)})} = 2^{O((n + 1)^2)} = 2^{O(n^2)}$. So $2^{2^{n}}$ grows faster, $2^{2^n} = \Omega((n + 1)!)$.
 
+Since $e^n = (\frac{e}{2})^n2^n$, and $(\frac{e}{2})^n$ grows faster than $n$, so $e^n$ grows faster than $n2^n$, $e^n = \Omega(n2^n)$.
+
+And it's easy to see that $n2^n = \Omega(2^n)$, $2^n = \Omega(\frac{3}{2})^n$.
+
+$(\lg{n})^{\lg{n}} = (2^{\lg{\lg{n}}})^{\lg{n}} = 2^{\lg{n}\lg{\lg{n}}}$. And $n^{\lg{\lg{n}}} = (2^{\lg{n}})^{\lg{\lg{n}}} = 2^{\lg{n}\lg{\lg{n}}}$. So $(\lg{n})^{\lg{n}} = n^{\lg{\lg{n}}}$. Since $(\frac{3}{2})^n = (2^{\lg{\frac{3}{2}}})^n = 2^{n\lg{\frac{3}{2}}}$.
+
 ### Summary
 * $g_1 = 2^{2^{n + 1}}$
 * $g_2 = 2^{2^n}$
 * $g_3 = (n + 1)!$
 * $g_4 = n!$
 * $g_5 = e^n$
+* $g_6 = n2^n$
+* $g_7 = 2^n$
+* $g_8 = (\frac{3}{2})^n$
