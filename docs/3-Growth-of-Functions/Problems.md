@@ -97,7 +97,7 @@ Since $e^n = (\frac{e}{2})^n2^n$, and $(\frac{e}{2})^n$ grows faster than $n$, s
 
 And it's easy to see that $n2^n = \Omega(2^n)$, $2^n = \Omega(\frac{3}{2})^n$.
 
-$(\lg{n})^{\lg{n}} = (2^{\lg{\lg{n}}})^{\lg{n}} = 2^{\lg{n}\lg{\lg{n}}}$. And $n^{\lg{\lg{n}}} = (2^{\lg{n}})^{\lg{\lg{n}}} = 2^{\lg{n}\lg{\lg{n}}}$. So $(\lg{n})^{\lg{n}} = n^{\lg{\lg{n}}}$. Since $(\frac{3}{2})^n = (2^{\lg{\frac{3}{2}}})^n = 2^{n\lg{\frac{3}{2}}}$.
+$(\lg{n})^{\lg{n}} = (2^{\lg{\lg{n}}})^{\lg{n}} = 2^{\lg{n}\lg{\lg{n}}}$. And $n^{\lg{\lg{n}}} = (2^{\lg{n}})^{\lg{\lg{n}}} = 2^{\lg{n}\lg{\lg{n}}}$. So $(\lg{n})^{\lg{n}} = n^{\lg{\lg{n}}}$. And $(\frac{3}{2})^n = (2^{\lg{\frac{3}{2}}})^n = 2^{n\lg{\frac{3}{2}}}$. Let $\lg{n} = k$, so $\lg{n}\lg{\lg{n}} = k\lg{k}$, $n\lg{\frac{3}{2}} = 2^k\lg{\frac{3}{2}}$, so we can see $2^k\lg{\frac{3}{2}}$ grows faster. Thus $(\frac{3}{2})^n = \Omega((\lg{n})^{\lg{n}})$.
 
 ### Summary
 * $g_1 = 2^{2^{n + 1}}$
@@ -108,3 +108,4 @@ $(\lg{n})^{\lg{n}} = (2^{\lg{\lg{n}}})^{\lg{n}} = 2^{\lg{n}\lg{\lg{n}}}$. And $n
 * $g_6 = n2^n$
 * $g_7 = 2^n$
 * $g_8 = (\frac{3}{2})^n$
+* $g_9 = (\lg{n})^{\lg{n}}, g_{10} = n^{\lg{\lg{n}}}, g_9 = \Theta(g_{10})$
