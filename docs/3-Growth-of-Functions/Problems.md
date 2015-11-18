@@ -99,6 +99,20 @@ And it's easy to see that $n2^n = \Omega(2^n)$, $2^n = \Omega(\frac{3}{2})^n$.
 
 $(\lg{n})^{\lg{n}} = (2^{\lg{\lg{n}}})^{\lg{n}} = 2^{\lg{n}\lg{\lg{n}}}$. And $n^{\lg{\lg{n}}} = (2^{\lg{n}})^{\lg{\lg{n}}} = 2^{\lg{n}\lg{\lg{n}}}$. So $(\lg{n})^{\lg{n}} = n^{\lg{\lg{n}}}$. And $(\frac{3}{2})^n = (2^{\lg{\frac{3}{2}}})^n = 2^{n\lg{\frac{3}{2}}}$. Let $\lg{n} = k$, so $\lg{n}\lg{\lg{n}} = k\lg{k}$, $n\lg{\frac{3}{2}} = 2^k\lg{\frac{3}{2}}$, so we can see $2^k\lg{\frac{3}{2}}$ grows faster. Thus $(\frac{3}{2})^n = \Omega((\lg{n})^{\lg{n}})$.
 
+According to [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling%27s_approximation), we know $n! = \Theta(n^{n + \frac{1}{2}}e^{-n})$. So $(\lg{n})! = \Theta((\lg{n})^{\lg{n} + \frac{1}{2}}e^{-\lg{n}}) = \Theta((\lg{n})^{\lg{n}}\frac{\sqrt{\lg{n}}}{e^{\lg{n}}}) = O((\lg{n})^{\lg{n}})$, since $e^x$ grows much faster than $\sqrt{x}$. So $(\lg{n})^{\lg{n}} = \Omega((\lg{n})!)$.
+
+Let $\lg{n} = x$, so $n = 2^x$, $n^3 = 2^{3x}$. $(\lg{n})! = \Theta((\lg{n})^{\lg{n}}\frac{\sqrt{\lg{n}}}{e^{\lg{n}}}) = \Theta(x^{x + \frac{1}{2}}e^{-x}) = \Theta(e^{x(\ln{x} - 1) + \frac{1}{2}\ln{x}})$. And $2^{3x} = e^{(3\ln{2})x}$. So $(\lg{n})!$ grows faster than $n^3$.
+
+$4^{\lg{n}} = (2^2)^{\lg{n}} = (2^{\lg{n}})^2 = n^2$, so $n^2 = 4^{\lg{n}}$. And it's obvious $n^3 = \Omega(n^2)$, $n^2 = \Omega(n\lg{n})$. And in question 3.2-3 we already proved $\lg({n!}) = \Theta(n\lg{n})$.
+
+And it's easy to know $n\lg{n} = \Omega(n)$, $n = 2^{\lg{n}}$.
+
+Similarly, $(\sqrt{2})^{\lg{n}} = (2^{\lg{n}})^{\frac{1}{2}} = \sqrt{n}$, so $n = \Omega({(\sqrt{2})^{\lg{n}}})$.
+
+$\sqrt{n} = n^{\frac{1}{2}} = (2^{\lg{n}})^{\frac{1}{2}} = 2^{\frac{1}{2}\lg{n}}$, it grows faster than $2^{\sqrt{2\lg{n}}}$, so $(\sqrt{2})^{\lg{n}} = \Omega(2^{\sqrt{2\lg{n}}})$.
+
+$\lg^2{n} = (2^{\lg{\lg{n}}})^2 = 2^{2\lg{\lg{n}}}$, in question 3-2 we know $\lg^k{n} = o(n^{\epsilon})$ for $k \geq 1$ and $\epsilon > 0$, so here we have $k = 1$, $\epsilon = \frac{1}{2}$, so $\sqrt{2\lg{n}}$ grows faster than $2\lg{\lg{n}}$, so $2^{\sqrt{2\lg{n}}} = \Omega(\lg^2{n})$. 
+
 ### Summary
 * $g_1 = 2^{2^{n + 1}}$
 * $g_2 = 2^{2^n}$
@@ -108,4 +122,16 @@ $(\lg{n})^{\lg{n}} = (2^{\lg{\lg{n}}})^{\lg{n}} = 2^{\lg{n}\lg{\lg{n}}}$. And $n
 * $g_6 = n2^n$
 * $g_7 = 2^n$
 * $g_8 = (\frac{3}{2})^n$
-* $g_9 = (\lg{n})^{\lg{n}}, g_{10} = n^{\lg{\lg{n}}}, g_9 = \Theta(g_{10})$
+* $g_9 = (\lg{n})^{\lg{n}}$
+* $g_{10} = n^{\lg{\lg{n}}}, g_9 = \Theta(g_{10})$
+* $g_{11} = (\lg{n})!$
+* $g_{12} = n^3$
+* $g_{13} = n^2$
+* $g_{14} = 4^{\lg{n}}, g_{13} = \Theta(g_{14})$
+* $g_{15} = n\lg{n}$
+* $g_{16} = \lg({n!}), g_{15} = \Theta(g_{16})$
+* $g_{17} = n$
+* $g_{18} = 2^{\lg{n}}, g_{17} = \Theta(g_{18})$
+* $g_{19} = (\sqrt{2})^{\lg{n}}$
+* $g_{20} = 2^{\sqrt{2\lg{n}}}$
+* $g_{21} = \lg^2{n}$
