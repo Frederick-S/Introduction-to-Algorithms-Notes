@@ -85,6 +85,7 @@ In question 3.2-3, we've already proved that $\lg{(n!)} = \Theta(n\lg{n})$, noti
 |$\lg(n!)$   |$\lg(n^n)$   |yes   |no   |yes   |no   |yes   |
 
 ## 3-3
+### a
 First, let's compare $2^{2^{n + 1}}$ and $2^{2^n}$, it's easy to see $2^{2^n} = O(2^{2^{n + 1}})$. But could $2^{2^n} = \Omega(2^{2^{n + 1}})$? If it's true, then there exist a positive constant c and $n_0$ such that $0 \leq c2^{2^{n + 1}} \leq 2^{2^n}$ for all $n \geq n_0$. But $\frac{2^{2^n}}{c2^{2^{n + 1}}} = \frac{1}{c2^{2^{n + 1} - 2^n}} = \frac{1}{c2^{2^n}}$. No matter how small c is, $2^{2^n}$ will be greater than $\frac{1}{c}$. So $2^{2^n} = \Omega(2^{2^{n + 1}})$ could not be true.
 
 Then let's compare $n!$ and $e^n$. We know $n! = 2^{\lg{(n!)}}$, and $e^n = (2^{\lg{e}})^n = 2^{n\lg{e}}$. In question 3.2-3 we know $\lg{(n!)} = \Theta(n\lg{n})$, so $\lg{(n!)}$ grows faster than $n\lg{e}$. So $n!$ grows faster than $e^n$, thus $n! = \Omega(e^n)$.
@@ -111,9 +112,21 @@ Similarly, $(\sqrt{2})^{\lg{n}} = (2^{\lg{n}})^{\frac{1}{2}} = \sqrt{n}$, so $n 
 
 $\sqrt{n} = n^{\frac{1}{2}} = (2^{\lg{n}})^{\frac{1}{2}} = 2^{\frac{1}{2}\lg{n}}$, it grows faster than $2^{\sqrt{2\lg{n}}}$, so $(\sqrt{2})^{\lg{n}} = \Omega(2^{\sqrt{2\lg{n}}})$.
 
-$\lg^2{n} = (2^{\lg{\lg{n}}})^2 = 2^{2\lg{\lg{n}}}$, in question 3-2 we know $\lg^k{n} = o(n^{\epsilon})$ for $k \geq 1$ and $\epsilon > 0$, so here we have $k = 1$, $\epsilon = \frac{1}{2}$, so $\sqrt{2\lg{n}}$ grows faster than $2\lg{\lg{n}}$, so $2^{\sqrt{2\lg{n}}} = \Omega(\lg^2{n})$. 
+$\lg^2{n} = (2^{\lg{\lg{n}}})^2 = 2^{2\lg{\lg{n}}}$, in question 3-2 we know $\lg^k{n} = o(n^{\epsilon})$ for $k \geq 1$ and $\epsilon > 0$, so here we have $k = 1$, $\epsilon = \frac{1}{2}$, so $\sqrt{2\lg{n}}$ grows faster than $2\lg{\lg{n}}$, so $2^{\sqrt{2\lg{n}}} = \Omega(\lg^2{n})$.
 
-### Summary
+And $\lg^2{n} = \Omega(\ln{n})$, $\ln{n} = \Omega(\sqrt{\lg{n}})$.
+
+Then let's compare $\sqrt{\lg{n}}$ and $\ln{\ln{n}}$. $\sqrt{\lg{n}} = \sqrt{\frac{\ln{n}}{\ln{2}}}$, from previous proof, we know $\sqrt{\frac{\ln{n}}{\ln{2}}}$ grows faster than $\ln{\ln{n}}$. So $\sqrt{\lg{n}} = \Omega(\ln{\ln{n}})$.
+
+$\ln{\ln{n}} = 2^{\lg{\ln{\ln{n}}}}$, and according to the definition of [Iterated logarithm](https://en.wikipedia.org/wiki/Iterated_logarithm), we can see $\lg{\ln{\ln{n}}}$ grows faster than $\lg^\*{n}$. So $\ln{\ln{n}} = \Omega(2^{\lg^\*{n}})$. And $2^{\lg^\*{n}} = \Omega(\lg^\*{n})$.
+
+Since $\lg^\*{n} = 1 + \lg^\*{\lg{n}}$, so $\lg^\*{\lg{n}} = \Theta(\lg^\*{n})$.
+
+In question 3.2-5 we proved that $\lg^\*{(\lg{n})}$ is asymptotically larger than $\lg{(\lg^\*{n})}$. So $\lg^\*{(\lg{n})} = \Omega(\lg{(\lg^\*{n})})$.
+
+$n^{\frac{1}{\lg{n}}} = (2^{\lg{n}})^{\frac{1}{\lg{n}}} = 2$, so $n^{\frac{1}{\lg{n}}} = \Theta(1)$.
+
+#### Summary
 * $g_1 = 2^{2^{n + 1}}$
 * $g_2 = 2^{2^n}$
 * $g_3 = (n + 1)!$
@@ -135,3 +148,18 @@ $\lg^2{n} = (2^{\lg{\lg{n}}})^2 = 2^{2\lg{\lg{n}}}$, in question 3-2 we know $\l
 * $g_{19} = (\sqrt{2})^{\lg{n}}$
 * $g_{20} = 2^{\sqrt{2\lg{n}}}$
 * $g_{21} = \lg^2{n}$
+* $g_{22} = \ln{n}$
+* $g_{23} = \sqrt{\lg{n}}$
+* $g_{24} = \ln{\ln{n}}$
+* $g_{25} = 2^{\lg^\*{n}}$
+* $g_{26} = \lg^\*{n}$
+* $g_{27} = \lg^\*{\lg{n}}, g_{26} = \Theta(g_{27})$
+* $g_{28} = \lg{(\lg^\*{n})}$
+* $g_{29} = n^{\frac{1}{\lg{n}}}$
+* $g_{30} = 1, g_{29} = \Theta(g_{30})$
+
+### b
+How do we find a function like this? In question 3-2, we know that $n^{\sin{n}}$ is neither $o(\sqrt{n})$ nor $w(\sqrt{n})$. We can use the feature of $\sin{n}$. So we can build a function that can be quite big and quite small. And it has to be not smaller than the largest function in $g_i(n)$ sometimes, so we can simply have a function like $n2^{2^{n + 1}}$, which is $\Omega(g_i(n))$. Then we multiply $|\sin{n}|$, so the function is $|\sin{n}|n2^{2^{n + 1}}$, which is neither $O(g_i(n))$ nor $\Omega(g_i(n))$.
+
+## 3-4
+### a
