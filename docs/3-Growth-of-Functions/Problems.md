@@ -163,3 +163,6 @@ How do we find a function like this? In question 3-2, we know that $n^{\sin{n}}$
 
 ## 3-4
 ### a
+This is not true. If $g(n) = O(f(n))$, then there exist positive constants $c_1$ and $n_1$ such that $0 \leq g(n) \leq c_1f(n) \text{ for all } n \geq n_1$, since $f(n) = O(g(n))$, so there also exist positive constants $c_2$ and $n_2$ such that $0 \leq f(n) \leq c_2g(n) \text{ for all } n \geq n_2$, so we have $0 \leq \frac{1}{c_1}g(n) \leq f(n) \leq c_2g(n) \text{ for all } n \geq max(n_1, n_2)$, which means $f(n) = \Theta(g(n))$. This is not 100% true.
+
+### b
