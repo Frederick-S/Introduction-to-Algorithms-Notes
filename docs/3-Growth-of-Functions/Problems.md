@@ -169,6 +169,23 @@ This is not true. If $g(n) = O(f(n))$, then there exist positive constants $c_1$
 This is not true. Let $f(n) = n$ and $g(n) = \lg{n}$, it's easy to see $f(n) + g(n) = \Theta(n) \neq \Theta(min(f(n), g(n)))$.
 
 ### c
-Because $f(n) = O(g(n))$, so there exist positive constants c and $n_0$ such that $0 \leq f(n) \leq cg(n) \text{ for all } n \geq n_0$. So $0\leq \lg{(f(n))} \leq \lg{(cg(n))} = \lg{c} + \lg{(g(n))} = \lg{c} * 1 + \lg{(g(n))} \leq \lg{c} * \lg{(g(n))} + \lg{(g(n))} = (\lg{c} + 1)\lg{(g(n))}$. So we find a positive constant $c_1 = \lg{c} + 1$ such that $0 \leq \lg{(f(n))} \leq c_1\lg{(g(n))} \text{ for all } n \geq n_0$, so $\lg{(f(n))} = O(\lg{(g(n))}$.
+This is true. Because $f(n) = O(g(n))$, so there exist positive constants c and $n_0$ such that $0 \leq f(n) \leq cg(n) \text{ for all } n \geq n_0$. So $0\leq \lg{(f(n))} \leq \lg{(cg(n))} = \lg{c} + \lg{(g(n))} = \lg{c} * 1 + \lg{(g(n))} \leq \lg{c} * \lg{(g(n))} + \lg{(g(n))} = (\lg{c} + 1)\lg{(g(n))}$. So we find a positive constant $c_1 = \lg{c} + 1$ such that $0 \leq \lg{(f(n))} \leq c_1\lg{(g(n))} \text{ for all } n \geq n_0$, so $\lg{(f(n))} = O(\lg{(g(n))}$.
 
 ### d
+This is not true. If $g(n) = O(f(n))$, then there exist positive constants $c_1$ and $n_1$ such that $0 \leq g(n) \leq c_1f(n) \text{ for all } n \geq n_1$. Suppose $2^{f(n)} = O(2^{g(n)})$, then there exist positive constants $c_2$ and $n_2$ such that $0 \leq 2^{f(n)} \leq {c_2}2^{g(n)} \text{ for all } n \geq n_2$. And ${c_2}2^{g(n)} = 2^{\lg{c_2} + g(n)}$. So we have $f(n) \leq \lg{c_2} + g(n)$. But this is not always true, let $f(n) = n + \lg{n}$ and $g(n) = n$, so $f(n) \leq 2g(n) \text{ for all } n \geq 1$. But for any given positive constant $c_2$, we can always find a positive constant $n_3$ such that $n + \lg{n} > \lg{c_2} + n \text{ for all } n \geq n_3$. So $2^{f(n)} \neq O(2^{g(n)})$ in this situation.
+
+### e
+This is not true. Let $f(n) = \frac{1}{n}$, if $f(n) = O((f(n))^2)$, then there exist positive constants c and $n_0$ such that $0 \leq \frac{1}{n} \leq \frac{c}{n^2} \text{ for all } n \geq n_0$. But $\frac{c}{n^2} - \frac{1}{n} = \frac{c - n}{n^2} \leq 0 \text{ for all } n \geq c$. So we cannot find such $n_0$ for any positive constant $c$.
+
+### f
+This is true. If $f(n) = O(g(n))$, then there exist positive constants c and $n_0$ such that $0 \leq f(n) \leq cg(n) \text{ for all } n \geq n_0$, so we have $0 \leq \frac{1}{c}f(n) \leq g(n) \text{ for all } n \geq n_0$, which is the definition of $g(n) = \Omega(f(n))$.
+
+### g
+This is not true. Let $f(n) = 2^{2n}$, so $f(\frac{n}{2}) = 2^n$. So it's obvious $f(n) \neq \Theta(f(\frac{n}{2}))$.
+
+### h
+This is true. Suppose $f(n) + o(f(n)) = \Theta(f(n))$, then we need to prove that there exist positive constatns $c_1$, $c_2$ and $n_0$ such that $0 \leq c_1f(n) \leq f(n) + o(f(n)) \leq c_2f(n)$. It's easy to find $c_1 = 1$ since $o(f(n)) \geq 0$. And according to the definition of $o(f(n))$, we know for any positive constant c there exists positive constant $n_1$ such that $0 \leq o(f(n)) < cf(n) \text{ for all } n \geq n_1$. so we can choose $c = 1$, so $f(n) + o(f(n)) \leq f(n) + f(n) = 2f(n)$, so we have $c_2 = 2$ and $n_0 = n_1$. So $f(n) + o(f(n)) = \Theta(f(n))$.
+
+## 3-5
+### a
+
