@@ -167,3 +167,8 @@ This is not true. If $g(n) = O(f(n))$, then there exist positive constants $c_1$
 
 ### b
 This is not true. Let $f(n) = n$ and $g(n) = \lg{n}$, it's easy to see $f(n) + g(n) = \Theta(n) \neq \Theta(min(f(n), g(n)))$.
+
+### c
+Because $f(n) = O(g(n))$, so there exist positive constants c and $n_0$ such that $0 \leq f(n) \leq cg(n) \text{ for all } n \geq n_0$. So $0\leq \lg{(f(n))} \leq \lg{(cg(n))} = \lg{c} + \lg{(g(n))} = \lg{c} * 1 + \lg{(g(n))} \leq \lg{c} * \lg{(g(n))} + \lg{(g(n))} = (\lg{c} + 1)\lg{(g(n))}$. So we find a positive constant $c_1 = \lg{c} + 1$ such that $0 \leq \lg{(f(n))} \leq c_1\lg{(g(n))} \text{ for all } n \geq n_0$, so $\lg{(f(n))} = O(\lg{(g(n))}$.
+
+### d
