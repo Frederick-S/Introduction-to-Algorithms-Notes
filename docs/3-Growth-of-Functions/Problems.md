@@ -188,4 +188,27 @@ This is true. Suppose $f(n) + o(f(n)) = \Theta(f(n))$, then we need to prove tha
 
 ## 3-5
 ### a
+Suppose both $f(n) = O(g(n))$ and $f(n) = \mathop{\Omega}^{\infty}(g(n))$ are not true. If $f(n) = O(g(n))$ is not true, then there are two cases, first, we can not find any positive constant c such that $0 \leq f(n) \leq cg(n)$ for any integer n. It means for any positive constant c we have $f(n) > cg(n)$. So it satisfies $f(n) \geq cg(n) \geq 0$ for infinitely many integers n. So it shows $f(n) = \mathop{\Omega}^{\infty}(g(n))$ is true, thus, the hypothesis is wrong. Second, we can find a constant c such that $0 \leq f(n) \leq cg(n)$ for some integers n. If the set of integers n is finite, then there is an infinite set such that $f(n) \geq cg(n) \geq 0$, so $f(n) = \mathop{\Omega}^{\infty}(g(n))$. If the set is infinite but we cannot find a positive constant $n_0$ that satisfies $f(n) = O(g(n))$, there is also a infinite set such that $f(n) > cg(n) \geq 0$, so the hypothesis is wrong. So we proved either $f(n) = O(g(n))$ or $f(n) = \mathop{\Omega}^{\infty}(g(n))$ or both.
 
+In problem 3-2 we proved both $\sqrt{n} = O(n^{\sin{n}})$ and $\sqrt{n} = \Omega(n^{\sin{n}})$ are wrong. So it's not true if we use $\Omega$ in place of $\mathop{\Omega}^{\infty}$.
+
+### b
+The advantage is that we can describe the relationship of two functions when we cannot use $\Omega$ notation. The disadvantage is that sometimes we cannot clearly know the running time of a function.
+
+### c
+If $f(n) = \Theta(g(n))$, then we have $f(n) = O'(g(n))$ and $f(n) = \Omega(g(n))$. If we have $f(n) = O'(g(n))$ and $f(n) = \Omega(g(n))$, $f(n) = \Theta(g(n))$ is also true. Since $f(n) = \Omega(g(n))$ guarantees $f(n) \geq 0$.
+
+### d
+$\tilde{\Omega}(g(n)) = \lbrace f(n): \text{ there exist positive constants } c, \text{ } k, \text{ and } n_0 \text{ such that } 0 \leq cg(n)\lg^k{n} \leq f(n) \text{ for all } n \geq n_0 \rbrace$.
+
+$\tilde{\Theta}(g(n)) = \lbrace f(n): \text{ there exist positive constants } c_1, \text{ } c_2, \text{ } k_1, \text{ } k_2 \text{ and } n_0 \text{ such that } 0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_0 \rbrace$.
+
+Prove Theorem 3.1:
+
+If $f(n) = \tilde{\Theta}(g(n))$, then there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, $n_0$ such that $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_0$.
+
+It means: $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \text{ for all } n \geq n_0$ and $0 \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_0$. They are the definition of $f(n) = \tilde{O}(g(n))$ and $f(n) = \tilde{\Omega}(g(n))$.
+
+If $f(n) = \tilde{O}(g(n))$ and $f(n) = \tilde{\Omega}(g(n))$. Then there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, $n_1$, $n_2$ such that $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \text{ for all } n \geq n_1$ and $0 \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_2$. Then we combine them together: $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq max(n_1, n_2)$. So $f(n) = \tilde{\Theta}(g(n))$.
+
+## 3-6
