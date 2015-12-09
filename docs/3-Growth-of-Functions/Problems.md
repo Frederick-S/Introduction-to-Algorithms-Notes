@@ -205,10 +205,10 @@ $\tilde{\Theta}(g(n)) = \lbrace f(n): \text{ there exist positive constants } c_
 
 Prove Theorem 3.1:
 
-If $f(n) = \tilde{\Theta}(g(n))$, then there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, $n_0$ such that $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_0$.
+If $f(n) = \tilde{\Theta}(g(n))$, then there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, $n_0$ such that $0 \leq c_1g(n)\lg^{k_1}{(n)} \leq f(n) \leq c_2g(n)\lg^{k_2}{(n)} \text{ for all } n \geq n_0$.
 
-It means: $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \text{ for all } n \geq n_0$ and $0 \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_0$. They are the definition of $f(n) = \tilde{O}(g(n))$ and $f(n) = \tilde{\Omega}(g(n))$.
+It means: $0 \leq c_1g(n)\lg^{k_1}{(n)} \leq f(n) \text{ for all } n \geq n_0$ and $0 \leq f(n) \leq c_2g(n)\lg^{k_2}{(n)} \text{ for all } n \geq n_0$. They are the definition of $f(n) = \tilde{O}(g(n))$ and $f(n) = \tilde{\Omega}(g(n))$.
 
-If $f(n) = \tilde{O}(g(n))$ and $f(n) = \tilde{\Omega}(g(n))$. Then there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, $n_1$, $n_2$ such that $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \text{ for all } n \geq n_1$ and $0 \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_2$. Then we combine them together: $0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq max(n_1, n_2)$. So $f(n) = \tilde{\Theta}(g(n))$.
+If $f(n) = \tilde{O}(g(n))$ and $f(n) = \tilde{\Omega}(g(n))$. Then there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, $n_1$, $n_2$ such that $0 \leq c_1g(n)\lg^{k_1}{(n)} \leq f(n) \text{ for all } n \geq n_1$ and $0 \leq f(n) \leq c_2g(n)\lg^{k_2}{(n)} \text{ for all } n \geq n_2$. Then we combine them together: $0 \leq c_1g(n)\lg^{k_1}{(n)} \leq f(n) \leq c_2g(n)\lg^{k_2}{(n)} \text{ for all } n \geq max(n_1, n_2)$. So $f(n) = \tilde{\Theta}(g(n))$.
 
 ## 3-6
