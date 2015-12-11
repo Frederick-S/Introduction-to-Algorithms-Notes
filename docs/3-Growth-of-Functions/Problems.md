@@ -212,3 +212,38 @@ It means: $0 \leq c_1g(n)\lg^{k_1}{(n)} \leq f(n) \text{ for all } n \geq n_0$ a
 If $f(n) = \tilde{O}(g(n))$ and $f(n) = \tilde{\Omega}(g(n))$. Then there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, $n_1$, $n_2$ such that $0 \leq c_1g(n)\lg^{k_1}{(n)} \leq f(n) \text{ for all } n \geq n_1$ and $0 \leq f(n) \leq c_2g(n)\lg^{k_2}{(n)} \text{ for all } n \geq n_2$. Then we combine them together: $0 \leq c_1g(n)\lg^{k_1}{(n)} \leq f(n) \leq c_2g(n)\lg^{k_2}{(n)} \text{ for all } n \geq max(n_1, n_2)$. So $f(n) = \tilde{\Theta}(g(n))$.
 
 ## 3-6
+### a
+$f^2(n) = n - 1 - 1 = n - 2$, $f^3(n) = n - 1 - 2 = n - 3$, so $f^k(n) = n - k$. It's easy to see $f^k(n) = 0$ after nth iterations.
+
+### b
+$f^2(n) = \lg{\lg{n}}$, $f^3(n) = \lg{\lg{\lg{n}}}$, so $f^k(n) = \underbrace{\lg{\lg{\ldots\lg{n}}}}_\text{k}$. Let $\lg{\lg{\ldots\lg{n}}} = 1$, so we have $f^{k - 1}(n) = 2$, and similiarly, $f^{k - 2}(n) = 2^2$, so $f^{k - (k - 1)}(n) = 2^{k - 1}$, so $k = \lg{\lg{n}} + 1$.
+
+### c
+$f^2(n) = \frac{n}{2^2}$, $f^k(n) = \frac{n}{2^k}$, let $f^k(n) = \frac{n}{2^k} = 1$, we have $k = \lg{n}$.
+
+### d
+Let $f^k(n) = \frac{n}{2^k} = 2$, we have $k = \lg{n} - 1$.
+
+### e
+$f^2(n) = n^{\frac{1}{2^2}}$, $f^k(n) = n^{\frac{1}{2^k}}$, let $f^k(n) = n^{\frac{1}{2^k}} = 2$, so $k = \lg{\lg{n}}$.
+
+### f
+Because $\frac{1}{2^k}$ could not be 0, so $f^k(n) = n^{\frac{1}{2^k}}$ could not be 1.
+
+### g
+$f^2(n) = n^{\frac{1}{3^2}}$, $f^k(n) = n^{\frac{1}{3^k}}$, let $f^k(n) = n^{\frac{1}{3^k}} = 2$, so $k = \frac{\lg{\lg{n}}}{\lg{3}}$.
+
+### h
+?
+
+### Summary
+|$f(n)$   |$c$   |$f_c^*(n)$   |
+|---|---|---|
+|$n - 1$   |0   |$n$   |
+|$\lg{n}$   |1   |$\lceil \lg{\lg{n}} + 1 \rceil$   |
+|$\frac{n}{2}$   |1   |$\lceil \lg{n} \rceil$   |
+|$\frac{n}{2}$   |2   |$\lceil \lg{n} - 1 \rceil$   |
+|$\sqrt{n}$   |2   |$\lceil \lg{\lg{n}} \rceil$   |
+|$\sqrt{n}$   |1   |$+\infty$   |
+|$n^{\frac{1}{3}}$   |2   |$\lceil \frac{\lg{\lg{n}}}{\lg{3}} \rceil$   |
+|$\frac{n}{\lg{n}}$   |2   |?   |
