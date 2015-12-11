@@ -12,3 +12,5 @@ pages:
     - '3.1 Asymptotic notation': '3-Growth-of-Functions/3.1-Asymptotic-notation.md'
     - '3.2 Standard notations and common functions': '3-Growth-of-Functions/3.2-Standard-notations-and-common-functions.md'
     - 'Problems': '3-Growth-of-Functions/Problems.md'
+- '4 Divide and Conquer':
+    - '4.1 The maximum-subarray problem': '4-Divide-and-Conquer/4.1-The-maximum-subarray-problem.md'
