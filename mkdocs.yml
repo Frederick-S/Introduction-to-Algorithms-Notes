@@ -15,3 +15,4 @@ pages:
 - '4 Divide and Conquer':
     - '4.1 The maximum-subarray problem': '4-Divide-and-Conquer/4.1-The-maximum-subarray-problem.md'
     - '4.2 Strassen''s algorithm for matrix multiplication': '4-Divide-and-Conquer/4.2-Strassen''s-algorithm-for-matrix-multiplication.md'
+    - '4.3 The substitution method for solving recurrences': '4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences.md'
