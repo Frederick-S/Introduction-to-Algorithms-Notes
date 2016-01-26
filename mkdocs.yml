@@ -19,3 +19,4 @@ pages:
     - '4.4 The recursion-tree method for solving recurrences': '4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences.md'
     - '4.5 The master method for solving recurrences': '4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences.md'
     - '4.6 Proof of the master theorem': '4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem.md'
+    - 'Problems': '4-Divide-and-Conquer/Problems.md'
