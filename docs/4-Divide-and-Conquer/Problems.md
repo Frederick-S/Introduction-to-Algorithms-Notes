@@ -98,3 +98,36 @@ where the last step holds as long as $c_2 > \frac{1}{6}$ and $n \geq \frac{12c_2
 So $T(n) = O(n^3)$, thus $T(n) = \Theta(n^3)$.
 
 ## 4-2
+### a
+Here is the pseudocode of recursive binary search algorithm:
+
+```
+RECURSIVE-BINARY-SEARCH(A, v, low, high)
+
+if low <= high
+    middle = (low + high) / 2
+
+    if A[middle] < v
+        return RECURSIVE-BINARY-SEARCH(A, v, middle + 1, high)
+    else if A[middle] > v
+        return RECURSIVE-BINARY-SEARCH(A, v, low, middle - 1)
+    else
+        return middle
+
+return NIL
+```
+
+#### An array is passed by pointer
+Before it halves the problem size, it needs to do some operations like comparing `low` and `high`, calculating `middle`. But they are constant operations, we can let it be $\Theta(1)$.
+
+So $T(n) = T(\frac{n}{2}) + \Theta(1)$. Here, we have a = 1, b = 2, and $f(n) = \Theta(1)$, and thus we have that $n^{\log_ba} = n^{\log_2{1}} = 1$. So case 2 applies, thus $T(n) = \Theta(n^{\log_ba}\lg{n}) = \Theta(\lg{n}) = \Theta(\lg{N})$.
+
+#### An array is passed by copying
+Each time it halves the problem size, it needs additional $\Theta(N)$ operation to copy the array. So $T(n) = T(\frac{n}{2}) + \Theta(N) + \Theta(1) = T(\frac{n}{2}) + \Theta(N) = T(\frac{n}{4}) + \Theta(N) + \Theta(N) = \ldots = T(1) + \lg{n}\Theta(N) = \Theta(N\lg{N})$.
+
+#### An array is passed by range
+Each time it halves the problem size, it needs additional $\Theta(n)$ operation to copy the array. So $T(n) = T(\frac{n}{2}) + \Theta(n) + \Theta(1) = T(\frac{n}{2}) + \Theta(n)$.
+
+Here, we have a = 1, b = 2, and $f(n) = \Theta(n)$, and thus we have that $n^{\log_ba} = n^{\log_2{1}} = 1$. Since $f(n) = \Omega(n^{\log_b{a} + \epsilon})$, where $\epsilon \leq 1$, case 3 applies. And for sufficiently large n, we have that $af(\frac{n}{b}) = f(\frac{n}{2}) = \Theta(\frac{n}{2}) = c\Theta(n)$, for $c = \frac{1}{2}$. So, the solution to the recurrence is $T(n) = \Theta(n) = \Theta(N)$.
+
+### b
