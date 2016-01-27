@@ -131,3 +131,39 @@ Each time it halves the problem size, it needs additional $\Theta(n)$ operation 
 Here, we have a = 1, b = 2, and $f(n) = \Theta(n)$, and thus we have that $n^{\log_ba} = n^{\log_2{1}} = 1$. Since $f(n) = \Omega(n^{\log_b{a} + \epsilon})$, where $\epsilon \leq 1$, case 3 applies. And for sufficiently large n, we have that $af(\frac{n}{b}) = f(\frac{n}{2}) = \Theta(\frac{n}{2}) = c\Theta(n)$, for $c = \frac{1}{2}$. So, the solution to the recurrence is $T(n) = \Theta(n) = \Theta(N)$.
 
 ### b
+Here is the pseudocode of merge sor algorithm:
+
+```
+MERGE-SORT(A, p, r)
+
+if p < r
+    q = (p + r) / 2
+    MERGE-SORT(A, p ,q)
+    MERGE-SORT(A, q + 1, r)
+    MERGE(A, p, q, r)
+```
+
+#### An array is passed by pointer
+We already know the solution that $T(n) = \Theta(n\lg{n}) = \Theta(N\lg{N})$.
+
+#### An array is passed by copying
+From the pseudocode we know it needs to pass the array 3 times to subroutine. So we have $T(n) = 2T(\frac{n}{2}) + \Theta(n) + 3\Theta(N) = 2T(\frac{n}{2}) + \Theta(n) + \Theta(N)$. Let's use the iterative method to solve it:
+
+$$
+\begin{eqnarray}
+T(n) &=& 2T(\frac{n}{2}) + \Theta(n) + \Theta(N) \\\
+&=& 2(2T(\frac{n}{4}) + \Theta(\frac{n}{2}) + \Theta(N)) + \Theta(n) + \Theta(N) \\\
+&=& 4T(\frac{n}{4}) + 2\Theta(\frac{n}{2}) + 2\Theta(N) + \Theta(n) + \Theta(N) \\\
+&=& 4T(\frac{n}{4}) + 2\Theta(n) + 3\Theta(N) \\\
+&=& \ldots \\\
+&=& 2^iT(\frac{n}{2^i}) + i\Theta(n) + (1 + 2 + \ldots + 2^{i - 1})\Theta(N) \text{ for } i = 1, 2, \ldots, \lg{n} \\\
+&=& 2^{\lg{n}}T(1) + \lg{n}\Theta(n) + \Theta(N)\frac{1 - 2^{\lg{n}}}{1 - 2} \\\
+&=& nT(1) + \Theta(n\lg{n}) + \Theta(Nn) \\\
+&=& \Theta(N^2)
+\end{eqnarray}
+$$
+
+#### An array is passed by range
+It needs additional $3\Theta(n)$ to copy the array. So $T(n) = 2T(\frac{n}{2}) + \Theta(n) + 3\Theta(n) = 2T(\frac{n}{2}) + \Theta(n) = \Theta(n\lg{n}) = \Theta(N\lg{N})$.
+
+## 4-3
