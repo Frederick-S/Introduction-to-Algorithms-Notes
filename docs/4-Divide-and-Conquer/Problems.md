@@ -194,6 +194,50 @@ T(n) &=& 3T(\frac{n}{3}) + \frac{n}{\lg{n}} \\\
 \end{eqnarray}
 $$
 
+Thus, we have derived a guess of $T(n) = \Theta(n\lg{\lg{n}})$ for our original recurrence. Now let's use the substitution method to verify that our guess was correct. We want to show that $T(n) \geq c_1n\lg{\lg{n}}$ and $T(n) \leq c_2n\lg{\lg{n}}$ for some constants $c_1 > 0$ and $c_2 > 0$. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& 3T(\frac{n}{3}) + \frac{n}{\lg{n}} \\\
+&\leq& 3(c_2\frac{n}{3}\lg{\lg{\frac{n}{3}}}) + \frac{n}{\lg{n}} \\\
+&=& c_2n\lg{(\lg{n} - \lg3)} + \frac{n}{\lg{n}}
+\end{eqnarray}
+$$
+
+It's not that easy to prove that $T(n) \leq c_2n\lg{\lg{n}}$, let's guess $T(n) \leq c_2n\lg{\lg{n}} - \frac{n}{\lg{3n}}$.
+
+$$
+\begin{eqnarray}
+T(n) &=& 3T(\frac{n}{3}) + \frac{n}{\lg{n}} \\\
+&\leq& 3(c_2\frac{n}{3}\lg{\lg{\frac{n}{3}}} - \frac{\frac{n}{3}}{\lg{3\frac{n}{3}}}) + \frac{n}{\lg{n}} \\\
+&=& c_2n\lg{(\lg{n} - \lg3)} - \frac{n}{\lg{n}} + \frac{n}{\lg{n}} \\\
+&<& c_2n\lg{\lg{n}}
+\end{eqnarray}
+$$
+
+So $T(n) = O(n\lg{\lg{n}})$. And:
+
+$$
+\begin{eqnarray}
+T(n) &=& 3T(\frac{n}{3}) + \frac{n}{\lg{n}} \\\
+&\geq& 3(c_1\frac{n}{3}\lg{\lg{\frac{n}{3}}}) + \frac{n}{\lg{n}} \\\
+&=& c_1n\lg{(\lg{n} - \lg3)} + \frac{n}{\lg{n}}
+\end{eqnarray}
+$$
+
+Let's reguess $T(n) \geq c_1n\lg{\lg{3n}}$. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& 3T(\frac{n}{3}) + \frac{n}{\lg{n}} \\\
+&\geq& 3(c_1\frac{n}{3}\lg{\lg{3\frac{n}{3}}}) + \frac{n}{\lg{n}} \\\
+&=& c_1n\lg{\lg{n}} + \frac{n}{\lg{n}} \\\
+&>& c_1n\lg{\lg{n}}
+\end{eqnarray}
+$$
+
+So $T(n) = \Omega(n\lg{\lg{n}})$. Thus = $T(n) \ Theta(n\lg{\lg{n}})$.
+
 ### c
 Here, we have a = 4, b = 2, and $f(n) = \Theta(n^2\sqrt{n})$, and thus we have that $n^{\log_ba} = n^{\log_4{2}} = \sqrt{n}$. So $f(n) = \Omega(n^{\log_ba + \epsilon})$ for $\epsilon \leq 2$. case 3 applies. And for sufficiently large n, we have that $af(\frac{n}{b}) = 4f(\frac{n}{2}) = \frac{\sqrt{2}}{2}n^2\sqrt{n} = cf(n)$, for $c = \frac{\sqrt{2}}{2}$. So, the solution to the recurrence is $T(n) = \Theta(n^2\sqrt{n})$.
 
@@ -201,3 +245,49 @@ Here, we have a = 4, b = 2, and $f(n) = \Theta(n^2\sqrt{n})$, and thus we have t
 If n is large enough, then we can ignore the `-2`. Then we can solve it by the master method. So we have a = 3, b = 3, and $f(n) = \Theta(n)$, and thus we have that $n^{\log_ba} = n^{\log_3{3}} = n$. Case 2 applies, thus the solution to the recurrence is $T(n) = \Theta(n^{\log_ba}\lg{n}) = \Theta(n\lg{n})$.
 
 ### e
+Let's try to solve a general form of the recurrence $T(n) = aT(\frac{n}{a}) + \frac{n}{\lg{n}}, a > 1$.
+
+$$
+\begin{eqnarray}
+T(n) &=& aT(\frac{n}{a}) + \frac{n}{\lg{n}} \\\
+&=& a(aT(\frac{n}{a^2}) + \frac{\frac{n}{a}}{\lg{\frac{n}{a}}}) + \frac{n}{\lg{n}} \\\
+&=& a^2T(\frac{n}{a^2}) + \frac{n}{\lg{n} - \lg{a}} + \frac{n}{\lg{n}} \\\
+&=& \ldots \\\
+&=& a^iT(\frac{n}{a^i}) + \sum_{i = 1}^{\log_a{n}}\frac{n}{\lg{n} - (i - 1)\lg{a}} \\\
+&=& nT(1) + \sum_{i = 1}^{\log_a{n}}\frac{n}{\lg{n} - (i - 1)\lg{a}} \\\
+&=& nT(1) + \sum_{i = 0}^{\log_a{n} - 1}\frac{n}{\lg{n} - i\lg{a}} \\\
+&=& nT(1) + \sum_{i = 0}^{\log_a{n} - 1}\frac{n}{\frac{\log_a{n}}{\log_a{2}} - i\frac{\log_a{a}}{\log_a{2}}} \\\
+&=& nT(1) + \log_a{2}\sum_{i = 0}^{\log_a{n} - 1}\frac{n}{\log_a{n} - i} \\\
+&=& nT(1) + \log_a{2}\sum_{i = 1}^{\log_a{n}}\frac{n}{i} \\\
+&=& nT(1) + \log_a{2}(n(\ln{\log_a{n}} + O(1))) \text{ by equation (A.7)} \\\
+&=& \Theta(n\lg{\lg{n}})
+\end{eqnarray}
+$$
+
+Thus, we have derived a guess of $T(n) = \Theta(n\lg{\lg{n}})$ for our original recurrence. Now let's use the substitution method to verify that our guess was correct. We want to show that $T(n) \geq c_1n\lg{\lg{n}}$ and $T(n) \leq c_2n\lg{\lg{n}}$ for some constants $c_1 > 0$ and $c_2 > 0$. Like the problem b, let's guess $T(n) \geq c_1n\lg{\lg{an}}$ and $T(n) \leq c_2n\lg{\lg{n}} - \frac{n}{\lg{an}}$.
+
+$$
+\begin{eqnarray}
+T(n) &=& aT(\frac{n}{a}) + \frac{n}{\lg{n}} \\\
+&\leq& a(c_2\frac{n}{a}\lg{\lg{\frac{n}{a}}} - \frac{\frac{n}{a}}{\lg{a\frac{n}{a}}}) + \frac{n}{\lg{n}} \\\
+&=& c_2n\lg{(\lg{n} - \lg{a})} - \frac{n}{\lg{n}} + \frac{n}{\lg{n}} \\\
+&<& c_2n\lg{\lg{n}}
+\end{eqnarray}
+$$
+
+So $T(n) = O(n\lg{\lg{n}})$. And:
+
+$$
+\begin{eqnarray}
+T(n) &=& aT(\frac{n}{a}) + \frac{n}{\lg{n}} \\\
+&\geq& a(c_1\frac{n}{a}\lg{\lg{a\frac{n}{a}}}) + \frac{n}{\lg{n}} \\\
+&=& c_1n\lg{\lg{n}} + \frac{n}{\lg{n}} \\\
+&>& c_1n\lg{\lg{n}}
+\end{eqnarray}
+$$
+
+So $T(n) = \Omega(n\lg{\lg{n}})$. Thus = $T(n) = \Theta(n\lg{\lg{n}})$.
+
+The solution to recurrence $T(n) = 2T(\frac{n}{2}) + \frac{n}{\lg{n}}$ is $\Theta(n\lg{\lg{n}})$.
+
+### f
