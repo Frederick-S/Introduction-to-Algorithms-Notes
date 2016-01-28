@@ -291,3 +291,128 @@ So $T(n) = \Omega(n\lg{\lg{n}})$. Thus = $T(n) = \Theta(n\lg{\lg{n}})$.
 The solution to recurrence $T(n) = 2T(\frac{n}{2}) + \frac{n}{\lg{n}}$ is $\Theta(n\lg{\lg{n}})$.
 
 ### f
+First let's create a recursion tree for the recurrence $T(n) = T(\frac{n}{2}) + T(\frac{n}{4}) + T(\frac{n}{8}) + n$ and assume that n is an exact power of 8.
+
+```
+\documentclass{standalone} 
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm} 
+}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{level 1}=[sibling distance=24mm]
+\tikzstyle{level 2}=[sibling distance=8mm]
+\tikzstyle{level 3}=[sibling distance=4mm]
+
+\node (root){n} 
+    child {node {$\frac{n}{2}$}
+        child {node {$\frac{n}{2^2}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{2^3}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{2^4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$\frac{n}{2^2}$}
+        child {node {$\frac{n}{2^3}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{2^4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{2^5}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$\frac{n}{2^3}$}
+        child {node {$\frac{n}{2^4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{2^5}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{2^6}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=4 of root] {n}[no edge from this parent]
+    child {node {$\frac{7n}{8}$}[no edge from this parent]
+        child {node {$(\frac{7}{8})^2n$}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(?)$}}}}};
+\end{tikzpicture}
+\end{document}
+```
+
+![Alt text](4.3-f.png)
+
+We've solved similar problems before. Not all branch reaches at the bottom at the same time. The right most branch reaches at the bottom first. The left most branch is the last one that reaches at the bottom.
+
+And we can see the total cost over all nodes at depth i is $(\frac{7}{8})^in$.
+
+If the left most branch reaches at the bottom, and assume the current depth is k, then we assume other branches reach at depth k - 1 at the same time. So we have:
+
+$$
+\begin{eqnarray}
+T(n) &\leq& \sum_{i = 0}^{\lg{n} - 1}(\frac{7}{8})^in + T(1) \\\
+&=& n\frac{1 - (\frac{7}{8})^{\lg{n}}}{1 - \frac{7}{8}} + T(1) \\\
+&=& 8n(1 - (\frac{7}{8})^{\lg{n}}) + T(1) \\\
+&<& 8n + T(1) \\\
+&\leq& 9n \\\
+&=& O(n)
+\end{eqnarray}
+$$
+
+where the last step holds as long as $n \geq T(1)$.
+
+Then if the right most branch reaches at the bottom, other branches have not reach at the bottom. But we assume they also reach at the bottom. So we have:
+
+$$
+\begin{eqnarray}
+T(n) &\geq& \sum_{i = 0}^{\log_8{n} - 1}(\frac{7}{8})^in + (\frac{7}{8})^{\log_8{n}}n \\\
+&=& n\frac{1 - (\frac{7}{8})^{\log_8{n} + 1}}{1 - \frac{7}{8}} \\\
+&=& 8n(1 - (\frac{7}{8})^{\log_8{n} + 1})
+\end{eqnarray}
+$$
+
+Because $(\frac{7}{8})^{\log_8{n} + 1}$ is decreasing, so for a given n, let $k = (\frac{7}{8})^{\log_8{n} + 1}$, so $8n(1 - (\frac{7}{8})^{\log_8{n} + 1}) \geq 8n(1 - k)$, thus $T(n) = \Omega(n)$.
+
+Thus we devird a guess of $T(n) = \Theta(n)$ for our original recurrence. Now let's use the substitution method to verify that our guess was correct. We want to show that $T(n) \geq c_1n$ and $T(n) \leq c_2n$ for some constants $c_1 > 0$ and $c_2 > 0$. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& T(\frac{n}{2}) + T(\frac{n}{4}) + T(\frac{n}{8}) + n \\\
+&\geq& c_1\frac{n}{2} + c_1\frac{n}{4} + c_1\frac{n}{8} + n \\\
+&=& (1 + \frac{7}{8}c_1)n \\\
+&\geq& c_1n \\\
+&=& \Omega(n)
+\end{eqnarray}
+$$
+
+where the last step holds as long as $c_1 \leq 8$.
+
+And:
+
+$$
+\begin{eqnarray}
+T(n) &=& T(\frac{n}{2}) + T(\frac{n}{4}) + T(\frac{n}{8}) + n \\\
+&\leq& c_2\frac{n}{2} + c_2\frac{n}{4} + c_2\frac{n}{8} + n \\\
+&=& (1 + \frac{7}{8}c_2)n \\\
+&\leq& c_2n \\\
+&=& O(n)
+\end{eqnarray}
+$$
+
+where the last step holds as long as $c_2 \geq 8$.
+
+Thus $T(n) = \Theta(n)$.
+
+### g
