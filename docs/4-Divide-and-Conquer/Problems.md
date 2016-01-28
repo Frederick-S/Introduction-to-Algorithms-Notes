@@ -379,11 +379,12 @@ $$
 \begin{eqnarray}
 T(n) &\geq& \sum_{i = 0}^{\log_8{n} - 1}(\frac{7}{8})^in + (\frac{7}{8})^{\log_8{n}}n \\\
 &=& n\frac{1 - (\frac{7}{8})^{\log_8{n} + 1}}{1 - \frac{7}{8}} \\\
-&=& 8n(1 - (\frac{7}{8})^{\log_8{n} + 1})
+&=& 8n(1 - (\frac{7}{8})^{\log_8{n} + 1}) \\\
+&\geq& 8n(1 - (\frac{7}{8})^{\log_8{1} + 1}) \\\
+&=& n \\\
+&=& \Omega(n)
 \end{eqnarray}
 $$
-
-Because $(\frac{7}{8})^{\log_8{n} + 1}$ is decreasing, so for a given n, let $k = (\frac{7}{8})^{\log_8{n} + 1}$, so $8n(1 - (\frac{7}{8})^{\log_8{n} + 1}) \geq 8n(1 - k)$, thus $T(n) = \Omega(n)$.
 
 Thus we devird a guess of $T(n) = \Theta(n)$ for our original recurrence. Now let's use the substitution method to verify that our guess was correct. We want to show that $T(n) \geq c_1n$ and $T(n) \leq c_2n$ for some constants $c_1 > 0$ and $c_2 > 0$. So:
 
