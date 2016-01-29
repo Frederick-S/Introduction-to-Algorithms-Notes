@@ -417,3 +417,170 @@ where the last step holds as long as $c_2 \geq 8$.
 Thus $T(n) = \Theta(n)$.
 
 ### g
+First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \frac{1}{n}$.
+
+```
+\documentclass{standalone} 
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm} 
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+\node (root){$\frac{1}{n}$} 
+    child {node {$\frac{1}{n - 1}$}
+        child {node {$\frac{1}{n - 2}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=1 of root] {$\frac{1}{n}$}[no edge from this parent]
+    child {node {$\frac{1}{n - 1}$}[no edge from this parent]
+        child {node {$\frac{1}{n - 2}$}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(1)$}}}}};
+\end{tikzpicture}
+\end{document}
+```
+
+![Alt text](4.3-g.png)
+
+The number of nodes at depth i is 1, for $i = 0, 1, 2, \ldots, n - 2$, has a cost of $\frac{1}{n - i}$. The bottom level, at depth n - 1, has 1 node, which contribution cost T(1), for a total cost of T(1), which is $\Theta(1)$. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& \sum_{i = 0}^{n - 2}\frac{1}{n - i} + \Theta(1) \\\
+&=& \sum_{i = 2}^{n}\frac{1}{i} + \Theta(1) \\\
+&=& \ln{n} - 1 + \Theta(1) \\\
+&=& \Theta(n)
+\end{eqnarray}
+$$
+
+Thus, we have derived a guess of $T(n) = T(n - 1) + \frac{1}{n}$ for original recurrence. Now let's use the substitution method to verify that our guess was correct. We want to show that $T(n) \geq c_1\lg{n}$ and $T(n) \leq c_2\lg{n}$ for some constants $c_1 > 0$ and $c_2 > 0$. So:
+
+$$
+\begin{eqnarray}
+T(n) &\geq& c_1\lg{(n - 1)} + \frac{1}{n}
+\end{eqnarray}
+$$
+
+It's not obvious to see that $T(n) \geq c_1\lg{n}$. Let's try to guess $T(n) \geq c_1\lg{(n + 1)}$. So:
+
+$$
+\begin{eqnarray}
+T(n) &\geq& c_1\lg{(n - 1 + 1)} + \frac{1}{n} \\\
+&=& c_1\lg{n} + \frac{1}{n} \\\
+&>& c_1\lg{n} \\\
+&=& \Omega(\lg{n})
+\end{eqnarray}
+$$
+
+So $T(n) = \Omega(\lg{n})$. And:
+
+$$
+\begin{eqnarray}
+T(n) &\leq& c_2\lg{(n - 1)} + \frac{1}{n}
+\end{eqnarray}
+$$
+
+Let's try to reguess $T(n) \leq c_2\lg{n} - \frac{1}{n + 1}$. So:
+
+$$
+\begin{eqnarray}
+T(n) &\leq& c_2\lg{(n - 1)} - \frac{1}{n - 1 + 1} + \frac{1}{n} \\\
+&=& c_2\lg{(n - 1)} \\\
+&<& c_2\lg{n} \\\
+&=& O(\lg{n})
+\end{eqnarray}
+$$
+
+So $T(n) = O(\lg{n})$, thus $T(n) = \Theta(\lg{n})$.
+
+### h
+First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \lg{n}$.
+
+```
+\documentclass{standalone} 
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm} 
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+\node (root){$\lg{n}$} 
+    child {node {$\lg{(n - 1)}$}
+        child {node {$\lg{(n - 2)}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=1 of root] {$\lg{n}$}[no edge from this parent]
+    child {node {$\lg{(n - 1)}$}[no edge from this parent]
+        child {node {$\lg{(n - 2)}$}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(1)$}}}}};
+\end{tikzpicture}
+\end{document}
+```
+
+![Alt text](4.3-h.png)
+
+The number of nodes at depth i is 1, for $i = 0, 1, 2, \ldots, n - 2$, has a cost of $\lg({n - i})$. The bottom level, at depth n - 1, has 1 node, which contribution cost T(1), for a total cost of T(1), which is $\Theta(1)$. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& \sum_{i = 0}^{n - 2}\lg{(n - i)} + \Theta(1) \\\
+&=& \sum_{i = 2}^{n}\lg{n} + \Theta(1) \\\
+&=& \lg{(n!)} + \Theta(1) \\\
+&=& \Theta(n\lg{n}) \text{ (we have proved it in 3.2-3)}
+\end{eqnarray}
+$$
+
+Thus, we have derived a guess of $T(n) = T(n - 1) + \lg{n}$ for original recurrence. Now let's use the substitution method to verify that our guess was correct. We want to show that $T(n) \geq c_1n\lg{n}$ and $T(n) \leq c_2n\lg{n}$ for some constants $c_1 > 0$ and $c_2 > 0$. So:
+
+$$
+\begin{eqnarray}
+T(n) &\geq& c_1(n - 1)\lg{(n - 1)} + \lg{n}
+\end{eqnarray}
+$$
+
+Let's try to reguess $T(n) \geq c_1(n + 1)\lg{(n + 1)}$. So:
+
+$$
+\begin{eqnarray}
+T(n) &\geq& c_1(n - 1 + 1)\lg{(n - 1 + 1)} + \lg{n} \\\
+&=& c_1n\lg{n} + \lg{n} \\\
+&>& c_1n\lg{n} \\\
+&=& \Omega(n\lg{n})
+\end{eqnarray}
+$$
+
+So $T(n) = \Omega(n\lg{n})$. And:
+
+$$
+\begin{eqnarray}
+T(n) &\leq& c_2(n - 1)\lg{(n - 1)} + \lg{n} \\\
+&<& c_2(n - 1)\lg{n} + \lg{n} \\\
+&=& \lg{n}(c_2(n - 1) + 1) \\\
+&\leq& c_2n\lg{n} \\\
+&=& O(n\lg{n})
+\end{eqnarray}
+$$
+
+where the last step holds as long as $c_2 \geq 1$.
+
+So $T(n) = O(n\lg{n})$. Thus $T(n) = \Theta(n\lg{n})$.
+
+### i
