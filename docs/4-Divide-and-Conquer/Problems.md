@@ -584,3 +584,48 @@ where the last step holds as long as $c_2 \geq 1$.
 So $T(n) = O(n\lg{n})$. Thus $T(n) = \Theta(n\lg{n})$.
 
 ### i
+First let's create a recursion tree for the recurrence $T(n) = T(n - 2) + \frac{1}{\lg{n}}$.
+
+```
+\documentclass{standalone} 
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm} 
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+\node (root){$\frac{1}{\lg{n}}$} 
+    child {node {$\frac{1}{\lg{(n - 2)}}$}
+        child {node {$\frac{1}{\lg{(n - 4)}}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=1 of root] {$\frac{1}{\lg{n}}$}[no edge from this parent]
+    child {node {$\frac{1}{\lg{(n - 2)}}$}[no edge from this parent]
+        child {node {$\frac{1}{\lg{(n - 4)}}$}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(1)$}}}}};
+\end{tikzpicture}
+\end{document}
+```
+
+![Alt text](4.3-i.png)
+
+The number of nodes at depth i is 1, for $i = 0, 1, 2, \ldots, \lg{(n - 1)} - 1$, has a cost of $\frac{1}{\lg{(n - 2^i)}}$. The bottom level, at depth $\lg{(n - 1)}$, has 1 node, which contribution cost T(1), for a total cost of T(1), which is $\Theta(1)$. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& \sum_{i = 0}^{\lg{(n - 1)} - 1}\frac{1}{\lg{(n - 2^i)}} + \Theta(1)
+\end{eqnarray}
+$$
+
+But I don't know how to compute the sum.
+
+### j
