@@ -629,3 +629,35 @@ $$
 But I don't know how to compute the sum.
 
 ### j
+Let's solve it by the iterative method and assume n is an exact power of 2, and n is also a perfect square.
+
+$$
+\begin{eqnarray}
+T(n) &=& \sqrt{n}T(\sqrt{n}) + n \\\
+&=& n^{\frac{1}{2}}T(n^{\frac{1}{2}}) + n \\\
+&=& n^{\frac{1}{2}}((n^{\frac{1}{2}})^{\frac{1}{2}}T((n^{\frac{1}{2}})^{\frac{1}{2}}) + n^{\frac{1}{2}}) + n \\\
+&=& n^{\frac{1}{2}}(n^{\frac{1}{4}}T(n^{\frac{1}{4}}) + n^{\frac{1}{2}}) + n \\\
+&=& n^{\frac{1}{2} + \frac{1}{4}}T(n^{\frac{1}{4}}) + n^{\frac{1}{2} + \frac{1}{2}} + n \\\
+&=& n^{\frac{1}{2} + \frac{1}{4}}(n^{\frac{1}{8}}T(n^{\frac{1}{8}}) + n^{\frac{1}{4}}) + n^{\frac{1}{2} + \frac{1}{2}} + n \\\
+&=& n^{\frac{1}{2} + \frac{1}{4} + \frac{1}{8}}T(n^{\frac{1}{8}}) + n^{\frac{1}{2} + \frac{1}{4} + \frac{1}{4}} + n^{\frac{1}{2} + \frac{1}{2}} + n \\\
+&=& \ldots \\\
+&=& n^{\sum_{i = 1}^{\lg{\sqrt{n}}}\frac{1}{2^i}}T(2) + \lg{\sqrt{n}} * n \\\
+&<& n^{\sum_{i = 1}^{\infty}\frac{1}{2^i}}T(2) + \lg{\sqrt{n}} * n \\\
+&=& n^{\frac{\frac{1}{2}}{1 - \frac{1}{2}}}T(2) + \frac{1}{2}n\lg{n} \\\
+&=& nT(2) + \frac{1}{2}n\lg{n} \\\
+&=& O(n\lg{n})
+\end{eqnarray}
+$$
+
+Thus, we have derived a guess of $T(n) = O(n\lg{n})$ for original recurrence. Now let's use the substitution method to verify that our guess was correct. We want to show that $T(n) \leq cn\lg{n}$ for some constant c > 0. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& \sqrt{n}T(\sqrt{n}) + n \\\
+&\leq& \sqrt{n}c\sqrt{n}\lg{\sqrt{n}} + n \\\
+&=& cn\lg{\sqrt{n}} + n \\\
+&=& \frac{1}{2}cn\lg{n} + n
+\end{eqnarray}
+$$
+
+Because $\frac{1}{2}cn\lg{n} + n - cn\lg{n} = n(1 - \frac{1}{2}c\lg{n}) \leq n(1 - \frac{1}{2}c)$ when $n \geq 2$. So $n(1 - \frac{1}{2}c) \leq 0$ when $c \geq 2$. So $T(n) \leq cn\lg{n}$ when $c \geq 2$ and $n \geq 2$. Thus, $T(n) = O(n\lg{n})$.
