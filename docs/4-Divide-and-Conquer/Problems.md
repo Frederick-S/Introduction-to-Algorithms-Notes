@@ -22,7 +22,7 @@ Here, we have a = 2, b = 4, and $f(n) = \Theta(\sqrt{n})$, and thus we have that
 First let's create a recursion tree for the recurrence $T(n) = T(n - 2) + n^2$.
 
 ```
-\documentclass{standalone} 
+\documentclass{standalone}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
@@ -30,13 +30,13 @@ First let's create a recursion tree for the recurrence $T(n) = T(n - 2) + n^2$.
     no edge from this parent/.style={
         every child/.append style={
         edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm} 
+    level 4/.style={level distance=6mm}
 }
 
 \begin{document}
 \begin{tikzpicture}
 
-\node (root){$n^2$} 
+\node (root){$n^2$}
     child {node {$(n - 2)^2$}
         child {node {$(n - 4)^2$}
             child {node {$\vdots$}[no edge from this parent]
@@ -294,7 +294,7 @@ The solution to recurrence $T(n) = 2T(\frac{n}{2}) + \frac{n}{\lg{n}}$ is $\Thet
 First let's create a recursion tree for the recurrence $T(n) = T(\frac{n}{2}) + T(\frac{n}{4}) + T(\frac{n}{8}) + n$ and assume that n is an exact power of 8.
 
 ```
-\documentclass{standalone} 
+\documentclass{standalone}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
@@ -302,7 +302,7 @@ First let's create a recursion tree for the recurrence $T(n) = T(\frac{n}{2}) + 
     no edge from this parent/.style={
         every child/.append style={
         edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm} 
+    level 4/.style={level distance=6mm}
 }
 
 \begin{document}
@@ -311,7 +311,7 @@ First let's create a recursion tree for the recurrence $T(n) = T(\frac{n}{2}) + 
 \tikzstyle{level 2}=[sibling distance=8mm]
 \tikzstyle{level 3}=[sibling distance=4mm]
 
-\node (root){n} 
+\node (root){n}
     child {node {$\frac{n}{2}$}
         child {node {$\frac{n}{2^2}$}
             child {node {$\vdots$}[no edge from this parent]
@@ -420,7 +420,7 @@ Thus $T(n) = \Theta(n)$.
 First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \frac{1}{n}$.
 
 ```
-\documentclass{standalone} 
+\documentclass{standalone}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
@@ -428,13 +428,13 @@ First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \frac{
     no edge from this parent/.style={
         every child/.append style={
         edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm} 
+    level 4/.style={level distance=6mm}
 }
 
 \begin{document}
 \begin{tikzpicture}
 
-\node (root){$\frac{1}{n}$} 
+\node (root){$\frac{1}{n}$}
     child {node {$\frac{1}{n - 1}$}
         child {node {$\frac{1}{n - 2}$}
             child {node {$\vdots$}[no edge from this parent]
@@ -506,7 +506,7 @@ So $T(n) = O(\lg{n})$, thus $T(n) = \Theta(\lg{n})$.
 First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \lg{n}$.
 
 ```
-\documentclass{standalone} 
+\documentclass{standalone}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
@@ -514,13 +514,13 @@ First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \lg{n}
     no edge from this parent/.style={
         every child/.append style={
         edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm} 
+    level 4/.style={level distance=6mm}
 }
 
 \begin{document}
 \begin{tikzpicture}
 
-\node (root){$\lg{n}$} 
+\node (root){$\lg{n}$}
     child {node {$\lg{(n - 1)}$}
         child {node {$\lg{(n - 2)}$}
             child {node {$\vdots$}[no edge from this parent]
@@ -587,7 +587,7 @@ So $T(n) = O(n\lg{n})$. Thus $T(n) = \Theta(n\lg{n})$.
 First let's create a recursion tree for the recurrence $T(n) = T(n - 2) + \frac{1}{\lg{n}}$.
 
 ```
-\documentclass{standalone} 
+\documentclass{standalone}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
@@ -595,13 +595,13 @@ First let's create a recursion tree for the recurrence $T(n) = T(n - 2) + \frac{
     no edge from this parent/.style={
         every child/.append style={
         edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm} 
+    level 4/.style={level distance=6mm}
 }
 
 \begin{document}
 \begin{tikzpicture}
 
-\node (root){$\frac{1}{\lg{n}}$} 
+\node (root){$\frac{1}{\lg{n}}$}
     child {node {$\frac{1}{\lg{(n - 2)}}$}
         child {node {$\frac{1}{\lg{(n - 4)}}$}
             child {node {$\vdots$}[no edge from this parent]
@@ -661,3 +661,7 @@ T(n) &=& \sqrt{n}T(\sqrt{n}) + n \\\
 $$
 
 Because $\frac{1}{2}cn\lg{n} + n - cn\lg{n} = n(1 - \frac{1}{2}c\lg{n}) \leq n(1 - \frac{1}{2}c)$ when $n \geq 2$. So $n(1 - \frac{1}{2}c) \leq 0$ when $c \geq 2$. So $T(n) \leq cn\lg{n}$ when $c \geq 2$ and $n \geq 2$. Thus, $T(n) = O(n\lg{n})$.
+
+But I don't know how to get the lower bound.
+
+## 4-4
