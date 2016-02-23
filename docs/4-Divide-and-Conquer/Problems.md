@@ -665,3 +665,53 @@ Because $\frac{1}{2}cn\lg{n} + n - cn\lg{n} = n(1 - \frac{1}{2}c\lg{n}) \leq n(1
 But I don't know how to get the lower bound.
 
 ## 4-4
+### a
+$$
+\begin{eqnarray}
+z + z\mathcal{F}(z) + z^2\mathcal{F}(Z) &=& z + z\sum_{i = 0}^{\infty}F_iz^i + z^2\sum_{i = 0}^{\infty}F_iz^i \\\
+&=& z + (0 + z^2 + z^3 + 2z^4 + 3z^5 + \ldots) + (0 + z^3 + z^4 + 2z^5 + \ldots) \\\
+&=& 0 + z + z^2 + 2z^3 + 3z^4 + 5z^5 + \ldots \\\
+&=& \mathcal{F}(z)
+\end{eqnarray}
+$$
+
+### b
+Because $\mathcal{F}(z) = z + z\mathcal{F}(z) + z^2\mathcal{F}(z)$, so $\mathcal{F}(z) - z\mathcal{F}(z) - z^2\mathcal{F}(z) = z$, thus $\mathcal{F}(z)(1 - z - z^2) = z$, so $\mathcal{F}(z) = \frac{z}{1 - z - z^2}$.
+
+And:
+
+$$
+\begin{eqnarray}
+\frac{z}{(1 - \phi{z})(1 - \hat\phi{z})} &=& \frac{z}{1 - (\phi + \hat\phi)z + \phi\hat\phi{z^2}} \\\
+&=& \frac{z}{1 - (\frac{1 - \sqrt{5}}{2} + \frac{1 + \sqrt{5}}{2})z + \frac{1 - \sqrt{5}}{2}\frac{1 + \sqrt{5}}{2}z^2} \\\
+&=& \frac{z}{1 - z - z^2}
+\end{eqnarray}
+$$
+
+And:
+
+$$
+\begin{eqnarray}
+\frac{1}{\sqrt{5}}(\frac{1}{1 - \phi{z}} - \frac{1}{1 - \hat\phi{z}}) &=& \frac{1}{\sqrt{5}}\frac{1 - \hat\phi{z} - 1 + \phi{z}}{(1 - \phi{z})(1 - \hat\phi{z})} \\\
+&=& \frac{1}{\sqrt{5}}\frac{z(\phi - \hat\phi)}{(1 - \phi{z})(1 - \hat\phi{z})} \\\
+&=& \frac{1}{\sqrt{5}}\frac{z(\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2})}{(1 - \phi{z})(1 - \hat\phi{z})} \\\
+&=& \frac{1}{\sqrt{5}}\frac{z\sqrt{5}}{(1 - \phi{z})(1 - \hat\phi{z})} \\\
+&=& \frac{z}{(1 - \phi{z})(1 - \hat\phi{z})}
+\end{eqnarray}
+$$
+
+### c
+$$
+\begin{eqnarray}
+\sum_{i = 0}^{\infty}\frac{1}{\sqrt{5}}(\phi^i - \hat\phi^i)z^i &=& \frac{1}{\sqrt{5}}\sum_{i = 0}^{\infty}(\phi^iz^i - \hat\phi^iz^i) \\\
+&=& \frac{1}{\sqrt{5}}(\sum_{i = 0}^{\infty}\phi^iz^i - \sum_{i = 0}^{\infty}\hat\phi^iz^i) \\\
+&=& \frac{1}{\sqrt{5}}(\frac{1}{1 - \phi{z}} - \frac{1}{1 - \hat\phi{z}}) \\\
+&=& \mathcal{F}(z)
+\end{eqnarray}
+$$
+
+### d
+Because $\mathcal{F}(z) = \sum_{i = 0}^{\infty}F_iz^i$ and $\mathcal{F}(z) = \sum_{i = 0}^{\infty}\frac{1}{\sqrt{5}}(\phi^i - \hat\phi^i)z^i$, so we have $F_i = \frac{1}{\sqrt{5}}(\phi^i - \hat\phi^i)$. Since $|\hat\phi| < 1$, we have $\frac{|\hat\phi^i|}{\sqrt{5}} < \frac{1}{\sqrt{5}} < \frac{1}{2}$, which implies that $F_i = \lfloor \frac{\phi^i}{\sqrt{5}} + \frac{1}{2} \rfloor$, which is to say that the ith Fibonacci number $F_i$ is equal to $\frac{\phi^i}{\sqrt{5}}$ rounded to the nearest integer.
+
+## 4-5
+### a
