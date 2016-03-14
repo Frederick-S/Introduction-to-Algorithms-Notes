@@ -718,12 +718,26 @@ Because $\mathcal{F}(z) = \sum_{i = 0}^{\infty}F_iz^i$ and $\mathcal{F}(z) = \su
 
 ## 4-6
 ### a
-The "only if" part is easy. If an array is Monge, then for all i, j, k and l such that $l \leq i < k \leq m$ and $l \leq j < l \leq n$ $A[i, j] + A[k, l] \leq A[i, l] + A[k, j]$. So we let k = i + 1, l = j + 1, then we have $A[i, j] + A[i + 1, j + 1] \leq A[i, j + 1] + A[i + 1, j]$. So we proved the "only if" part.
+The "only if" part is easy. If an array is Monge, then for all i, j, k and l such that $l \leq i < k \leq m$ and $l \leq j < l \leq n$ we have $A[i, j] + A[k, l] \leq A[i, l] + A[k, j]$. So we let k = i + 1, l = j + 1, then we have $A[i, j] + A[i + 1, j + 1] \leq A[i, j + 1] + A[i + 1, j]$. So we proved the "only if" part.
 
 Then let's prove the "if" part, we'll use induction separately on rows and columns. Let's get on columns first. The base case is already given, let's assume $A[i, j] + A[i + 1, j + k] \leq A[i, j + k] + A[i + 1, j]$ for $k \geq 1$ and $j + k \leq n$. Then we need to prove $A[i, j] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j]$.
 
 According to the definition, we have $A[i, j + k] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j + k]$, thus $A[i, j] + A[i + 1, j + k] + A[i, j + k] + A[i + 1, j + k + 1] \leq A[i, j + k] + A[i + 1, j] + A[i, j + k + 1] + A[i + 1, j + k]$. So we get $A[i, j] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j]$.
 
-So the induction is correct, thus we proved that all adjacent rows are Monge arrays. Similarly, we can use the induction on rows, so all adjacent columns are Monge arrays. 
+So the induction is correct, and similarly we can prove $A[i, j + 1] + A[i + 1, j + k] \leq A[i, j + k] + A[i + 1, j + 1] \, (j + k \leq n), \ldots, A[i, j + p] + A[i + 1, j + k] \leq A[i, j + k] + A[i + 1, j + p] \, (j + p \leq j + k - 1, j + k \leq n)$, thus we can see that all adjacent rows are Monge arrays. Similarly, we can use the induction on rows, so all adjacent columns are Monge arrays. 
 
-For all four elements at the intersections of the rows and columns, 
+For any $m_1 x n_1$ array, if $m_1 = 2$ or $n_1 = 2$, then the subarray is a Monge array. And we need to prove the subarray is also a Monge array if $m_1 \geq 3$ and $n_1 \geq 3$.
+
+Let's assume the subarray starts at row $A[i_1, j_1]$ and ends at $A[i_2, j_2]$. Since any adjacent columns are Monge arrays, so we have:
+
+$$A[i_1, j_1] + A[i_2, j_1 + 1] \leq A[i_1, j_1 + 1] + A[i_2, j_1]$$
+$$A[i_1, j_1 + 1] + A[i_2, j_1 + 2] \leq A[i_1, j_1 + 2] + A[i_2, j_1 + 1]$$
+$$\ldots$$
+$$A[i_1, j_2 - 1] + A[i_2, j_2] \leq A[i_1, j_2] + A[i_2, j_2 - 1]$$
+
+Then we sum all inequations together, so we have:
+
+$$A[i_1, j_1] + A[i_2, j_2] \leq A[i_1, j_2] + A[i_2, j_1]$$, which means the subarray $A[i_1, j_1]$ to $A[i_2, j_2]$ is a Monge array when $i_2 - i_1 \geq 3$ and $j_2 - j_1 \geq 3$. So for all subarrays in A, they are Monge arrays. So we proved the "if" part.
+
+### b
+ 
