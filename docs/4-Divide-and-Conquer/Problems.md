@@ -740,4 +740,15 @@ Then we sum all inequations together, so we have:
 $$A[i_1, j_1] + A[i_2, j_2] \leq A[i_1, j_2] + A[i_2, j_1]$$, which means the subarray $A[i_1, j_1]$ to $A[i_2, j_2]$ is a Monge array when $i_2 - i_1 \geq 3$ and $j_2 - j_1 \geq 3$. So for all subarrays in A, they are Monge arrays. So we proved the "if" part.
 
 ### b
- 
+\begin{matrix}
+37 & 23 & 22 & 32 \\\
+21 &  6 &  5 & 10 \\\
+53 & 34 & 30 & 31 \\\
+32 & 13 &  9 &  6 \\\
+43 & 21 & 15 &  8 \\\
+\end{matrix}
+
+### c
+Let's consider row i and row i + 1. Let $f(i) = j_1$ and $f(i + 1) = j_2$ and assume $f(i) > f(i + 1)$, so we have $j_1 > j_2$. Since A is a Monge array, so we have $A[i, j_2] + A[i + 1, j_1] \leq A[i, j_1] + A[i + 1, j_2]$. But according to the definition of f(i), we have $A[i, j_2] > A[i, j_1]$ and $A[i + 1, j_2] < A[i + 1, j_1]$, combine them together: $A[i, j_2] + A[i + 1, j_1] > A[i, j_1] + A[i + 1, j_2]$. Thus the assumption is wrong. So $f(i) \leq f(i + 1)$. So $f(1) \leq f(2) \leq \ldots \leq f(m)$ for any m x n Monge array.
+
+### d
