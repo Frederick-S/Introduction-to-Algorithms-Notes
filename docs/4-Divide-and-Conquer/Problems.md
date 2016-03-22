@@ -752,3 +752,30 @@ $$A[i_1, j_1] + A[i_2, j_2] \leq A[i_1, j_2] + A[i_2, j_1]$$, which means the su
 Let's consider row i and row i + 1. Let $f(i) = j_1$ and $f(i + 1) = j_2$ and assume $f(i) > f(i + 1)$, so we have $j_1 > j_2$. Since A is a Monge array, so we have $A[i, j_2] + A[i + 1, j_1] \leq A[i, j_1] + A[i + 1, j_2]$. But according to the definition of f(i), we have $A[i, j_2] > A[i, j_1]$ and $A[i + 1, j_2] < A[i + 1, j_1]$, combine them together: $A[i, j_2] + A[i + 1, j_1] > A[i, j_1] + A[i + 1, j_2]$. Thus the assumption is wrong. So $f(i) \leq f(i + 1)$. So $f(1) \leq f(2) \leq \ldots \leq f(m)$ for any m x n Monge array.
 
 ### d
+Let's assume $m = 2k, k = 1, 2, \ldots$, from the previous question we have $f(2k - 2) \leq f(2k - 1) \leq f(2k)$. We want to get f(2k - 1) when f(2k - 2) and f(2k) are already known. We only need to compare the numbers from A[2k - 1][f(2k - 2)] to A[2k - 1][f(2k)], which costs at most $O(f(2k) - f(2k - 2) + 1)$. Thus:
+
+$$
+\begin{eqnarray}
+T &=& \sum_{k = 1}^{\frac{m}{2}}O(f(2k) - f(2k - 2) + 1) \\\
+&=& (f(2) - f(0) + 1) + (f(4) - f(2) + 1) + \ldots + (f(m) - f(m - 2) + 1) \\\
+&=& f(m) - f(0) + \frac{m}{2} \\\
+&\leq& n - 0 + \frac{m}{2} \\\
+&<& n + m \\\
+&=& O(m + n)
+\end{eqnarray}
+$$
+
+### e
+$$
+\begin{eqnarray}
+T(m) &=& T(\frac{m}{2}) + O(m + n) \\\
+&=& T(\frac{m}{4}) + O(\frac{m}{2} + n) + O(m + n) \\\
+&=& T(\frac{m}{8}) + O(\frac{m}{4} + n) + O(\frac{m}{2} + n) + O(m + n) \\\
+&=& \ldots \\\
+&=& T(1) + \sum_{i = 0}^{\lg{m} - 1}O(\frac{m}{2^i}) + \sum_{i = 0}^{\lg{m} - 1}O(n) \\\
+&<& T(1) + \sum_{i = 0}^{\infty}O(\frac{m}{2^i}) + \sum_{i = 0}^{\lg{m} - 1}O(n) \\\
+&=& T(1) + O(m\frac{1}{1 - \frac{1}{2}}) + O(n\lg{m}) \\\
+&=& O(1) + O(2m) + O(n\lg{m}) \\\
+&=& O(m + n\lg{m})
+\end{eqnarray}
+$$
