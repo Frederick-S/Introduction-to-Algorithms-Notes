@@ -811,8 +811,6 @@ def leftmost_min_element_divide_and_conquer(
             matrix, leftmost_min_element_in_each_row,
             sub_matrix_row_start, sub_matrix_row_end, step * 2)
 
-        sub_matrix_odd_numbered_row_end = sub_matrix_row_end - step
-
         leftmost_min_element_in_odd_numbered_rows(
             matrix, leftmost_min_element_in_each_row, row_start, row_end, step)
 
