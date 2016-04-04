@@ -851,5 +851,4 @@ def leftmost_min_element_in_odd_numbered_rows(
         leftmost_min_element_in_each_row[odd_numbered_row] = \
             find_leftmost_min_element_in_row(
                 matrix, odd_numbered_row, column_start, column_end)
-
 ```
