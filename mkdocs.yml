@@ -26,3 +26,5 @@ pages:
     - '5.3 Randomized algorithms': '5-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms.md'
     - '5.4 Probabilistic analysis and further uses of indicator random variables': '5-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables.md'
     - 'Problems': '5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems.md'
+- '6 Heapsort':
+    - '6.1 Heaps': '6-Heapsort/6.1-Heaps.md'
