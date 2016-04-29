@@ -28,3 +28,4 @@ pages:
     - 'Problems': '5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems.md'
 - '6 Heapsort':
     - '6.1 Heaps': '6-Heapsort/6.1-Heaps.md'
+    - '6.2 Maintaining the heap property': '6-Heapsort/6.2-Maintaining-the-heap-property.md'
