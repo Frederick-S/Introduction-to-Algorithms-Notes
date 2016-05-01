@@ -30,3 +30,4 @@ pages:
     - '6.1 Heaps': '6-Heapsort/6.1-Heaps.md'
     - '6.2 Maintaining the heap property': '6-Heapsort/6.2-Maintaining-the-heap-property.md'
     - '6.3 Building a heap': '6-Heapsort/6.3-Building-a-heap.md'
+    - '6.4 The heapsort algorithm': '6-Heapsort/6.4-The-heapsort-algorithm.md'
