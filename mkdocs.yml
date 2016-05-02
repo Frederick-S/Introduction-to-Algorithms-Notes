@@ -32,3 +32,4 @@ pages:
     - '6.3 Building a heap': '6-Heapsort/6.3-Building-a-heap.md'
     - '6.4 The heapsort algorithm': '6-Heapsort/6.4-The-heapsort-algorithm.md'
     - '6.5 Priority queues': '6-Heapsort/6.5-Priority-queues.md'
+    - 'Problems': '6-Heapsort/Problems.md'
