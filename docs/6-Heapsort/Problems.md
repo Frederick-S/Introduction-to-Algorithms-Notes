@@ -58,3 +58,88 @@ Since the `INSERT` method calls `INCREASE-KEY` method, the running time of `INCR
 
 ## 6-3
 ### a
+$$
+\begin{matrix}
+2 & 3 & 4 & 5 \\\
+8 & 9 & 12 & 14 \\\
+16 & \infty & \infty & \infty \\\
+\infty & \infty & \infty & \infty
+\end{matrix}
+$$
+
+### b
+If $Y[1, 1] = \infty$, then no cell can has a value greater than `Y[1, 1]`, other cells are all $\infty$, so Y is empty.
+
+`Y[m, n]` is the largest in Y, if it's not $\infty$, then others are also not $\infty$, so Y is full.
+
+### c
+`Y[1, 1]` is the smallest, after we extract it, we need to make Y to a Young tableau again.
+
+First we start at `Y[1, 1]`, then we compare its right element and below element, if right element is smaller than below element, we put right element to `Y[1, 1]`, which makes `Y[1, 1]` to `Y[1, m]` sorted, but `Y[1, 2]` to `Y[m, n]` might be not a Young tableau.
+
+if right element is greater than below element, we put below element to `Y[1, 1]`, which makes `Y[1, 1]` to `Y[1, n]` sorted, but `Y[2, 1]` to `Y[m, n]` might be not a Young tableau.
+
+```
+EXTRACT-MIN(Y)
+smallest = Y[1, 1]
+Y[1, 1] = ∞
+YOUNGIFY(Y, 1, 1)
+return smallest
+
+YOUNGIFY(Y, row, column)
+smallest_row = row
+smallest_column = column
+if row + 1 <= m and Y[row + 1, column] < Y[row, column]
+    smallest_row = row + 1
+if column + 1 <= n and Y[row, column + 1] < Y[smallest_row, smallest_column]
+    smallest_row = row
+    smallest_column = column + 1
+if smallest_row != row or smallest_column != column
+    exchange Y[row, column] with Y[smallest_row, smallest_column]
+    YOUNGIFY(Y, smallest_row, smallest_column)
+```
+
+After each recursive procedure, the `YOUNGIFY` method cuts a row or a column, which reduces the problem size to (m - 1) x n or m x (n - 1). Notice that both (m - 1) + n = m + n - 1 and m + (n - 1) = m + n - 1, so m + n is decreased by 1 in each recursive procedure. so T(p) = T(p - 1) + O(1), it's obvious to know that T(p) = O(p) = O(m + n).
+
+### d
+Similar like `EXTRACT-MIN`, we first put the new element to `Y[m, n]`, then youngify the tableau from `Y[m, n]`. The running time is O(m + n).
+
+```
+INSERT(Y, key)
+Y[m][n] = key
+YOUNGIFY-INSERT(Y, m, n)
+
+YOUNGIFY-INSERT(Y, row, column)
+largest_row = row
+largest_column = column
+if row - 1 >= 1 and Y[row - 1][column] > Y[row][column]
+    largest_row = row - 1
+if column - 1 >= 1 and Y[row][column - 1] > Y[largest_row][largest_column]
+    largest_row = row
+    largest_column = column - 1
+if largest_row != row or largest_column != column
+    exchange Y[row, column] with Y[largest_row, largest_column]
+    YOUNGIFY-INSERT(Y, largest_row, largest_column)
+```
+
+### e
+The `INSERT` operation takes O(n + n) = O(n) time, and there are $n^2$ elements, so we can insert each element into the n x n Young tableau, thus the running time is $n^2O(n) = O(n^3)$.
+
+### f
+We start from `Y[m, 1]`, and compare `Y[m, 1]` with target value, if `Y[m, 1]` is greater than target value, we move to `Y[m - 1, 1]`, if it's smaller than target value, we move to `Y[m, 2]`, otherwise, we find the target value.
+
+```
+FIND(Y, key)
+row = m
+column = 1
+while row >= 1 and column <= n
+    if Y[row][column] == key
+        return True
+    else if Y[row][column] < key
+        column += 1
+    else if Y[row][column] > key
+        row -= 1
+return False
+```
+
+Similar like `YOUNGIFY`, it reduces the problem size to (m - 1) x n or m x (n - 1), so the running time is O(m + n).

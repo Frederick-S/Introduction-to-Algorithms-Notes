@@ -33,3 +33,5 @@ pages:
     - '6.4 The heapsort algorithm': '6-Heapsort/6.4-The-heapsort-algorithm.md'
     - '6.5 Priority queues': '6-Heapsort/6.5-Priority-queues.md'
     - 'Problems': '6-Heapsort/Problems.md'
+- '7 Quicksort':
+    - '7.1 Description of quicksort': '7-Quicksort/7.1-Description-of-quicksort.md'
