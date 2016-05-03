@@ -20,7 +20,10 @@ $$
 \log_d{(n(d - 1) + 1)} - (\log_d{(n(d - 1))} + 1)  &=& \log_d{(\frac{1}{d}(1 + \frac{1}{n(d - 1)}))} \\\
 &\leq& \log_d{(\frac{1}{d}(1 + \frac{1}{d - 1}))} \\\
 &=& \log_d{\frac{1}{d - 1}} \\\
-&=& \log_d{\frac{1}{2 - 1}} \\\
+&\leq& \log_d{\frac{1}{\frac{d}{2}}} \\\
+&=& \log_d{\frac{2}{d}} \\\
+&=& \log_d2 - 1 \\\
+&\leq& \log_2{2} - 1 \\\
 &=& 0
 \end{eqnarray}
 $$
@@ -32,7 +35,7 @@ Then let's check the right part. $\frac{d^{h + 1} - 1}{d - 1} < \frac{d^{h + 1}}
 So $h = \lfloor \log_d{(n(d - 1))} \rfloor$.
 
 ### c
-It's similar like `EXTRACT-MAX` 2-ary heap. The running time of `EXTRACT-MAX` for d-ary heap is mainly the running time of `MAX-HEAPIFY`. We need to change `MAX-HEAPIFY` a little bit. 
+It's similar like `EXTRACT-MAX` 2-ary heap. The running time of `EXTRACT-MAX` for d-ary heap is mainly the running time of `MAX-HEAPIFY`. We need to change `MAX-HEAPIFY` a little bit.
 ```
 MAX-HEAPIFY(A, i)
 largest = i
