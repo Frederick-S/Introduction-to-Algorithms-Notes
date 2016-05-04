@@ -36,3 +36,4 @@ pages:
 - '7 Quicksort':
     - '7.1 Description of quicksort': '7-Quicksort/7.1-Description-of-quicksort.md'
     - '7.2 Performance of quicksort': '7-Quicksort/7.2-Performance-of-quicksort.md'
+    - '7.3 A randomized version of quicksort': '7-Quicksort/7.3-A-randomized-version-of-quicksort.md'
