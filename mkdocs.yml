@@ -35,3 +35,4 @@ pages:
     - 'Problems': '6-Heapsort/Problems.md'
 - '7 Quicksort':
     - '7.1 Description of quicksort': '7-Quicksort/7.1-Description-of-quicksort.md'
+    - '7.2 Performance of quicksort': '7-Quicksort/7.2-Performance-of-quicksort.md'
