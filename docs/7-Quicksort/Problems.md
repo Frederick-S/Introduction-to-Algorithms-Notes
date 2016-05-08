@@ -167,3 +167,63 @@ If we use `QUICKSORT'`, then the worst-case becomes a best-case. If all elements
 So we can avoid the assumption that all elements are distinct, because if an array with size n contains duplicate elements, the running time is less than the running time of the array with distinct elements.
 
 ## 7-3
+### a
+We choose the last element as pivot, but we randomize the array before that. It has the probability $\frac{1}{n}$ that an element will be put to the last position in array. So any particular element is chosen as the pivot is $\frac{1}{n}$. And $E[X_i] = \frac{1}{n}$.
+
+### b
+First let's check the expected running time when element i is chosen as pivot. The `PARTITION` method takes $\Theta(n)$, and the problem size is splited to `[p, i - 1]` and `[i + 1, r]`, the running time of the two subproblems are $T(i - 1 - p + 1) = T(i - p)$ and $T(r - (i + 1) + 1) = T(r - i)$. Thus the running time is $E[X_i(T(i - p) + T(r - i) + \Theta(n))]$, where p = 1, r = n.
+
+Thus $E[T(n)] = E[\sum_{q = 1}^n X_q(T(q - 1) + T(n - q) + \Theta(n))]$.
+
+### c
+$$
+\begin{eqnarray}
+E[T(n)] &=& E[\sum_{q = 1}^n X_q(T(q - 1) + T(n - q) + \Theta(n))] \\\
+&=& E[\sum_{q = 1}^n \frac{1}{n}(T(q - 1) + T(n - q) + \Theta(n))] \\\
+&=& \frac{1}{n}E[T(0) + T(n - 1) + \Theta(n) + T(1) + T(n - 2) + \Theta(n) + \ldots + T(n - 1) + T(0) + \Theta(n)] \\\
+&=& \frac{1}{n}E[(T(0) + T(1) + \ldots + T(n - 1)) + (T(n - 1) + T(n - 2) + \ldots + T(0)) + n\Theta(n)] \\\
+&=& \frac{1}{n}E[2\sum_{q = 0}^{n - 1}T(q) + n\Theta(n)] \\\
+&=& \frac{2}{n}E[\sum_{q = 0}^{n - 1}T(q)] + \Theta(n) \\\
+&=& \frac{2}{n}\sum_{q = 0}^{n - 1}E[T(q)] + \Theta(n) \\\
+&=& \frac{2}{n}\sum_{q = 2}^{n - 1}E[T(q)] + \frac{2}{n}(E[T(0)] + E[T(1)]) + \Theta(n) \\\
+&=& \frac{2}{n}\sum_{q = 2}^{n - 1}E[T(q)] + \Theta(n)
+\end{eqnarray}
+$$
+
+### d
+$$
+\begin{eqnarray}
+\sum_{k = 2}^{n - 1} k\lg{k} &=& \sum_{k = 2}^{\lceil \frac{n}{2} \rceil - 1} k\lg{k} + \sum_{k = \lceil \frac{n}{2} \rceil}^{n - 1} k\lg{k} \\\
+&<& \sum_{k = 2}^{\frac{n}{2} + 1 - 1} k\lg{k} + \sum_{k = \frac{n}{2}}^{n - 1} k\lg{k} \\\
+&=& \sum_{k = 2}^{\frac{n}{2}} k\lg{k} + \sum_{k = \frac{n}{2}}^{n - 1} k\lg{k} \\\
+&\leq& \sum_{k = 2}^{\frac{n}{2}} k\lg{\frac{n}{2}} + \sum_{k = \frac{n}{2}}^{n - 1} k\lg{n} \\\
+&=& (\lg{n} - 1)\frac{(2 + \frac{n}{2})(\frac{n}{2} - 2 + 1)}{2} + \lg{n}\frac{(\frac{n}{2} + n - 1)(n - 1 - \frac{n}{2} + 1)}{2} \\\
+&=& (\lg{n} - 1)(\frac{n^2}{8} + \frac{n}{4} - 1) + \lg{n}(\frac{3n^2}{8} - \frac{n}{4}) \\\
+&=& \frac{1}{2}n^2\lg{n} - \frac{1}{8}n^2 -\lg{n} - \frac{n}{4} + 1 \\\
+&<=& \frac{1}{2}n^2\lg{n} - \frac{1}{8}n^2 - \lg3 - \frac{3}{4} + 1 \\\
+&<& \frac{1}{2}n^2\lg{n} - \frac{1}{8}n^2
+\end{eqnarray}
+$$
+
+### e
+We stary by assuming that $E[T(n)] \leq an\lg{n}$ for all positive m < n, yielding $E[T(q)] \leq aq\lg{q}$. Substituting into the equation:
+
+$$
+\begin{eqnarray}
+E[T(n)]&=& \frac{2}{n}\sum_{q = 2}^{n - 1}E[T(q)] + \Theta(n) \\\
+&\leq& \frac{2}{n}\sum_{q = 2}^{n - 1} aq\lg{q} + \Theta(n) \\\
+&=& \frac{2a}{n}\sum_{q = 2}^{n - 1} q\lg{q} + \Theta(n) \\\
+&\leq& \frac{2a}{n}(\frac{1}{2}n^2\lg{n} - \frac{1}{8}n^2) + \Theta(n) \\\
+&=& an\lg{n} - \frac{a}{4}n + \Theta(n) \\\
+&\leq& an\lg{n} - \frac{a}{4}n + cn \\\
+&=& an\lg{n} - (\frac{a}{4} - c)n \\\
+&\leq& an\lg{n}
+\end{eqnarray}
+$$
+
+where the last step holds as long as $\frac{a}{4} \geq c$.
+
+Thus $E[T(n)] = \Theta(n\lg{n})$.
+
+## 7-4
+### a
