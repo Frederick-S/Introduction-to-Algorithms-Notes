@@ -114,3 +114,56 @@ while True
 
 ## 7-2
 ### a
+If all elements values are equal, then randomize the array won't make a difference. In exercise 7.2-2 we know the running time is $\Theta(n^2)$.
+
+### b
+```
+PARTITION'(A, p, r)
+x = A[r]
+i = p - 1
+t = p - 1
+for j = p to r - 1
+    if A[j] <= x
+        t = t + 1
+        i = i + 1
+        exchange A[t] with A[i]
+
+        if t != j:
+            exchange A[j] with A[i]
+    else if A[j] == x
+        t = t + 1
+        exchange A[t] with A[j]
+exchange A[t + 1] with A[r]
+return i + 1, t + 1
+```
+
+The running time is obviously $\Theta(r - p)$.
+
+### c
+```
+RANDOMIZED-QUICKSORT'(A, p, r)
+if p < r
+    q, t = RANDOMIZED-PARTITION'(A, p r)
+    RANDOMIZED-QUICKSORT'(A, p, q - 1)
+    RANDOMIZED-QUICKSORT'(A, t + 1, r)
+
+RANDOMIZED-PARTITION'(A, p, r)
+i = RANDOM(p, r)
+exchange A[r] with A[i]
+return PARTITION'(A, p, r)
+```
+
+```
+QUICKSORT'(A, p, r)
+if p < r
+    q, t = RANDOMIZED-PARTITION'(A, p r)
+    QUICKSORT'(A, p, q - 1)
+    QUICKSORT'(A, t + 1, r)
+```
+
+### d
+If we use `QUICKSORT'`, then the worst-case becomes a best-case. If all elements of the array are the same, then the `PARTITION'` on the whole array splits the problem size to `[p, p - 1]` and `[r + 1, r]`, then the subproblem terminates. The running time is $\Theta(n)$.
+
+So we can avoid the assumption that all elements are distinct, because if an array with size n contains duplicate elements, the running time is less than the running time of the array with distinct elements.
+
+## 7-3
