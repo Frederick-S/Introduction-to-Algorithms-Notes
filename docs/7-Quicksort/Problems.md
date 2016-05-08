@@ -227,3 +227,26 @@ Thus $E[T(n)] = \Theta(n\lg{n})$.
 
 ## 7-4
 ### a
+The `PARTITION` method splits the array into two parts, then it sorts the left part first. At last it assigns the right part start index as the new value of p, so in the next iteration, it starts to sort the right part. Thus the whole array is sorted.
+
+### b
+For example, when all elements in the array are same. The `PARTITION` method returns n, so the size of subproblems are n - 1 and 0, and it continues to call `TAIL-RECURSIVE-QUICKSORT` with size n - 1, but each recursive call only reduces the problem size by 1, thus the stack depth becomes $\Theta(n)$.
+
+### c
+After we split the array into two parts, we call `TAIL-RECURSIVE-QUICKSORT` on the smaller part. The max size of smaller part is $\frac{n}{2}$, thus the max stack depth is $\Theta(\lg{n})$.
+
+```
+TAIL-RECURSIVE-QUICKSORT(A, p, r)
+while p < r
+    // Partition and sort left subarray.
+    q = PARTITION(A, p, r)
+    if q - p > r - q
+        TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
+        r = q - 1
+    else
+        TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
+        p = q + 1
+```
+
+## 7-5
+### a
