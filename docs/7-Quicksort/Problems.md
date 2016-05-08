@@ -250,3 +250,38 @@ while p < r
 
 ## 7-5
 ### a
+If an element at index i is chosen as median, we need to pick one element in `A[1..i - 1]` and one element in `A[i + 1..n]`, and the picking order is not unique, so there are $A_3^{3}$ permutations. Thus the probability is $p_i = \frac{(i - 1)(n - i)A_3^{3}}{A_n{3}} = \frac{6(i - 1)(n - i)}{n(n - 1)(n - 2)}$.
+
+### b
+The $p_i$ of oridinary implementation is $\frac{1}{n}$. So:
+
+$$
+\begin{eqnarray}
+\frac{p_{\lfloor \frac{n + 1}{2} \rfloor}\frac{6(i - 1)(n - i)}{n(n - 1)(n - 2)}}{\frac{1}{n}} &=& \frac{\lim_{n \to \infty}\frac{6(\lfloor \frac{n + 1}{2} \rfloor - 1)(n - \lfloor \frac{n + 1}{2} \rfloor)}{n(n - 1)(n - 2)}}{\frac{1}{n}} \\\
+&=& \lim_{n \to \infty}\frac{6(\frac{n + 1}{2} - 1)(n - \frac{n + 1}{2})}{(n - 1)(n - 2)} \\\
+&=& \lim_{n \to \infty}\frac{6(\frac{n - 1}{2})^2}{(n - 1)(n - 2)} \\\
+&=& \frac{3}{2}
+\end{eqnarray}
+$$
+
+### c
+The likehood of getting a good split of the ordinary implementation is:
+
+$$
+\begin{eqnarray}
+\lim_{n \to \infty} \sum_{\frac{n}{3}}^{\frac{2n}{3}} \frac{1}{n} &=& \lim_{n \to \infty} \int_{\frac{n}{3}}^{\frac{2n}{3}} \frac{1}{n} di \quad (\int \frac{1}{n} di = \frac{i}{n}) \\\
+&=& \lim_{n \to \infty} \frac{\frac{2n}{3}}{n} - \frac{\frac{n}{3}}{n} \\\
+&=& \lim_{n \to \infty} (\frac{2}{3} - \frac{1}{3}) \\\
+&=& \frac{1}{3}
+\end{eqnarray}
+$$
+
+The likehood of getting a good split of the new implementation is:
+
+$$
+\begin{eqnarray}
+\lim_{n \to \infty} \sum_{\frac{n}{3}}^{\frac{2n}{3}} \frac{6(i - 1)(n - i)}{n(n - 1)(n - 2)} &=& \lim_{n \to \infty} \int_{\frac{n}{3}}^{\frac{2n}{3}} \frac{6(i - 1)(n - i)}{n(n - 1)(n - 2)} di \\\
+&=& \lim_{n \to \infty} \frac{6}{n(n - 1)(n - 2)} \int_{\frac{n}{3}}^{\frac{2n}{3}} (i - 1)(n - i) di \quad (\int (i - 1)(n - i) di = -\frac{1}{3}i^3 + \frac{n + 1}{2}i^2 - ni) \\\
+&=& \lim_{n \to \infty} \frac{6}{n(n - 1)(n - 2)} (-\frac{1}{3}(\frac{2n}{3})^3 + \frac{n + 1}{2}(\frac{2n}{3})^2 - n\frac{2n}{3} - (-\frac{1}{3}(\frac{n}{3})^3 + \frac{n + 1}{2}(\frac{n}{3})^2 - n\frac{n}{3}))
+\end{eqnarray}
+$$
