@@ -282,6 +282,17 @@ $$
 \begin{eqnarray}
 \lim_{n \to \infty} \sum_{\frac{n}{3}}^{\frac{2n}{3}} \frac{6(i - 1)(n - i)}{n(n - 1)(n - 2)} &=& \lim_{n \to \infty} \int_{\frac{n}{3}}^{\frac{2n}{3}} \frac{6(i - 1)(n - i)}{n(n - 1)(n - 2)} di \\\
 &=& \lim_{n \to \infty} \frac{6}{n(n - 1)(n - 2)} \int_{\frac{n}{3}}^{\frac{2n}{3}} (i - 1)(n - i) di \quad (\int (i - 1)(n - i) di = -\frac{1}{3}i^3 + \frac{n + 1}{2}i^2 - ni) \\\
-&=& \lim_{n \to \infty} \frac{6}{n(n - 1)(n - 2)} (-\frac{1}{3}(\frac{2n}{3})^3 + \frac{n + 1}{2}(\frac{2n}{3})^2 - n\frac{2n}{3} - (-\frac{1}{3}(\frac{n}{3})^3 + \frac{n + 1}{2}(\frac{n}{3})^2 - n\frac{n}{3}))
+&=& \lim_{n \to \infty} \frac{6}{n(n - 1)(n - 2)} (-\frac{1}{3}(\frac{2n}{3})^3 + \frac{n + 1}{2}(\frac{2n}{3})^2 - n\frac{2n}{3} - (-\frac{1}{3}(\frac{n}{3})^3 + \frac{n + 1}{2}(\frac{n}{3})^2 - n\frac{n}{3})) \\\
+&=& \lim_{n \to \infty} \frac{6}{n(n - 1)(n - 2)}(-\frac{7}{81}n^3 + \frac{1}{6}n^3 - \frac{1}{6}n^2) \\\
+&=& 6(-\frac{7}{81} + \frac{1}{6}) \\\
+&=& \frac{13}{27}
 \end{eqnarray}
 $$
+
+And the amount of improvement is $\frac{\frac{13}{27}}{\frac{1}{3}} = \frac{13}{9}$.
+
+### d
+The best-case of quicksort happens when the middle element is chosen as the pivot. And the running time is $\Omega(n\lg{n})$. Event the median-of-3 method picks the middle element as the pivot each time, the running time is still $\Omega(n\lg{n})$, thus it affects only the constant factor.
+
+## 7-6
+### a
