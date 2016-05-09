@@ -334,6 +334,6 @@ return i + 1, t + 1
 ```
 
 ### b
-It's just a variation of quicksort, so the expected running time is $\Theta(n\lg{n})$ in general.
+It's just a variation of problem 7-2, expected we use different comparision checks, so the expected running time is $\Theta(n\lg{n})$ in general.
 
 When all of the intervals overlap, we treat them like all of the intervals are equal, thus like the analysis in problem 7-2, the expected running time is $\Theta(n)$.
