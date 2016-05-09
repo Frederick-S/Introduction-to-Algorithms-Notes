@@ -123,7 +123,7 @@ x = A[r]
 i = p - 1
 t = p - 1
 for j = p to r - 1
-    if A[j] <= x
+    if A[j] < x
         t = t + 1
         i = i + 1
         exchange A[t] with A[i]
@@ -296,3 +296,44 @@ The best-case of quicksort happens when the middle element is chosen as the pivo
 
 ## 7-6
 ### a
+The idea is similar like problem 7-2. Given an interval as pivot, we treat the intervals which overlap with the pivot are "equal element values". The `PARTITION` method returns two indices q and t, where $p \leq q \leq t \leq r$, such that:
+
+* all intervals of `A[q..t]` overlap with `A[t]`,
+* the right ending of each interval of `A[p..q - 1]` is less than the left ending of `A[t]`,
+* the left ending of each interval of `A[t + 1..r]` is greater than the right ending of `A[t]`.
+
+```
+FUZZY-SORTING-OF-INTERVALS(A, p, r)
+if p < r
+    q, t = RANDOMIZED-PARTITION(A, p r)
+    FUZZY-SORTING-OF-INTERVALS(A, p, q - 1)
+    FUZZY-SORTING-OF-INTERVALS(A, t + 1, r)
+
+RANDOMIZED-PARTITION(A, p, r)
+i = RANDOM(p, r)
+exchange A[r] with A[i]
+return PARTITION(A, p, r)
+
+PARTITION(A, p, r)
+x = A[r]
+i = p - 1
+t = p - 1
+for j = p to r - 1
+    if A[j] is before x
+        t = t + 1
+        i = i + 1
+        exchange A[t] with A[i]
+
+        if t != j:
+            exchange A[j] with A[i]
+    else if A[j] overlaps with x
+        t = t + 1
+        exchange A[t] with A[j]
+exchange A[t + 1] with A[r]
+return i + 1, t + 1
+```
+
+### b
+It's just a variation of quicksort, so the expected running time is $\Theta(n\lg{n})$ in general.
+
+When all of the intervals overlap, we treat them like all of the intervals are equal, thus like the analysis in problem 7-2, the expected running time is $\Theta(n)$.
