@@ -43,3 +43,4 @@ pages:
     - '8.1 Lower bounds for sorting': '8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting.md'
     - '8.2 Counting sort': '8-Sorting-in-Linear-Time/8.2-Counting-sort.md'
     - '8.3 Radix sort': '8-Sorting-in-Linear-Time/8.3-Radix-sort.md'
+    - '8.4 Bucket sort': '8-Sorting-in-Linear-Time/8.4-Bucket-sort.md'
