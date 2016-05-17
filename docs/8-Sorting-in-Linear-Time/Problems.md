@@ -47,6 +47,63 @@ We know that $T_A$ has n! leaves, so k = n!, thus, $D(T_A) = d(n!) = \Omega(n!\l
 Since each permutation has probability $\frac{1}{n!}$, the average-case time to sort n elements is $\frac{D(T_A)}{n!} = \frac{\Omega(n!\lg{(n!)})}{n!} = \Omega(\lg{(n!)}) = \Omega(n\lg{n})$.
 
 ### f
-We can build a deterministic decision tree A from the randomized decision tree B. We go through all nodes in B, for each node, we pick the child that has the minimum cost, and delete other children. Thus we build a deterministic tree, which is a permutation of B. And we already know the running time of deterministic decision tree is $\Omega(n\lg{n})$. So we can find a deterministic comparsion sort A whose expected number of comparisions is no more thant those made by B.
+Suppose the randomized decision tree B has k permutations, so there exists a tree in the k permutations that has minimum comparisions, we can pick that tree as the deterministic decision tree A.
 
 ## 8-2
+### a
+Counting sort.
+
+### b
+```
+SORT-IN-PLACE(A)
+
+i = 1
+j = A.length
+
+while i < j
+    while A[i] == 0
+        i = i + 1
+
+    while A[j] == 1
+        j = j - 1
+
+    if i < j
+        exchange A[i] with A[j]
+```
+
+### c
+Insertion sort.
+
+### d
+The first algorithm satisfies, and that's the algorithm used in the book.
+
+The second algorithm is not stable, and the third algorithm doesn't run in O(n) time.
+
+### e
+```
+COUNTING-SORT-IN-PLACE(A, k)
+
+let C[0..k] be a new array
+for i = 0 to k
+    C[i] = 0
+for j = 1 to A.length
+    C[A[j]] = C[A[j]] + 1
+for i = 1 to k
+    C[i] = C[i] + C[i - 1]
+i = 1
+while i <= A.length
+    element = A[i]
+    position = C[element]
+    if i >= position
+        i = i + 1
+    else if element != A[position]
+        exchange A[i] with A[position]
+        C[element] = C[element] - 1
+    else
+        C[element] = C[element] - 1
+```
+
+It's not stable.
+
+## 8-3
+### a
