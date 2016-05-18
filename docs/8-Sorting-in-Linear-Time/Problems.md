@@ -130,7 +130,7 @@ The idea is similar like the previous question, but we don't group the strings b
 
 There is an important property that ensures the running time is O(n). If two strings have different first letter, then they are only compared once, we don't need to compare other characters in the two strings. Given a string $a_i$ with length $l_i$, then it will be sorted by `COUNTING-SORT` at most $l_i + 1$ times, the extra 1 time means $a_i$ is sorted as an empty string with other strings, then it will be grouped, and won't be compared any more in the next recursive procedure.
 
-Suppose there are m strings, so the running time is $O(\sum_{i = 1}^m (l_i + 1)) = O(\sum_{i = 1}^n l_i + m) = O(n + m) = O(n)$.
+Suppose there are m strings, so the running time is $O(\sum_{i = 1}^m (l_i + 1)) = O(\sum_{i = 1}^m l_i + m) = O(n + m) = O(n)$.
 
 ```
 SORTING-VARIABLE-LENGTH-STRINGS(A, start_letter_index)
