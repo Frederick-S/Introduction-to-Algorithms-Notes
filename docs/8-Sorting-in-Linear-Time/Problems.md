@@ -107,3 +107,23 @@ It's not stable.
 
 ## 8-3
 ### a
+```
+SORTING-VARIABLE-LENGTH-ITEMS(A)
+
+n = A.length
+let B[1..n] be a new array
+for i = 1 to n
+    let B[i] be a new array
+for i = 1 to n
+    insert A[i] to B[j], where j is the length of A[i]
+for i = 1 to n:
+    sort B[i] by RADIX-SORT
+concatenate the lists B[1], B[2], ..., B[n] together in order
+```
+
+Let $a_i$ be the number of integers which have i digits, so $\sum_{i = 1}^n{a_ii} = n$. The running time of `RADIX-SORT` is $O(dn)$, here we have $d = i, n = a_i$ so the total running time to sort all `B[i]` is $\sum_{i = 1}^nO(ia_i) = O(n)$.
+
+The other for loops also takes O(n), so the running time of the algorithm is still O(n).
+
+### b
+
