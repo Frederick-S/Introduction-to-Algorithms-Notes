@@ -108,7 +108,7 @@ It's not stable.
 ## 8-3
 ### a
 ```
-SORTING-VARIABLE-LENGTH-ITEMS(A)
+SORTING-VARIABLE-LENGTH-INTEGERS(A)
 
 n = A.length
 let B[1..n] be a new array
@@ -126,4 +126,26 @@ Let $a_i$ be the number of integers which have i digits, so $\sum_{i = 1}^n{a_ii
 The other for loops also takes O(n), so the running time of the algorithm is still O(n).
 
 ### b
+The idea is similar like the previous question, but we don't group the strings by string length, because they should be in alphabetical order. We group them by the first character, then we sort the groups by the first character using `COUNTING-SORT`. Then we do the same procedure recursively in each group, ignoring the first character.
 
+There is an important property that ensures the running time is O(n). If two strings have different first letter, then they are only compared once, we don't need to compare other characters in the two strings. Given a string $a_i$ with length $l_i$, then it will be sorted by `COUNTING-SORT` at most $l_i + 1$ times, the extra 1 time means $a_i$ is sorted as an empty string with other strings, then it will be grouped, and won't be compared any more in the next recursive procedure.
+
+Suppose there are m strings, so the running time is $O(\sum_{i = 1}^m (l_i + 1)) = O(\sum_{i = 1}^n l_i + m) = O(n + m) = O(n)$.
+
+```
+SORTING-VARIABLE-LENGTH-STRINGS(A, start_letter_index)
+
+// To make it simple, we assume there are only 256 characters
+k = 255
+let B[0..k] be a new array
+// Sort A by character index
+COUNTING-SORT(A, start_letter_index)
+for i = 1 to A.length
+    insert A[i] to B by A's character at start_letter_index
+for i = 0 to k
+    SORTING-VARIABLE-LENGTH-STRINGS(B[i], start_letter_index + 1)
+concatenate the lists B[0], B[1], ..., B[k] together in order
+```
+
+## 8-4
+### a
