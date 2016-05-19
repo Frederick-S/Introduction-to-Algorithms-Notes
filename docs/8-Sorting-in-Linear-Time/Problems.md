@@ -195,3 +195,69 @@ The running time analysis is similar like `QUICK-SORT`, the worst-case number of
 
 ## 8-5
 ### a
+It means the array is sorted.
+
+### b
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 10, 9]
+```
+
+### c
+If for all $i = 1, 2, \ldots, n - k$, $A[i] \leq A[i + k]$, then:
+
+$$
+\begin{eqnarray}
+\sum_{j = i}^{i + k - 1} A[j] &=& A[i] + \sum_{j = i + 1}^{i + k - 1} A[j] \\\
+&\leq& A[i + k] + \sum_{j = i + 1}^{i + k - 1} A[j] \\\
+&=& \sum_{j = i + 1}^{i + k} A[j]
+\end{eqnarray}
+$$
+
+So for all $i = 1, 2, \ldots, n - k$, $\frac{\sum_{j = i}^{i + k - 1} A[j]}{k} \leq \frac{\sum_{j = i + 1}^{i + k} A[j]}{k}$.
+
+If for all $i = 1, 2, \ldots, n - k$, $\frac{\sum_{j = i}^{i + k - 1} A[j]}{k} \leq \frac{\sum_{j = i + 1}^{i + k} A[j]}{k}$, then:
+
+$$
+\begin{eqnarray}
+\sum_{j = i}^{i + k - 1} A[j] &=& A[i] + \sum_{j = i + 1}^{i + k - 1} A[j] \\\
+&\leq& \sum_{j = i + 1}^{i + k} A[j] \\\
+&=& \sum_{j = i + 1}^{i + k - 1} A[j] + A[i + k]
+\end{eqnarray}
+$$
+
+So $A[i] + \sum_{j = i + 1}^{i + k - 1} A[j] \leq \sum_{j = i + 1}^{i + k - 1} A[j] + A[i + k]$, thus $A[i] \leq A[i + k]$, so for all $i = 1, 2, \ldots, n - k$, $A[i] \leq A[i + k]$.
+
+### d
+We can use the property in the previous question to k-sort an n-element array. Thus, we need to split the array into k groups, each group contains $\frac{n}{k}$ elements, then we sort the k groups separately.
+
+```
+K-SORT-ARRAY(A, k)
+
+for i = 1 to k
+    sort A[i], A[i + k], ...
+```
+
+The running time to sort one group is $O(\frac{n}{k}\lg{\frac{n}{k}})$, so the running time of the algorithm is $kO(\frac{n}{k}\lg{\frac{n}{k}}) = O(n\lg{\frac{n}{k}})$.
+
+### e
+A k-sorted array means we have k sorted lists, so we can use the algorithm in exercise 6.5-9 to sort it in $O(n\lg{k})$ time.
+
+### f
+The running time of k-sorting an n-element array is also $\Omega(n\lg{\frac{n}{k}})$, when k is constant, we have:
+
+$$
+\begin{eqnarray}
+T(n) &\geq& cn\lg{\frac{n}{k}} \\\
+&=& cn\lg{n} - cn\lg{k} \\\
+&=& \frac{1}{2}cn\lg{n} + cn(\frac{1}{2}\lg{n} - \lg{k}) \\\
+&\geq& \frac{1}{2}cn\lg{n} \\\
+&=& \Omega(n\lg{n})
+\end{eqnarray}
+$$
+
+where the last step holds as long as $n \geq k^2$.
+
+So $T(n) = \Omega(n\lg{n})$
+
+## 8-6
+### a
