@@ -261,3 +261,34 @@ So $T(n) = \Omega(n\lg{n})$
 
 ## 8-6
 ### a
+First we select n numbers from the 2n numbers as the first sorted list, then the left numbers are belong to the other sorted list.
+
+The number of possible ways is $C_{2n}^n$.
+
+### b
+Assume the height of decision tree is h, and there are l reachable leaves, thus we have $C_{2n}^n \leq l \leq 2^h$, so:
+
+$$
+\begin{eqnarray}
+h &\geq& \lg{(C_{2n}^n)} \\\
+&=& \lg{\frac{(2n)!}{n!n!}} \\\
+&=& \lg{\frac{\sqrt{2\pi2n}(\frac{2n}{e})^{2n}(1 + O(\frac{1}{2n}))}{(\sqrt{2\pi{n}}(\frac{n}{e})^n(1 + O(\frac{1}{n})))^2}} & \text{(Stirling's approximation)} \\\
+&=& \lg{\frac{2^{2n}(1 + O(\frac{1}{2n}))}{\sqrt{\pi{n}}(1 + O(\frac{1}{n}))^2}} \\\
+&=& \lg{(2^{2n}(1 + O(\frac{1}{2n})))} - \lg{(\sqrt{\pi{n}}(1 + O(\frac{1}{n}))^2)} \\\
+&=& \lg{2^{2n}} + \lg{(1 + O(\frac{1}{2n}))} - (\lg{\sqrt{\pi{n}}} + \lg{((1 + O(\frac{1}{n}))^2)}) \\\
+&=& 2n + \lg{(1 + O(\frac{1}{2n}))} - \lg{\sqrt{\pi{n}}} - 2\lg{(1 + O(\frac{1}{n}))} \\\
+&=& 2n - \frac{1}{2}\lg{(\pi{n})} - \lg{(1 + O(\frac{1}{2n}))} \\\
+&=& 2n - o(n)
+\end{eqnarray}
+$$
+
+So it must perform at least $2n - o(n)$ comparisions.
+
+### c
+If they are from different lists, we have to compare them to know which is larger or smaller.
+
+### d
+There are 2n - 1 consecutive elements in the sorted 2n elements, thus we need 2n - 1 comparisions.
+
+## 8-7
+### a
