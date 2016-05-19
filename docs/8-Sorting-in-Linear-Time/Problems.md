@@ -149,3 +149,49 @@ concatenate the lists B[0], B[1], ..., B[k] together in order
 
 ## 8-4
 ### a
+```
+WATER-JUGS(RED-JUGS, BLUE-JUGS)
+
+let WATER-JUG-PAIRS be a new array
+
+for i = 1 to RED-JUGS.length
+    for j = 1 to BLUE-JUGS.length
+        if RED-JUGS[i] and BLUE-JUGS[j] have the same volume
+            put RED-JUGS[i] and BLUE-JUGS[j] into WATER-JUG-PAIRS
+```
+
+### b
+We are mapping n red jugs to n blue jugs, so there are $n * (n - 1) * \ldots * 1 = n!$ permutations, in the decision tree, each node has 3 children (>, <, =). Consider the decision tree of height h with l reachable leaves. Because each of the n! permutations of the input appears as some leaf, we have $n! \leq l$, and the tree of height h has no more than $3^h$ leaves, we have $n! \leq l \leq 3^h$, so $h \geq \log_3{(n!)} = c\lg{(n!)} = \Omega(n\lg{n})$.
+
+Thus the lower bound for the number of comparisions is $\Omega(n\lg{n})$.
+
+### c
+The idea is similar like `QUICK-SORT`, first we randomly pick a jug in red jugs as pivot, then we partition the red jugs into two parts, red jugs that have smaller volume and red jugs that have larger volume. And we also partition the blue jugs into two parts. Then we recursively solve the problem with the new jugs.
+
+```
+WATER-JUGS(RED-JUGS, BLUE-JUGS)
+
+i = RANDOM(1, RED-JUGS.length)
+pivot = RED-JUGS[i]
+let RED-JUGS-SMALLER-THAN-PIVOT be a new array
+let RED-JUGS-LARGER-THAN-PIVOT be a new array
+let BLUE-JUGS-SMALLER-THAN-PIVOT be a new array
+let BLUE-JUGS-LARGER-THAN-PIVOT be a new array
+for i = 1 to RED-JUGS.length
+    if RED-JUGS[i] < pivot
+        insert RED-JUGS[i] into RED-JUGS-SMALLER-THAN-PIVOT
+    else if RED-JUGS[i] > pivot
+        insert RED-JUGS[i] into RED-JUGS-LARGER-THAN-PIVOT
+    if BLUE-JUGS[i] < pivot
+        insert RED-JUGS[i] into BLUE-JUGS-SMALLER-THAN-PIVOT
+    else if BLUE-JUGS[i] > pivot
+        insert BLUE-JUGS[i] into BLUE-JUGS-LARGER-THAN-PIVOT
+display(pivot, pivot)
+WATER-JUGS(RED-JUGS-SMALLER-THAN-PIVOT, BLUE-JUGS-SMALLER-THAN-PIVOT)
+WATER-JUGS(RED-JUGS-LARGER-THAN-PIVOT, BLUE-JUGS-LARGER-THAN-PIVOT)
+```
+
+The running time analysis is similar like `QUICK-SORT`, the worst-case number of comparisions is $\Theta(n^2)$ when the smallest or the largest jug is chosen as the pivot in each procedure, the problem size is splited into n - 1 and 1.
+
+## 8-5
+### a
