@@ -45,3 +45,5 @@ pages:
     - '8.3 Radix sort': '8-Sorting-in-Linear-Time/8.3-Radix-sort.md'
     - '8.4 Bucket sort': '8-Sorting-in-Linear-Time/8.4-Bucket-sort.md'
     - 'Problems': '8-Sorting-in-Linear-Time/Problems.md'
+- '9 Medians and Order Statistics':
+    - '9.1 Minimum and maximum': '9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum.md'

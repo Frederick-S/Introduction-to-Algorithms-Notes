@@ -292,3 +292,6 @@ There are 2n - 1 consecutive elements in the sorted 2n elements, thus we need 2n
 
 ## 8-7
 ### a
+We know that `A[p]` is put into a wrong location, and `A[q]` is the value that algorithm X moves to the location into which `A[p]` should have gone. So `A[q]` is also put into a wrong location, but `A[p]` is the smallest value in A that algorithm X puts into the wrong location, so `A[p] < A[q]`, thus, `B[p] = 0` and `B[q] = 1`.
+
+### b
