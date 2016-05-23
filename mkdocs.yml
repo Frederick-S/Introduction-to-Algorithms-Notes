@@ -47,3 +47,4 @@ pages:
     - 'Problems': '8-Sorting-in-Linear-Time/Problems.md'
 - '9 Medians and Order Statistics':
     - '9.1 Minimum and maximum': '9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum.md'
+    - '9.2 Selection in expected linear time': '9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time.md'
