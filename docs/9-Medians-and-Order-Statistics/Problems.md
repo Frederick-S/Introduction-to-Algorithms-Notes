@@ -65,3 +65,44 @@ else
 The recurrence of the algorithm is $T(n) = T(\frac{n}{2}) + \Theta(n)$. Let's solve it by the master method. Here we have a = 1, b = 2, $f(n) = \Theta(n)$. So $\log_b{a} = \log_2{1} = 0$, so $f(n) = \Omega(n^{\log_b{a} + \epsilon})$ for $\epsilon = 0.5$. And $af(\frac{n}{b}) = f(\frac{n}{2}) \leq cf(n)$ for $c = \frac{1}{2}$ and all sufficiently large n, thus $T(n) = \Theta(f(n)) = \Theta(n)$.
 
 ### d
+Let p denotes the weighted median, so $f(p) = \sum_{i = 1}^n w_id(p - p_i) = \sum_{i = 1}^n w_i|p - p_i|$. Since we need to prove the weighted median is the best solution, so for any other point x other than p we should have $f(x) \geq f(p)$, or $f(x) - f(p) \geq 0$.
+
+So $f(x) - f(p) = \sum_{i = 1}^n w_i|x - p_i| - \sum_{i = 1}^n w_i|p - p_i| = \sum_{i = 1}^n w_i(|x - p_i| - |p - p_i|)$.
+
+First let's check the situation when x < p.
+
+When $p_i \leq x < p$, $|x - p_i| - |p - p_i| = x - p_i - (p - p_i) = x - p$, when $x < p_i < p$, $|x - p_i| - |p - p_i| = (p_i - x) - (p - p_i) > 0 - (p - x) = x - p$. When $x < p \leq p_i$, $|x - p_i| - |p - p_i| = p_i - x - (p_i - p) = p - x$.
+
+Thus:
+
+$$
+\begin{eqnarray}
+\sum_{i = 1}^n w_i(|x - p_i| - |p - p_i|) &>& (x - p)\sum_{p_i < p}w_i + (p - x)\sum_{p_i \geq p}w_i \\\
+&=& (p - x)(\sum_{p_i \geq p}w_i - \sum_{p_i < p}w_i)
+\end{eqnarray}
+$$
+
+Because p is weighted median, so $\sum_{p_i \geq p}w_i > \frac{1}{2}$, $\sum_{p_i < p}w_i < \frac{1}{2}$, so $(p - x)(\sum_{p_i \geq p}w_i - \sum_{p_i < p}w_i) > 0$.
+
+Now let's check the situation when x > p.
+
+When $p_i \leq p < x$, $|x - p_i| - |p - p_i| = x - p_i - (p - p_i) = x - p$, when $p < p_i < x$, $|x - p_i| - |p - p_i| = x - p_i - (p_i - p) > 0 - (x - p) = p - x$, when $p < x \leq p_i$, $|x - p_i| - |p - p_i| = p_i - x - (p_i - p) = p - x$.
+
+Thus:
+
+$$
+\begin{eqnarray}
+\sum_{i = 1}^n w_i(|x - p_i| - |p - p_i|) &>& (p - x)\sum_{p_i > p}w_i + (x - p)\sum_{p_i \leq p}w_i \\\
+&=& (x - p)(\sum_{p_i \leq p}w_i - \sum_{p_i > p}w_i)
+\end{eqnarray}
+$$
+
+Because $\sum_{p_i \leq p}w_i > \frac{1}{2}$ and $\sum_{p_i > p}w_i < \frac{1}{2}$, so $(x - p)(\sum_{p_i \leq p}w_i - \sum_{p_i > p}w_i) > 0$.
+
+So for any point x other than p we have $f(x) > f(p)$, so the weighted median is the best solution.
+
+### e
+We need to find a point p(x, y) such that $\sum_{i = 1}^n w_i(|x - x_i| + |y - y_i|)$ is minimum. Because $\sum_{i = 1}^n w_i(|x - x_i| + |y - y_i|) = \sum_{i = 1}^n w_i|x - x_i| + \sum_{i = 1}^n w_i|y - y_i|$, the problem is actually 2 1-dimensional problems. Thus let x be the weighted median of all x coordinate values, and let y be the weighted median of all y coordinate values, so p(x, y) is the best solution.
+
+## 9-3
+### a
