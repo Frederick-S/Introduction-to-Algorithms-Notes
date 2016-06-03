@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>2.2 Analyzing algorithms - Introduction to Algorithms</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "2.2 Analyzing algorithms";
+    var mkdocs_page_input_path = "2-Getting-Started/2.2-Analyzing-algorithms.md";
+    var mkdocs_page_url = "/2-Getting-Started/2.2-Analyzing-algorithms/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="../../mathjaxconfig.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Introduction to Algorithms</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>2 Getting Started</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../2.1-Insertion-sort/">2.1 Insertion sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">2.2 Analyzing algorithms</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#22-analyzing-algorithms">2.2 Analyzing algorithms</a></li>
+                
+                    <li><a class="toctree-l4" href="#22-1">2.2-1</a></li>
+                
+                    <li><a class="toctree-l4" href="#22-2">2.2-2</a></li>
+                
+                    <li><a class="toctree-l4" href="#22-3">2.2-3</a></li>
+                
+                    <li><a class="toctree-l4" href="#22-4">2.2-4</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../2.3-Designing-algorithms/">2.3 Designing algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>3 Growth of Functions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.1-Asymptotic-notation/">3.1 Asymptotic notation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>4 Divide and Conquer</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/">4.6 Proof of the master theorem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>5 Probabilistic Analysis and Randomized Algorithms</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.1-The-hiring-problem/">5.1 The hiring problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/">5.2 Indicator random variables</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>6 Heapsort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.1-Heaps/">6.1 Heaps</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.3-Building-a-heap/">6.3 Building a heap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.4-The-heapsort-algorithm/">6.4 The heapsort algorithm</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.5-Priority-queues/">6.5 Priority queues</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>7 Quicksort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.4-Analysis-of-quicksort/">7.4 Analysis of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>8 Sorting in Linear Time</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>9 Medians and Order Statistics</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/">9.3 Selection in worst-case linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Introduction to Algorithms</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>2 Getting Started &raquo;</li>
+        
+      
+    
+    <li>2.2 Analyzing algorithms</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="22-analyzing-algorithms">2.2 Analyzing algorithms</h1>
+<h2 id="22-1">2.2-1</h2>
+<p>$\Theta(n^3)$.</p>
+<h2 id="22-2">2.2-2</h2>
+<p>Pseudocode:</p>
+<pre><code>SELECTION-SORT (A)
+
+1 for i = 1 to A.length - 1
+2     min_index = i
+3
+4     for j = i + 1 to A.length
+5         if A[min_index] &gt; A[j]
+6             min_index = j
+7
+8     if i != min_index:
+9         temp = A[i]
+10        A[i] = A[min_index]
+11        A[min_index] = temp
+</code></pre>
+
+<p>Loop invariant:</p>
+<p><strong>At the start of each iteration of the outer for loop, the subarray A[1..i - 1] consists of elements that are in sorted order</strong>.</p>
+<p>Why does it need to run for only the first n - 1 elements, rather than for all n elements?</p>
+<p>When i equals to A.length - 1, only the last two elements may not be in sorted order, and we need to find the A.length - 1 smallest element, so we compare A[A.length - 1] and A[A.length]. We put the smaller element at the index of A.length - 1, and put the larger element at the index of A.length. So after this iteration, the last element of the array is already the largest number. So it's not necessary to run for the nth element.</p>
+<p>Give the best-case and worst-case running times of selection sort in $\Theta$ notation.</p>
+<p>Let's first see the cost of each statement and the number of times each statement is executed. We let $t_i$ denote the number of times the operation in line 6 is executed for that value of i, and let $p_i$ denote the number of times the operation in line 9/10/11 is executed for that value of i.</p>
+<table>
+<thead>
+<tr>
+<th>Line number</th>
+<th align="center">Cost</th>
+<th align="right">Times</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td align="center">$c_1$</td>
+<td align="right">$n$</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">$c_2$</td>
+<td align="right">$n - 1$</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">$c_4$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} (n - i + 1) = \frac{n(n + 1)}{2} - 1$</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">$c_5$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} (n - i) = \frac{n(n - 1)}{2}$</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">$c_6$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} t_i$</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">$c_8$</td>
+<td align="right">$n - 1$</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">$c_9$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} p_i$</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">$c_{10}$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} p_i$</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">$c_{11}$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} p_i$</td>
+</tr>
+</tbody>
+</table>
+<p>So the running time of selection sort is:</p>
+<p>$$T(n) = c_1n + c_2(n - 1) + c_4(\frac{n(n + 1)}{2} - 1) + c_5\frac{n(n - 1)}{2} + c_6\sum_{i = 1}^{n - 1} t_i + c_8(n - 1) + \\\
+(c_9 + c_{10} + c_{11})\sum_{i = 1}^{n - 1} p_i$$</p>
+<p>Now let's see the best-case. The best-case occurs if the array is already sorted. Thus $t_i$ and $p_i$ are both 0, and the best-case running time is:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; c_1n + c_2(n - 1) + c_4(\frac{n(n + 1)}{2} - 1) + c_5\frac{n(n - 1)}{2} + c_8(n - 1)       \\\
+  &amp;=&amp; (\frac{c_4}{2} + \frac{c_5}{2})n^2 + (c_1 + c_2 + \frac{c_4}{2} - \frac{c_5}{2} + c_8)n - (c_2 + c_4 + c_8)  \\\
+  &amp;=&amp; \Theta(n^2)
+\end{eqnarray}
+$$</p>
+<p>And the worst-case occurs if the array is in reverse sorted order. Thus in the iteration of j, line 6 is executed from i + 1 to A.length - (i - 1) (because after the first iteration of i, the largest element is at the index of A.length, after the second iteration of i, the second largest element is at the index of A.length - 1, so the last i - 1 elements are bigger than the previous elements), so $t_i = n - i - (i - 1) = n - 2i + 1$. So the times of line 6 is $c_6\sum_{i = 1}^{n - 1} (n - 2i + 1)$, notice that $n - 2i + 1$ will be 0, when it's 0, it's not necessary to sum it, to make it simple, let's assume it stops when $i = \frac{n}{2}$. So:</p>
+<p>$$
+\begin{eqnarray}
+\sum_{i = 1}^{n - 1} (n - 2i + 1) &amp;=&amp; (n - 1) + (n - 3) + \ldots + 1 \\\
+&amp;=&amp; n * \frac{n}{2} - (1 + 3 + 5 + \ldots + (2 * \frac{n}{2} - 1)) \\\
+&amp;=&amp; \frac{n^2}{2} - \frac{\frac{n}{2}(1 + n - 1)}{2} \\\
+&amp;=&amp; \frac{n^2}{4}
+\end{eqnarray}
+$$</p>
+<p>Now let's see $p_i$, we already assume that line 6 will not be executed when $i \geq \frac{n}{2}$, which also means line 9 to line 11 will not be executed. So $\sum_{i = 1}^{n - 1} p_i$ should be $\frac{n}{2}$. So the running time of worst-case is:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; c_1n + c_2(n - 1) + c_4(\frac{n(n + 1)}{2} - 1) + c_5\frac{n(n - 1)}{2} + c_6\frac{n^2}{4} + c_8(n - 1) + \frac{c_9 + c_{10} + c_{11}}{2}n \\\
+  &amp;=&amp; (\frac{c_4}{2} + \frac{c_5}{2} + \frac{c_6}{4})n^2 + (c_1 + c_2 + \frac{c_4}{2} - \frac{c_5}{2} + c_8 + \frac{c_9 + c_{10} + c_{11}}{2})n - (c_2 + c_4 + c_8)  \\\
+  &amp;=&amp; \Theta(n^2)
+\end{eqnarray}
+$$</p>
+<h2 id="22-3">2.2-3</h2>
+<p>How many elements of the input sequence need to be checked on the average?</p>
+<p>Since the element being searched for is equally likely to be any element in the array, so the probability of finding the target value at index i is $1 / n$, and it will check i elements. So the average checks is:</p>
+<p>$$\frac{1}{n}(1 + 2 + 3 + \ldots + n - 1 + n) = \frac{1}{n}\frac{n(n + 1)}{2}=\frac{n + 1}{2}$$</p>
+<p>And the worst case will check n elements. The running time of average case and worst case are both $\Theta(n)$.</p>
+<h2 id="22-4">2.2-4</h2>
+<p>We can check if the input is a best-case first, if it is true, then we can return a predefined solution for that best-case. For example, in a sorting algorithm, if the input is sorted, then we can return the array directly.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2.3-Designing-algorithms/" class="btn btn-neutral float-right" title="2.3 Designing algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../2.1-Insertion-sort/" class="btn btn-neutral" title="2.1 Insertion sort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../2.1-Insertion-sort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../2.3-Designing-algorithms/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

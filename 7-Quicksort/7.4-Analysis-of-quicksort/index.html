@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>7.4 Analysis of quicksort - Introduction to Algorithms</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "7.4 Analysis of quicksort";
+    var mkdocs_page_input_path = "7-Quicksort/7.4-Analysis-of-quicksort.md";
+    var mkdocs_page_url = "/7-Quicksort/7.4-Analysis-of-quicksort/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="../../mathjaxconfig.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Introduction to Algorithms</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>2 Getting Started</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>3 Growth of Functions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.1-Asymptotic-notation/">3.1 Asymptotic notation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>4 Divide and Conquer</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/">4.6 Proof of the master theorem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>5 Probabilistic Analysis and Randomized Algorithms</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.1-The-hiring-problem/">5.1 The hiring problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/">5.2 Indicator random variables</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>6 Heapsort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.1-Heaps/">6.1 Heaps</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.3-Building-a-heap/">6.3 Building a heap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.4-The-heapsort-algorithm/">6.4 The heapsort algorithm</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.5-Priority-queues/">6.5 Priority queues</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>7 Quicksort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">7.4 Analysis of quicksort</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#74-analysis-of-quicksort">7.4 Analysis of quicksort</a></li>
+                
+                    <li><a class="toctree-l4" href="#74-1">7.4-1</a></li>
+                
+                    <li><a class="toctree-l4" href="#74-2">7.4-2</a></li>
+                
+                    <li><a class="toctree-l4" href="#74-3">7.4-3</a></li>
+                
+                    <li><a class="toctree-l4" href="#74-4">7.4-4</a></li>
+                
+                    <li><a class="toctree-l4" href="#74-5">7.4-5</a></li>
+                
+                    <li><a class="toctree-l4" href="#74-6">7.4-6</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>8 Sorting in Linear Time</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>9 Medians and Order Statistics</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/">9.3 Selection in worst-case linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Introduction to Algorithms</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>7 Quicksort &raquo;</li>
+        
+      
+    
+    <li>7.4 Analysis of quicksort</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="74-analysis-of-quicksort">7.4 Analysis of quicksort</h1>
+<h2 id="74-1">7.4-1</h2>
+<p>We guess that $T(n) \geq cn^2$ for some constant c. Substituting this guess into recurrence, we obtain:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; \max_{0 \leq q \leq n - 1}(T(q) + T(n - q - 1)) + \Theta(n) \\
+&amp;\geq&amp; \max_{0 \leq q \leq n - 1}(cq^2 + c(n - q - 1)^2) + \Theta(n) \\
+&amp;=&amp; c\max_{0 \leq q \leq n - 1}(q^2 + (n - q - 1)^2) + \Theta(n) \\
+&amp;=&amp; c\max_{0 \leq q \leq n - 1}(2q^2 - 2(n - 1)q + (n - 1)^2) + \Theta(n)
+\end{eqnarray}
+$$</p>
+<p>$f(q) = 2q^2 - 2(n - 1)q + (n - 1)^2$ is monotonically decreasing at $[0, \frac{n - 1}{2}]$, and monotonically increasing at $[\frac{n - 1}{2}, n - 1]$. So $\max_{0 \leq q \leq n - 1}(2q^2 - 2(n - 1)q + (n - 1)^2) = f(0) = f(n) = (n - 1)^2$. Thus:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;\geq&amp; c(n - 1)^2 + \Theta(n) \\
+&amp;=&amp; c(n - 1)^2 + dn \\
+&amp;=&amp; cn^2 + (d - 2c)n + c \\
+&amp;&gt;&amp; cn^2
+\end{eqnarray}
+$$</p>
+<p>where the last step holds as long as $ d \geq 2c$.</p>
+<p>So $T(n) = \Omega(n^2)$</p>
+<h2 id="74-2">7.4-2</h2>
+<p>The recurrence for the best-case is $T(n) = 2T(\frac{n}{2}) + \Theta(n)$. Let's solve it with the master method. We have $a = 2, b = 2, f(n) = \Theta(n)$, and thus we have that $n^{\log_b{a}} = n^{\log_2{2}} = n = \Theta(n)$. Since $f(n) = \Theta(n)$, we can apply case 2 of the master theorem and conclude that the solution is $T(n) = \Theta(n\lg{n})$. Thus, $T(n) = \Omega(n\lg{n})$.</p>
+<h2 id="74-3">7.4-3</h2>
+<p>We've already knew it in the first exercise.</p>
+<h2 id="74-4">7.4-4</h2>
+<p>We have:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n \frac{2}{j - i + 1} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{n - i} \frac{2}{k + 1} \\
+&amp;\geq&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{n - i} \frac{2}{2k} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{n - i} \frac{1}{k} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{i} \frac{1}{k} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}(\ln{i} + O(1)) &amp; \text{(A.7)} \\
+&amp;=&amp; \ln{((n - 1)!)} + (n - 1)O(1) \\
+&amp;=&amp; \Omega(n\lg{n}) + O(n) &amp; \text{(Exercise 3.2-3)} \\
+&amp;=&amp; \Omega(n\lg{n})
+\end{eqnarray}
+$$</p>
+<h2 id="74-5">7.4-5</h2>
+<p>Quicksort splits the array into two parts, let's say $T(n) = T(\alpha{n}) + T((1 - \alpha)n) + \Theta(n)$. In exercise 7.2-5, we know when $0 \leq \alpha \leq \frac{1}{2}$, the minimum depth of a leaf is $\log_{\alpha}{\frac{1}{n}}$ and the maximum depth is $\log_{1 - \alpha}{\frac{1}{n}}$, when $\frac{1}{2} &lt; \alpha &lt; 1$, it's opposite. To make it simple, let the recursion tree depth be $\log_{\beta}n$, since the new algorithm terminates when a subarray contains fewer than k elements, so we have $\frac{n}{\beta^{i}} = k$ and $i = \log_{\beta}{\frac{n}{k}}$, so the depth is $O(\lg{\frac{n}{k}})$. Since each recursion tree level costs $O(n)$, the running time of quicksort is $O(n\lg{\frac{n}{k}})$.</p>
+<p>The last step is sorting the array by insertion sort. Let's assume n is exactly divisible by k, thus, after quicksort, the $\frac{n}{k}$ subarrays (each with length $\frac{n}{k}$) is sorted, but it's not sorted within the subarray. It requires $O(k^2)$ to sort each subarray, so it requires $\frac{n}{k}k^2 = nk$ to sort entir array.</p>
+<p>So the running time is $O(nk + n\lg{\frac{n}{k}})$.</p>
+<p>In order to beat quicksort, we need to find a k such that $O(nk + n\lg{\frac{n}{k}}) &lt; O(n\lg{n})$, let's compare $nk + n\lg{\frac{n}{k}}$ and $n\lg{n}$.</p>
+<p>$$
+\begin{eqnarray}
+nk + n\lg{\frac{n}{k}} - n\lg{n} &amp;=&amp; nk + n\lg{\frac{1}{k}} \\
+&amp;=&amp; nk - n\lg{k} \\
+&amp;=&amp; n(k - \lg{k})
+\end{eqnarray}
+$$</p>
+<p>But k grows faster than $\lg{k}$, so we cannot pick a good k here. Thus we can multiply a constant c to $n\lg{n}$. Thus:</p>
+<p>$$
+\begin{eqnarray}
+nk + n\lg{\frac{n}{k}} - cn\lg{n} &amp;=&amp; nk + n\lg{n} - n\lg{k} - cn\lg{n} \\
+&amp;=&amp; n(\lg{2^k} + \lg{n} - \lg{k} - \lg{n^c}) \\
+&amp;=&amp; n\lg{\frac{2^k}{kn^{c - 1}}}
+\end{eqnarray}
+$$</p>
+<p>So we only need to find a k that satifies $\frac{2^k}{kn^{c - 1}} &lt; 1$, which is possible.</p>
+<p>In practice, we need to do some tests to find a proper k.</p>
+<h2 id="74-6">7.4-6</h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Problems/" class="btn btn-neutral float-right" title="Problems">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../7.3-A-randomized-version-of-quicksort/" class="btn btn-neutral" title="7.3 A randomized version of quicksort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../7.3-A-randomized-version-of-quicksort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Problems/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

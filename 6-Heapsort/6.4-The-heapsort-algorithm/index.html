@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>6.4 The heapsort algorithm - Introduction to Algorithms</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "6.4 The heapsort algorithm";
+    var mkdocs_page_input_path = "6-Heapsort/6.4-The-heapsort-algorithm.md";
+    var mkdocs_page_url = "/6-Heapsort/6.4-The-heapsort-algorithm/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="../../mathjaxconfig.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Introduction to Algorithms</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>2 Getting Started</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>3 Growth of Functions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.1-Asymptotic-notation/">3.1 Asymptotic notation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>4 Divide and Conquer</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/">4.6 Proof of the master theorem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>5 Probabilistic Analysis and Randomized Algorithms</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.1-The-hiring-problem/">5.1 The hiring problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/">5.2 Indicator random variables</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>6 Heapsort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../6.1-Heaps/">6.1 Heaps</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../6.3-Building-a-heap/">6.3 Building a heap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">6.4 The heapsort algorithm</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#64-the-heapsort-algorithm">6.4 The heapsort algorithm</a></li>
+                
+                    <li><a class="toctree-l4" href="#64-1">6.4-1</a></li>
+                
+                    <li><a class="toctree-l4" href="#64-2">6.4-2</a></li>
+                
+                    <li><a class="toctree-l4" href="#64-3">6.4-3</a></li>
+                
+                    <li><a class="toctree-l4" href="#64-4">6.4-4</a></li>
+                
+                    <li><a class="toctree-l4" href="#64-5">6.4-5</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../6.5-Priority-queues/">6.5 Priority queues</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>7 Quicksort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.4-Analysis-of-quicksort/">7.4 Analysis of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>8 Sorting in Linear Time</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>9 Medians and Order Statistics</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/">9.3 Selection in worst-case linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Introduction to Algorithms</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>6 Heapsort &raquo;</li>
+        
+      
+    
+    <li>6.4 The heapsort algorithm</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="64-the-heapsort-algorithm">6.4 The heapsort algorithm</h1>
+<h2 id="64-1">6.4-1</h2>
+<pre><code>\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[level/.style={sibling distance=20mm/#1},
+treenode/.style={align=center, inner sep=0pt, text width=1.2em, text centered},
+current/.style={fill=gray}]
+    \node [circle,draw,treenode] {5}
+      child {
+        node [circle,draw,treenode] {13}
+        child {
+            node [circle,draw,treenode] {25}
+            child {
+                node [circle,draw,treenode] {8}
+            }
+            child {
+                node [circle,draw,treenode] {4}
+            }}
+        child {
+            node [circle,draw,treenode] {7}
+        }
+      }
+      child {
+        node [circle,draw,treenode] {2}
+        child {
+            node [circle,draw,treenode] {17}
+        }
+        child {
+            node [circle,draw,treenode]  {20}
+        }
+    };
+    \end{tikzpicture}
+\end{document}
+</code></pre>
+
+<p><img alt="Alt text" src="../6.4-1-a.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-b.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-c.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-d.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-e.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-f.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-g.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-h.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-i.png" /></p>
+<p><img alt="Alt text" src="../6.4-1-j.png" /></p>
+<h2 id="64-2">6.4-2</h2>
+<p><strong>Initialization</strong>: Prior to the first iteration of the loop, i = n, and we called <code>BUILD-MAX-HEAP</code> on A, thus the subarray <code>A[1..n]</code> is a max-heap containing the n smallest elements of <code>A[1..n]</code>, and the subarray <code>A[n + 1..n]</code> is an empty array, thus it contains n - n = 0 largest elements of <code>A[1..n]</code>, sorted.</p>
+<p><strong>Maintenance</strong>: Let's assume prior to the ith iteration of the loop, the subarray <code>A[1..i]</code> is a max-heap containing the i smallest elements of <code>A[1..n]</code>, and the subarray <code>A[i + 1,..n]</code> contains the n - i largest elements of <code>A[1..n]</code>, sorted.</p>
+<p>In the ith loop, <code>A[1]</code> is the biggest number in the subarray <code>A[1..i]</code>, in line 3, it exchanges <code>A[1]</code> and <code>A[i]</code>, making the subarray <code>A[i..n]</code> contains the n - i + 1 largest elements of <code>A[1..n]</code>, sorted. In line 4-5, it calls <code>MAX-HEAPIFY</code> on A, so it makes the subarray <code>A[1..i - 1]</code> to a max-heap contains the i - 1 smallest elements of <code>A[1..n]</code>.</p>
+<p><strong>Termination</strong>: At termination, i = 1. By the loop invariant, the subarray <code>A[1..1]</code> is a max-heap containing the 1 smallest elements of <code>A[1..n]</code>. And the subarray <code>A[2..n]</code> contains the n - 1 largest elements of <code>A[1..n]</code>, sorted. So the array <code>A[1..n]</code> is sorted.</p>
+<h2 id="64-3">6.4-3</h2>
+<p>If the array is in increasing order, then <code>BUILD-MAX-HEAP</code> takes O(n), and it changes A to a max-heap. Then it calls <code>MAX-HEAPIFY(A, 1)</code> n - 1 times, at each iteration, there are i - 1 elements in the current max-heap, so the running time of for loop is $\sum_{i = n - 1}^{1}\lg{i} = \lg{((n - 1)!)} = \Theta(n\lg{n})$ (exercise 3.2-3). So the total running time is $O(n) + \Theta(n\lg{n}) = \Theta(n\lg{n})$.</p>
+<p>If the array is in decreasing order, it takes O(n) to call <code>BUILD-MAX-HEAP</code>, but it won't change the array. But it still needs $\Theta(n\lg{n})$ running time to call <code>MAX-HEAPIFY(A, 1)</code>. The total running time is also $\Theta(n\lg{n})$.</p>
+<h2 id="64-4">6.4-4</h2>
+<p>The worst-case happens when we need to call <code>MAX-HEAPIFY(A, 1)</code> in each iteration with the cost $\lg{(i - 1)}$. And the answer is given in the above question.</p>
+<h2 id="64-5">6.4-5</h2>
+<p>You can find the answer <a href="https://www.cs.princeton.edu/research/techreps/TR-293-90">here</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../6.5-Priority-queues/" class="btn btn-neutral float-right" title="6.5 Priority queues">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../6.3-Building-a-heap/" class="btn btn-neutral" title="6.3 Building a heap"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../6.3-Building-a-heap/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../6.5-Priority-queues/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

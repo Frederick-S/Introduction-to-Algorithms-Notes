@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>5.2 Indicator random variables - Introduction to Algorithms</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "5.2 Indicator random variables";
+    var mkdocs_page_input_path = "5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables.md";
+    var mkdocs_page_url = "/5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="../../mathjaxconfig.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Introduction to Algorithms</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>2 Getting Started</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../2-Getting-Started/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>3 Growth of Functions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.1-Asymptotic-notation/">3.1 Asymptotic notation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../3-Growth-of-Functions/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>4 Divide and Conquer</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/">4.6 Proof of the master theorem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../4-Divide-and-Conquer/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>5 Probabilistic Analysis and Randomized Algorithms</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../5.1-The-hiring-problem/">5.1 The hiring problem</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">5.2 Indicator random variables</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#52-indicator-random-variables">5.2 Indicator random variables</a></li>
+                
+                    <li><a class="toctree-l4" href="#52-1">5.2-1</a></li>
+                
+                    <li><a class="toctree-l4" href="#52-2">5.2-2</a></li>
+                
+                    <li><a class="toctree-l4" href="#52-3">5.2-3</a></li>
+                
+                    <li><a class="toctree-l4" href="#52-4">5.2-4</a></li>
+                
+                    <li><a class="toctree-l4" href="#52-5">5.2-5</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>6 Heapsort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.1-Heaps/">6.1 Heaps</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.3-Building-a-heap/">6.3 Building a heap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.4-The-heapsort-algorithm/">6.4 The heapsort algorithm</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/6.5-Priority-queues/">6.5 Priority queues</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../6-Heapsort/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>7 Quicksort</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/7.4-Analysis-of-quicksort/">7.4 Analysis of quicksort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../7-Quicksort/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>8 Sorting in Linear Time</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>9 Medians and Order Statistics</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/">9.3 Selection in worst-case linear time</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../9-Medians-and-Order-Statistics/Problems/">Problems</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Introduction to Algorithms</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>5 Probabilistic Analysis and Randomized Algorithms &raquo;</li>
+        
+      
+    
+    <li>5.2 Indicator random variables</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="52-indicator-random-variables">5.2 Indicator random variables</h1>
+<h2 id="52-1">5.2-1</h2>
+<p>We hire exactly one time when the first candidate is the best. So the first candidate has a probability of $\frac{1}{n}$ of being better qualified than other n - 1 candidates. Thus the probability of hiring exactly one time is $\frac{1}{n}$.</p>
+<p>We hire n times when each candidate is better than the previous candidate. In each turn, the candidate i has a probability of $\frac{1}{i}$ of being better than the previous i - 1 candidates. Thus the probability is $1 * \frac{1}{2} * \frac{1}{3} * \ldots * \frac{1}{n} = \frac{1}{n!}$.</p>
+<h2 id="52-2">5.2-2</h2>
+<p>We hire exactly twice when the first candidate is not the best candidate, and the best candidate comes before all the candidates who are better than the first candidate.</p>
+<p>Let's assume the first candidate has a rank k among the candidates (k &lt; n, bigger is better). So there are n - k candidates that are better than the first candidate, including the best candidate. So the best candidate could only appear through position 2 to k + 1, which are k + 1 - 2 + 1 = k positions. And the best candidate has a probability of $\frac{1}{k}$ to apppear in those k positions.</p>
+<p>Because each candidate has a probability of $\frac{1}{n}$ to appear in the first position, thus the probability of hiring twice is $\frac{1}{n}\frac{1}{1} + \frac{1}{n}\frac{1}{2} + \frac{1}{n}\frac{1}{3} \ldots \frac{1}{n}\frac{1}{n - 1} = \frac{1}{n}\sum_{k = 1}^{n - 1}\frac{1}{k} = \frac{\ln{(n - 1)} + O(1)}{n}$.</p>
+<h2 id="52-3">5.2-3</h2>
+<p>Let's define $X_i$ be the indicator random variable indicates the value of ith dice. Thus,</p>
+<p>$$
+\begin{eqnarray}
+X_i &amp;=&amp; I\lbrace\text{the number of dice is k}\rbrace \\
+&amp;=&amp; \begin{cases}
+      1, &amp; \text{if k = 1} \\
+      2, &amp; \text{if k = 2} \\
+      3, &amp; \text{if k = 3} \\
+      4, &amp; \text{if k = 4} \\
+      5, &amp; \text{if k = 5} \\
+      6, &amp; \text{if k = 6} \\
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<p>and $X = X_1 + X_2 + \ldots + X_n$.</p>
+<p>Thus the expected value in one dice is:</p>
+<p>$$
+\begin{eqnarray}
+E[X_i] &amp;=&amp; E[I\lbrace \text{the number of dice is k} \rbrace] \\
+&amp;=&amp; \sum_{k = 1}^6 kPr\lbrace X_i = k \rbrace \\
+&amp;=&amp; \frac{1}{6}(1 + 2 + 3 + 4 + 5 + 6) \\
+&amp;=&amp; 3.5
+\end{eqnarray}
+$$</p>
+<p>Thus, the expected value of the sum of n dice is:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; E\big[\sum_{i = 1}^n X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^nE\big[X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^n 3.5 \\
+&amp;=&amp; 3.5n
+\end{eqnarray}
+$$</p>
+<h2 id="52-4">5.2-4</h2>
+<p>Each person gets his own hat with probability $\frac{1}{n}$. Let's define $X_i$ be the indicator random variable associated with the event in which the ith customer gets his own hat. Thus,</p>
+<p>$$
+\begin{eqnarray}
+X_i &amp;=&amp; I\lbrace\text{customer i gets his own hat}\rbrace \\
+&amp;=&amp; \begin{cases}
+      1, &amp; \text{if customer i gets his own hat} \\
+      0, &amp; \text{if customer i doesn't get his own hat}
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<p>and $X = X_1 + X_2 + \ldots + X_n$.</p>
+<p>Thus the expected number of customers who get back their own hat is:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; E\big[\sum_{i = 1}^n X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^nE\big[X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^n \frac{1}{n} * 1 \\
+&amp;=&amp; 1
+\end{eqnarray}
+$$</p>
+<h2 id="52-5">5.2-5</h2>
+<p>Let's define $X_{ij}$ be the the indicator random variable associated with the event that if i &lt; j, then A[i] &gt; A[j]. Thus,</p>
+<p>$$
+\begin{eqnarray}
+X_{ij} &amp;=&amp; I\lbrace A[i] &gt; A[j]\rbrace \\
+&amp;=&amp; \begin{cases}
+      1, &amp; A[i] &gt; A[j] \\
+      0, &amp; A[i] \leq A[j]
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<p>and $Pr\lbrace A[i] &gt; A[j] \rbrace = Pr\lbrace A[i] \leq A[j] \rbrace = \frac{1}{2}$.</p>
+<p>Thus the expected number of inversions is:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; E\big[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ij}\big] \\
+&amp;=&amp; \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n E\big[X_{ij}\big] \\
+&amp;=&amp; \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n (\frac{1}{2} * 1 + 0) \\
+&amp;=&amp; \frac{1}{2}\sum_{i = 1}^{n - 1} (n - i) \\
+&amp;=&amp; \frac{1}{2}\sum_{i = 1}^{n - 1} i \\
+&amp;=&amp; \frac{1}{2}\frac{(1 + n - 1)(n - 1)}{2} \\
+&amp;=&amp; \frac{n(n - 1)}{4}
+\end{eqnarray}
+$$</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../5.3-Randomized-algorithms/" class="btn btn-neutral float-right" title="5.3 Randomized algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../5.1-The-hiring-problem/" class="btn btn-neutral" title="5.1 The hiring problem"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../5.1-The-hiring-problem/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../5.3-Randomized-algorithms/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
