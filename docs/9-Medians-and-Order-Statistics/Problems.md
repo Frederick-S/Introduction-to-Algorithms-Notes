@@ -106,3 +106,43 @@ We need to find a point p(x, y) such that $\sum_{i = 1}^n w_i(|x - x_i| + |y - y
 
 ## 9-3
 ### a
+If $i \geq \frac{n}{2}$, then we use the `SELECT` algorithm, otherwise we group every two elements into pairs $(a_j, b_j)$ and make sure $a_j \leq b_j$, if n is odd, we also let the last element be a pair, this step needs $\lfloor \frac{n}{2} \rfloor$. So now we have $\lceil \frac{n}{2} \rceil$ pairs. Then we recursively call the algorithm on $a_j$, so we can get the ith smallest element of all $a_j$, this step requires $U_i(\lceil \frac{n}{2} \rceil)$. Notice that the partition method partition all $a_j$ into two parts, so the ith smallest element of all elements could only be among $a_1\ldots{a_i}$ and $b_1\ldots{b_i}$. Then we run the `SELECT` algorithm on the 2i elements to find the ith smallest element.
+
+```
+SMALL-ORDER-STATISTICS(A, i)
+if i >= n / 2
+    return SELECT(A, i)
+let pairs be a new array
+for i = 1 to n with step = 2
+    if i + 1 <= n
+        if A[i] <= A[i + 1]
+            insert [A[i], A[i + 1]] into pairs
+        else
+            insert [A[i + 1], A[i]] into pairs
+    else
+        insert [A[i]] into pairs
+SMALL-ORDER-STATISTICS(pairs, i) // Run algorithm on all aj
+return SELECT(pairs, i) // Run algorithm on a1 to ai plus b1 to bi
+```
+
+### b
+Let's solve by the substitution method. We start by assuming that $U_i(n) = n + O(T(2i)\lg(\frac{n}{i}))$ holds for all positive m < n, in particular for $m = \lceil \frac{n}{2} \rceil$, yielding $U_i(\lceil \frac{n}{2} \rceil) = \lceil \frac{n}{2} \rceil + O(T(2i)\lg(\frac{\lceil \frac{n}{2} \rceil}{i}))$. Substituting into the recurrence yields:
+
+$$
+\begin{eqnarray}
+U_i(n) &=& \lfloor \frac{n}{2} \rfloor + \lceil \frac{n}{2} \rceil + O(T(2i)\lg(\frac{\lceil \frac{n}{2} \rceil}{i})) + T(2i) \\\
+&=& n + O(T(2i)\lg(\frac{\lceil \frac{n}{2} \rceil}{i})) + O(T(2i)) \\\
+&=& n + O(T(2i)(\lg(\frac{\lceil \frac{n}{2} \rceil}{i}) + 1)) \\\
+&=& n + O(T(2i)(\lg(\frac{\lceil \frac{n}{2} \rceil}{i}) + \lg2)) \\\
+&=& n + O(T(2i)\lg(\frac{n}{i}))
+\end{eqnarray}
+$$
+
+### c
+If i is a constant, and because $T(n) = O(n)$, so T(2i) = O(2i), so T(2i) is also a constant, and $O(\lg{\frac{n}{i}}) = O(\lg{n})$. Thus $U_i(n) = n + O(T(2i)\lg(\frac{n}{i})) = n + O(\lg{n})$.
+
+### d
+It's so obvious, we just replace i with $\frac{n}{k}$ and yields $U_i(n) = n + O(T(2i)\lg(\frac{n}{i})) = n + O(T(2\frac{n}{k})\lg(\frac{n}{\frac{n}{k}})) = n + O(T(\frac{2n}{k})\lg{k})$.
+
+## 9-4
+### a

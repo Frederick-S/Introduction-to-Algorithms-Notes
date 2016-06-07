@@ -142,4 +142,4 @@ while row >= 1 and column <= n
 return False
 ```
 
-Similar like `YOUNGIFY`, it reduces the problem size to (m - 1) x n or m x (n - 1), so the running time is O(m + n).
+Similar like `YOUNGIFY`, it reduces the problem size to (m - 1) * n or m * (n - 1), so the running time is O(m + n).
