@@ -50,3 +50,5 @@ pages:
     - '9.2 Selection in expected linear time': '9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time.md'
     - '9.3 Selection in worst-case linear time': '9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time.md'
     - 'Problems': '9-Medians-and-Order-Statistics/Problems.md'
+- '10 Elementary Data Structures':
+    - '10.1 Stacks and queues': '10-Elementary-Data-Structures/10.1-Stacks-and-queues.md'

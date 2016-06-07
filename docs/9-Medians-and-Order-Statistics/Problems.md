@@ -146,3 +146,34 @@ It's so obvious, we just replace i with $\frac{n}{k}$ and yields $U_i(n) = n + O
 
 ## 9-4
 ### a
+$z_i$ and $z_j$ are compared if and only if the first element to be chosen as a pivot from $Z_{ijk}$ is either $z_i$ or $z_j$. And the range of $Z_{ijk}$ depends on k. So:
+
+$$
+\begin{eqnarray}
+E[X_{ijk}] &=&
+    \begin{cases}
+      \frac{2}{j - k + 1} & \text{if } k \leq i < j \\\
+      \frac{2}{j - i + 1} & \text{if } i < k \leq j \\\
+      \frac{2}{k - i + 1} & \text{if } i < j < k
+    \end{cases}
+\end{eqnarray}
+$$
+
+### b
+$$
+\begin{eqnarray}
+E[X_k] &=& \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n E[X_{ijk}] \\\
+&=& \sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} E[X_{ijk}] + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} E[X_{ijk}] + \sum_{i = 1}^{k - 2}\sum_{j = i + 1}^{k - 1} E[X_{ijk}] \\\
+&=& \sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{2}{j - k + 1} + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} \frac{2}{j - i + 1} + \sum_{i = 1}^{k - 2}\sum_{j = i + 1}^{k - 1} \frac{2}{k - i + 1} \\\
+&=& 2(\sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} \frac{1}{j - i + 1} + \sum_{i = 1}^{k - 2}\sum_{j = i + 1}^{k - 1} \frac{1}{k - i + 1}) \\\
+&=& 2(\sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} \frac{1}{j - i + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}) \\\
+&=& 2(\sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} + \sum_{i = 1}^{k}\sum_{j = k}^{n} \frac{1}{j - i + 1} - \sum_{j = k}^n \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}) \\\
+&=& 2(\sum_{i = 1}^{k}\sum_{j = k}^{n} \frac{1}{j - i + 1} + \sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} - \sum_{j = k}^n \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1})
+\end{eqnarray}
+$$
+
+### c
+We have $\sum_{i = 1}^{k}\sum_{j = k}^{n} \frac{1}{j - i + 1} \leq n$ ([source](https://math.stackexchange.com/questions/529208/inequality-sumk-i-1-sumn-j-k1-overj-i-1-le-n)), and $\sum_{k + 1}^n \frac{j - k - 1}{j - k + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1} < \sum_{k + 1}^n 1 + \sum_{i = 1}^{k - 2} 1 = n - k + k - 2 = n - 2 < n$, so $E[X_k] \leq 2(n + n) = 4n$.
+
+### d
+Since $E[X_k] \leq 4n$, thus $T(n) = O(n)$.
