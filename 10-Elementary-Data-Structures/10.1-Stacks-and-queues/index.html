@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.3 Radix sort - Introduction to Algorithms</title>
+  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "8.3 Radix sort";
+    var mkdocs_page_name = "10.1 Stacks and queues";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -323,52 +323,35 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../8.2-Counting-sort/">8.2 Counting sort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">8.3 Radix sort</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#83-radix-sort">8.3 Radix sort</a></li>
-                
-                    <li><a class="toctree-l4" href="#83-1">8.3-1</a></li>
-                
-                    <li><a class="toctree-l4" href="#83-2">8.3-2</a></li>
-                
-                    <li><a class="toctree-l4" href="#83-3">8.3-3</a></li>
-                
-                    <li><a class="toctree-l4" href="#83-4">8.3-4</a></li>
-                
-                    <li><a class="toctree-l4" href="#83-5">8.3-5</a></li>
-                
-            
-            </ul>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../8.4-Bucket-sort/">8.4 Bucket sort</a>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Problems/">Problems</a>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/Problems/">Problems</a>
         
     </li>
 
@@ -418,8 +401,25 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">10.1 Stacks and queues</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
+                
+                    <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
+                
+                    <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
+                
+                    <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
+                
+                    <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
+                
+                    <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -449,11 +449,11 @@
     
       
         
-          <li>8 Sorting in Linear Time &raquo;</li>
+          <li>10 Elementary Data Structures &raquo;</li>
         
       
     
-    <li>8.3 Radix sort</li>
+    <li>10.1 Stacks and queues</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -463,130 +463,43 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="83-radix-sort">8.3 Radix sort</h1>
-<h2 id="83-1">8.3-1</h2>
-<table>
-<thead>
-<tr>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>COW</td>
-<td>SE<strong>A</strong></td>
-<td>T<strong>A</strong>B</td>
-<td><strong>B</strong>AR</td>
-</tr>
-<tr>
-<td>DOG</td>
-<td>TE<strong>A</strong></td>
-<td>B<strong>A</strong>R</td>
-<td><strong>B</strong>IG</td>
-</tr>
-<tr>
-<td>SEA</td>
-<td>MO<strong>B</strong></td>
-<td>E<strong>A</strong>R</td>
-<td><strong>B</strong>OX</td>
-</tr>
-<tr>
-<td>RUG</td>
-<td>TA<strong>B</strong></td>
-<td>T<strong>A</strong>R</td>
-<td><strong>C</strong>OW</td>
-</tr>
-<tr>
-<td>ROW</td>
-<td>DO<strong>G</strong></td>
-<td>S<strong>E</strong>A</td>
-<td><strong>D</strong>IG</td>
-</tr>
-<tr>
-<td>MOB</td>
-<td>RU<strong>G</strong></td>
-<td>T<strong>E</strong>A</td>
-<td><strong>D</strong>OG</td>
-</tr>
-<tr>
-<td>BOX</td>
-<td>DI<strong>G</strong></td>
-<td>D<strong>I</strong>G</td>
-<td><strong>EAR</strong></td>
-</tr>
-<tr>
-<td>TAB</td>
-<td>BI<strong>G</strong></td>
-<td>B<strong>I</strong>G</td>
-<td><strong>F</strong>OX</td>
-</tr>
-<tr>
-<td>BAR</td>
-<td>BA<strong>R</strong></td>
-<td>M<strong>O</strong>B</td>
-<td><strong>M</strong>OB</td>
-</tr>
-<tr>
-<td>EAR</td>
-<td>EA<strong>R</strong></td>
-<td>D<strong>O</strong>G</td>
-<td><strong>N</strong>OW</td>
-</tr>
-<tr>
-<td>TAR</td>
-<td>TA<strong>R</strong></td>
-<td>C<strong>O</strong>W</td>
-<td><strong>R</strong>OW</td>
-</tr>
-<tr>
-<td>DIG</td>
-<td>CO<strong>W</strong></td>
-<td>R<strong>O</strong>W</td>
-<td><strong>R</strong>UG</td>
-</tr>
-<tr>
-<td>BIG</td>
-<td>RO<strong>W</strong></td>
-<td>N<strong>O</strong>W</td>
-<td><strong>S</strong>EA</td>
-</tr>
-<tr>
-<td>TEA</td>
-<td>NO<strong>W</strong></td>
-<td>B<strong>O</strong>X</td>
-<td><strong>T</strong>AB</td>
-</tr>
-<tr>
-<td>NOW</td>
-<td>BO<strong>X</strong></td>
-<td>F<strong>O</strong>X</td>
-<td><strong>T</strong>AR</td>
-</tr>
-<tr>
-<td>FOX</td>
-<td>FO<strong>X</strong></td>
-<td>R<strong>U</strong>G</td>
-<td><strong>T</strong>EA</td>
-</tr>
-</tbody>
-</table>
-<h2 id="83-2">8.3-2</h2>
-<p>Insertion sort and merge sort are stable, heapsort and quicksort are not stable.</p>
-<p>We can create an additional array to record the index of each element in the original array. When comparing two elements, if they are not equal, we compare them in the usualy way, if they are equal, we compare their indices.</p>
-<p>The scheme doesn't affect the running time since the new comparision method still requires O(1), but it needs additional O(n) space.</p>
-<h2 id="83-3">8.3-3</h2>
-<p>We use the following loop invariant:</p>
-<p>At the start of each iteration of the for loop of 1-2 lines, the n-digit numbers are sorted by digit 1 to i - 1.</p>
-<p><strong>Initialization</strong>: Prior to the first iteration of the loop, i = 1, digit 1 to i - 1 contains 0 digit, thus we can say the n-digit numbers are sorted by digit 1 to 0.</p>
-<p><strong>Maintenance</strong>: After the ith iteration, the numbers are sorted in the ith digit, because we used a stable sorting algorithm, so if two numbers has same value on digit i, it won't change their relative order, and digit 1 to digit i - 1 is already sorted, so digit 1 to digit i is sorted.</p>
-<p><strong>Termination</strong>: At termination, i = d + 1, numbers are sorted by digit 1 to digit d, so the array is sorted.</p>
-<p>We need the assumption in the maintenance step.</p>
-<h2 id="83-4">8.3-4</h2>
-<p>We can treat the numbers are in base n, each number contains 3 digits, thus the max number is $(n - 1)n^2 + (n - 1)n + (n - 1) = n^3 - 1$, so d = 3. There are n possible values in each digit, so k = n, so we can use the radix sort to sort the numbers. The running time is $d\Theta(n + k) = 3\Theta(n + n) = \Theta(n)$, which is also O(n).</p>
-<h2 id="83-5">8.3-5</h2>
+                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
+<h2 id="101-1">10.1-1</h2>
+<p><img alt="Alt text" src="../10.1-1.png" /></p>
+<h2 id="101-2">10.1-2</h2>
+<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
+<h2 id="101-3">10.1-3</h2>
+<p><img alt="Alt text" src="../10.1-3.png" /></p>
+<h2 id="101-4">10.1-4</h2>
+<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
+<pre><code>ENQUEUE(Q, x)
+
+if Q.head == Q.tail
+    error &quot;overflow&quot;
+Q[Q.tail] = x
+if Q.tail == Q.length
+    Q.tail = 1
+else
+    Q.tail = Q.tail + 1
+if Q.head == 0
+    Q.head = 1
+</code></pre>
+
+<pre><code>DEQUEUE(Q)
+
+if Q.head == 0
+    error &quot;underflow&quot;
+x = Q[Q.head]
+if Q.head = Q.length
+    Q.head = 1
+else Q.head = Q.head + 1
+if Q.head == Q.tail
+    Q.head = 0
+    Q.tail = 1
+return x
+</code></pre>
+
+<h2 id="101-5">10.1-5</h2>
               
             </div>
           </div>
@@ -594,10 +507,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../8.4-Bucket-sort/" class="btn btn-neutral float-right" title="8.4 Bucket sort"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../8.2-Counting-sort/" class="btn btn-neutral" title="8.2 Counting sort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../9-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -623,10 +534,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../8.2-Counting-sort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../9-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../8.4-Bucket-sort/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

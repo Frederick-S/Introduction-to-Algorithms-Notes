@@ -3,10 +3,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
   
   <title>Problems - Introduction to Algorithms</title>
   
@@ -24,8 +21,6 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Problems";
-    var mkdocs_page_input_path = "9-Medians-and-Order-Statistics/Problems.md";
-    var mkdocs_page_url = "/9-Medians-and-Order-Statistics/Problems/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -404,8 +399,25 @@
                 
                     <li><a class="toctree-l4" href="#9-3">9-3</a></li>
                 
+                    <li><a class="toctree-l4" href="#9-4">9-4</a></li>
+                
             
             </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>10 Elementary Data Structures</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
         
     </li>
 
@@ -533,12 +545,75 @@ $$</p>
 <p>We need to find a point p(x, y) such that $\sum_{i = 1}^n w_i(|x - x_i| + |y - y_i|)$ is minimum. Because $\sum_{i = 1}^n w_i(|x - x_i| + |y - y_i|) = \sum_{i = 1}^n w_i|x - x_i| + \sum_{i = 1}^n w_i|y - y_i|$, the problem is actually 2 1-dimensional problems. Thus let x be the weighted median of all x coordinate values, and let y be the weighted median of all y coordinate values, so p(x, y) is the best solution.</p>
 <h2 id="9-3">9-3</h2>
 <h3 id="a_2">a</h3>
+<p>If $i \geq \frac{n}{2}$, then we use the <code>SELECT</code> algorithm, otherwise we group every two elements into pairs $(a_j, b_j)$ and make sure $a_j \leq b_j$, if n is odd, we also let the last element be a pair, this step needs $\lfloor \frac{n}{2} \rfloor$. So now we have $\lceil \frac{n}{2} \rceil$ pairs. Then we recursively call the algorithm on $a_j$, so we can get the ith smallest element of all $a_j$, this step requires $U_i(\lceil \frac{n}{2} \rceil)$. Notice that the partition method partition all $a_j$ into two parts, so the ith smallest element of all elements could only be among $a_1\ldots{a_i}$ and $b_1\ldots{b_i}$. Then we run the <code>SELECT</code> algorithm on the 2i elements to find the ith smallest element.</p>
+<pre><code>SMALL-ORDER-STATISTICS(A, i)
+if i &gt;= n / 2
+    return SELECT(A, i)
+let pairs be a new array
+for i = 1 to n with step = 2
+    if i + 1 &lt;= n
+        if A[i] &lt;= A[i + 1]
+            insert [A[i], A[i + 1]] into pairs
+        else
+            insert [A[i + 1], A[i]] into pairs
+    else
+        insert [A[i]] into pairs
+SMALL-ORDER-STATISTICS(pairs, i) // Run algorithm on all aj
+return SELECT(pairs, i) // Run algorithm on a1 to ai plus b1 to bi
+</code></pre>
+
+<h3 id="b_2">b</h3>
+<p>Let's solve by the substitution method. We start by assuming that $U_i(n) = n + O(T(2i)\lg(\frac{n}{i}))$ holds for all positive m &lt; n, in particular for $m = \lceil \frac{n}{2} \rceil$, yielding $U_i(\lceil \frac{n}{2} \rceil) = \lceil \frac{n}{2} \rceil + O(T(2i)\lg(\frac{\lceil \frac{n}{2} \rceil}{i}))$. Substituting into the recurrence yields:</p>
+<p>$$
+\begin{eqnarray}
+U_i(n) &amp;=&amp; \lfloor \frac{n}{2} \rfloor + \lceil \frac{n}{2} \rceil + O(T(2i)\lg(\frac{\lceil \frac{n}{2} \rceil}{i})) + T(2i) \\
+&amp;=&amp; n + O(T(2i)\lg(\frac{\lceil \frac{n}{2} \rceil}{i})) + O(T(2i)) \\
+&amp;=&amp; n + O(T(2i)(\lg(\frac{\lceil \frac{n}{2} \rceil}{i}) + 1)) \\
+&amp;=&amp; n + O(T(2i)(\lg(\frac{\lceil \frac{n}{2} \rceil}{i}) + \lg2)) \\
+&amp;=&amp; n + O(T(2i)\lg(\frac{n}{i}))
+\end{eqnarray}
+$$</p>
+<h3 id="c_2">c</h3>
+<p>If i is a constant, and because $T(n) = O(n)$, so T(2i) = O(2i), so T(2i) is also a constant, and $O(\lg{\frac{n}{i}}) = O(\lg{n})$. Thus $U_i(n) = n + O(T(2i)\lg(\frac{n}{i})) = n + O(\lg{n})$.</p>
+<h3 id="d_1">d</h3>
+<p>It's so obvious, we just replace i with $\frac{n}{k}$ and yields $U_i(n) = n + O(T(2i)\lg(\frac{n}{i})) = n + O(T(2\frac{n}{k})\lg(\frac{n}{\frac{n}{k}})) = n + O(T(\frac{2n}{k})\lg{k})$.</p>
+<h2 id="9-4">9-4</h2>
+<h3 id="a_3">a</h3>
+<p>$z_i$ and $z_j$ are compared if and only if the first element to be chosen as a pivot from $Z_{ijk}$ is either $z_i$ or $z_j$. And the range of $Z_{ijk}$ depends on k. So:</p>
+<p>$$
+\begin{eqnarray}
+E[X_{ijk}] &amp;=&amp;
+    \begin{cases}
+      \frac{2}{j - k + 1} &amp; \text{if } k \leq i &lt; j \\
+      \frac{2}{j - i + 1} &amp; \text{if } i &lt; k \leq j \\
+      \frac{2}{k - i + 1} &amp; \text{if } i &lt; j &lt; k
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<h3 id="b_3">b</h3>
+<p>$$
+\begin{eqnarray}
+E[X_k] &amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n E[X_{ijk}] \\
+&amp;=&amp; \sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} E[X_{ijk}] + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} E[X_{ijk}] + \sum_{i = 1}^{k - 2}\sum_{j = i + 1}^{k - 1} E[X_{ijk}] \\
+&amp;=&amp; \sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{2}{j - k + 1} + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} \frac{2}{j - i + 1} + \sum_{i = 1}^{k - 2}\sum_{j = i + 1}^{k - 1} \frac{2}{k - i + 1} \\
+&amp;=&amp; 2(\sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} \frac{1}{j - i + 1} + \sum_{i = 1}^{k - 2}\sum_{j = i + 1}^{k - 1} \frac{1}{k - i + 1}) \\
+&amp;=&amp; 2(\sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 1}\sum_{j = k}^{n} \frac{1}{j - i + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}) \\
+&amp;=&amp; 2(\sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} + \sum_{i = 1}^{k}\sum_{j = k}^{n} \frac{1}{j - i + 1} - \sum_{j = k}^n \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}) \\
+&amp;=&amp; 2(\sum_{i = 1}^{k}\sum_{j = k}^{n} \frac{1}{j - i + 1} + \sum_{i = k}^{n - 1}\sum_{j = i + 1}^{n} \frac{1}{j - k + 1} - \sum_{j = k}^n \frac{1}{j - k + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1})
+\end{eqnarray}
+$$</p>
+<h3 id="c_3">c</h3>
+<p>We have $\sum_{i = 1}^{k}\sum_{j = k}^{n} \frac{1}{j - i + 1} \leq n$ (<a href="https://math.stackexchange.com/questions/529208/inequality-sumk-i-1-sumn-j-k1-overj-i-1-le-n">source</a>), and $\sum_{k + 1}^n \frac{j - k - 1}{j - k + 1} + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1} &lt; \sum_{k + 1}^n 1 + \sum_{i = 1}^{k - 2} 1 = n - k + k - 2 = n - 2 &lt; n$, so $E[X_k] \leq 2(n + n) = 4n$.</p>
+<h3 id="d_2">d</h3>
+<p>Since $E[X_k] \leq 4n$, thus $T(n) = O(n)$.</p>
               
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/" class="btn btn-neutral float-right" title="10.1 Stacks and queues"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../9.3-Selection-in-worst-case-linear-time/" class="btn btn-neutral" title="9.3 Selection in worst-case linear time"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -569,6 +644,8 @@ $$</p>
       
         <span><a href="../9.3-Selection-in-worst-case-linear-time/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
