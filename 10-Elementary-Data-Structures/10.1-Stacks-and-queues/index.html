@@ -3,7 +3,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
   
   <title>10.1 Stacks and queues - Introduction to Algorithms</title>
   
@@ -21,6 +24,8 @@
   <script>
     // Current page data
     var mkdocs_page_name = "10.1 Stacks and queues";
+    var mkdocs_page_input_path = "10-Elementary-Data-Structures/10.1-Stacks-and-queues.md";
+    var mkdocs_page_url = "/10-Elementary-Data-Structures/10.1-Stacks-and-queues/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -418,8 +423,19 @@
                 
                     <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
                 
+                    <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
+                
+                    <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
+                
             
             </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
         
     </li>
 
@@ -500,12 +516,117 @@ return x
 </code></pre>
 
 <h2 id="101-5">10.1-5</h2>
+<pre><code>IS-EMPTY(DQ)
+
+return DQ.left == 0 and DQ.right == DQ.size
+</code></pre>
+
+<pre><code>IS-FULL(DQ)
+
+return DQ.right - DQ.left == 1
+</code></pre>
+
+<pre><code>APPEND(DQ, x)
+
+if IS-FULL(DQ)
+    error &quot;overflow&quot;
+DQ.right = DQ.right - 1
+if DQ.right == 0
+    DQ.right = DQ.size
+DQ[DQ.right] = x
+</code></pre>
+
+<pre><code>POP(DQ)
+
+if IS-EMPTY(DQ)
+    error &quot;underflow&quot;
+if DQ.right == DQ.size + 1
+    DQ.right = 1
+x = DQ[DQ.right]
+if DQ.left == DQ.right
+    DQ.left = 0
+    DQ.right = DQ.size + 1
+else
+    DQ.right = (DQ.right + 1) % DQ.size
+return x
+</code></pre>
+
+<pre><code>APPEND-LEFT(DQ, x)
+
+if IS-FULL(DQ)
+    error &quot;overflow&quot;
+DQ.left = DQ.left + 1
+if DQ.left == DQ.size + 1
+    DQ.left = 1
+DQ[DQ.left] = x
+</code></pre>
+
+<pre><code>SHIFT(DQ)
+
+if IS-EMPTY(DQ)
+    error &quot;underflow&quot;
+if DQ.left == 0
+    DQ.left = DQ.size
+x = DQ[DQ.left]
+if DQ.left == DQ.right
+    DQ.left = 0
+    DQ.right = DQ.size + 1
+else
+    DQ.left = DQ.left - 1
+    if DQ.left == 0
+        DQ.left = DQ.size
+return x
+</code></pre>
+
+<h2 id="101-6">10.1-6</h2>
+<pre><code>ENQUEUE(Q, x)
+
+if stack-a.count + stack-b.count == n
+    error &quot;overflow&quot;
+stack-a.push(x)
+</code></pre>
+
+<pre><code>DEQUEUE(Q)
+
+if stack-a.count == 0 and stack-b.count == 0
+    error &quot;underflow&quot;
+if stack-b.count == 0
+    while stack-a.count != 0
+        stack-b.push(stack-a.pop())
+return stack-b.pop()
+</code></pre>
+
+<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
+<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
+<h2 id="101-7">10.1-7</h2>
+<pre><code>PUSH(S, x)
+if queue.count == n
+    error &quot;overflow&quot;
+queue.enqueue(x)
+</code></pre>
+
+<pre><code>POP(S)
+if queue.count == 0
+    error &quot;underflow&quot;
+while not queue.count == 0
+    x = queue.dequeue()
+
+    if not queue.count == 0
+        queue-auxiliary.enqueue(x)
+exchange queue with queue-auxiliary
+return x
+</code></pre>
+
+<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
+<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
               
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../9-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -536,6 +657,8 @@ return x
       
         <span><a href="../../9-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

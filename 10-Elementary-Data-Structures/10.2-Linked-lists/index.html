@@ -8,7 +8,7 @@
   
   
   
-  <title>8.4 Bucket sort - Introduction to Algorithms</title>
+  <title>10.2 Linked lists - Introduction to Algorithms</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "8.4 Bucket sort";
-    var mkdocs_page_input_path = "8-Sorting-in-Linear-Time/8.4-Bucket-sort.md";
-    var mkdocs_page_url = "/8-Sorting-in-Linear-Time/8.4-Bucket-sort/";
+    var mkdocs_page_name = "10.2 Linked lists";
+    var mkdocs_page_input_path = "10-Elementary-Data-Structures/10.2-Linked-lists.md";
+    var mkdocs_page_url = "/10-Elementary-Data-Structures/10.2-Linked-lists/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -328,52 +328,35 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../8.2-Counting-sort/">8.2 Counting sort</a>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../8.3-Radix-sort/">8.3 Radix sort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">8.4 Bucket sort</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#84-bucket-sort">8.4 Bucket sort</a></li>
-                
-                    <li><a class="toctree-l4" href="#84-1">8.4-1</a></li>
-                
-                    <li><a class="toctree-l4" href="#84-2">8.4-2</a></li>
-                
-                    <li><a class="toctree-l4" href="#84-3">8.4-3</a></li>
-                
-                    <li><a class="toctree-l4" href="#84-4">8.4-4</a></li>
-                
-                    <li><a class="toctree-l4" href="#84-5">8.4-5</a></li>
-                
-            
-            </ul>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Problems/">Problems</a>
+        <a class="" href="../../8-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../8-Sorting-in-Linear-Time/Problems/">Problems</a>
         
     </li>
 
@@ -424,14 +407,23 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
+        <a class="" href="../10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">10.2 Linked lists</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#102-linked-lists">10.2 Linked lists</a></li>
+                
+                    <li><a class="toctree-l4" href="#102-1">10.2-1</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -461,11 +453,11 @@
     
       
         
-          <li>8 Sorting in Linear Time &raquo;</li>
+          <li>10 Elementary Data Structures &raquo;</li>
         
       
     
-    <li>8.4 Bucket sort</li>
+    <li>10.2 Linked lists</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -475,42 +467,8 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="84-bucket-sort">8.4 Bucket sort</h1>
-<h2 id="84-1">8.4-1</h2>
-<p><img alt="Alt text" src="../8.4-1.png" /></p>
-<h2 id="84-2">8.4-2</h2>
-<p>The worst-case can happen when it takes too long to sort list <code>B[i]</code>. Because the worst-case running time of insertion sort is $\Theta(n^2)$, if for a given <code>B[i]</code>, which happens to contain all elements, then the insertion sort takes $\Theta(n^2)$, thus the worst-case running time becomes $\Theta(n^2)$.</p>
-<p>We can use another sort algorithm to sort <code>B[i]</code>, for example, the mergesort algorithm.</p>
-<h2 id="84-3">8.4-3</h2>
-<p>We have:</p>
-<p>$$
-\begin{eqnarray}
-X &amp;=&amp; I\lbrace\text{the number of heads in two flips of a fair coin}\rbrace \\
-&amp;=&amp; \begin{cases}
-      0 \\
-      1 \\
-      2 \\
-    \end{cases}
-\end{eqnarray}
-$$</p>
-<p>And $Pr\lbrace \text{the number of heads in two flips is } 0\rbrace = \frac{1}{4}$, $Pr\lbrace \text{the number of heads in two flips is } 1\rbrace = \frac{1}{2}$, $Pr\lbrace\text{the number of heads in two flips is } 2\rbrace = \frac{1}{4}$.</p>
-<p>So $E[X] = 0 * \frac{1}{4} + 1 * \frac{1}{2} + 2 * \frac{1}{4} = 1$. Thus $E[X^2] = 0^2 * \frac{1}{4} + 1^2 * \frac{1}{2} + 2^2 * \frac{1}{4} = \frac{3}{2}$, $(E[X])^2 = 1$.</p>
-<h2 id="84-4">8.4-4</h2>
-<p>Since the points are uniformly distributed, the probability of finding a point in any region of the circle is proportional to the area of that region. We can divide the unit circle into n parts, each part has area $\frac{\pi}{n}$.</p>
-<p>To make it simple, we can create n - 1 concentric circles inside the unit circle. Let $a_1$ be the first circle, so the unit circle is $a_n$. The area of $a_1$ is $\frac{\pi}{n}$, so we have $r_{a_1} = \frac{1}{\sqrt{n}}$. Notice that $\pi{r_{a_k}^2} - \pi{r_{a_{k - 1}}^2} = \frac{\pi}{n}$, so:</p>
-<p>$$
-\begin{eqnarray}
-r_{a_2}^2 - r_{a_1}^2 &amp;=&amp; \frac{1}{n} \\
-r_{a_3}^2 - r_{a_2}^2 &amp;=&amp; \frac{1}{n} \\
-\ldots \\
-r_{a_k}^2 - r_{a_{k - 1}}^2 &amp;=&amp; \frac{1}{n}
-\end{eqnarray}
-$$</p>
-<p>So we add the equations together and have $r_{a_k}^2 - r_{a_1}^2 = \frac{k - 1}{n}$, thus $r_{a_k} = \sqrt{\frac{k}{n}}, 1 \leq k \leq n$.</p>
-<p>Now we can create the buckets $[0, \sqrt{\frac{1}{n}}), [\sqrt{\frac{1}{n}}, \sqrt{\frac{2}{n}}), \ldots, [\sqrt{\frac{n - 1}{n}}, 1]$. In order to sort the n points by their distance $d_i = \sqrt{x_i^2 + y_i^2}$, let array A contains the n points ($A[i] = d_i$), then create an empty array B, and insert <code>A[i]</code> into $B[\lfloor nA[i] \rfloor]$, at last, we sort <code>B[i]</code> and concatenate the lists <code>B[i]</code>.</p>
-<h2 id="84-5">8.4-5</h2>
-<p>It's similar like bucket sort. We have $P(x) = \text{Pr}\lbrace X \leq x \rbrace$, so $P(1) = \text{Pr}\lbrace X \leq 1 \rbrace, P(2) = \text{Pr}\lbrace X \leq 2 \rbrace, \ldots, P(n) = \text{Pr}\lbrace X \leq n \rbrace$. Thus $P(n) - P(n - 1) = \text{Pr}\lbrace n - 1 &lt; X \leq n \rbrace$. So we can create the buckets $[0, P(1)), [P(1), P(2)), \ldots, [P(n - 1), P(n)]$.</p>
-<p>In order to apply bucket sort, we let $A[i] = P(X_i)$, thus, we can use the bucket sort. At last, we have a list of sorted $P(X_i)$, which is also a list of sorted $X_i$.</p>
+                <h1 id="102-linked-lists">10.2 Linked lists</h1>
+<h2 id="102-1">10.2-1</h2>
               
             </div>
           </div>
@@ -518,10 +476,8 @@ $$</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Problems/" class="btn btn-neutral float-right" title="Problems">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../8.3-Radix-sort/" class="btn btn-neutral" title="8.3 Radix sort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../10.1-Stacks-and-queues/" class="btn btn-neutral" title="10.1 Stacks and queues"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -547,10 +503,8 @@ $$</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../8.3-Radix-sort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../10.1-Stacks-and-queues/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../Problems/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
