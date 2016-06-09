@@ -428,6 +428,8 @@
                 
                     <li><a class="toctree-l4" href="#102-4">10.2-4</a></li>
                 
+                    <li><a class="toctree-l4" href="#102-5">10.2-5</a></li>
+                
             
             </ul>
         
@@ -513,6 +515,19 @@ return x
 </code></pre>
 
 <h2 id="102-4">10.2-4</h2>
+<pre><code>LIST-SEARCH'(L, k)
+
+x = L.nil.next
+L.nil.key = k
+while x.key != k
+    x = x.next
+if x != L.nil
+    return x
+else
+    return NIL
+</code></pre>
+
+<h2 id="102-5">10.2-5</h2>
               
             </div>
           </div>
