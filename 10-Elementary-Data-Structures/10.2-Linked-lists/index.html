@@ -422,6 +422,12 @@
                 
                     <li><a class="toctree-l4" href="#102-1">10.2-1</a></li>
                 
+                    <li><a class="toctree-l4" href="#102-2">10.2-2</a></li>
+                
+                    <li><a class="toctree-l4" href="#102-3">10.2-3</a></li>
+                
+                    <li><a class="toctree-l4" href="#102-4">10.2-4</a></li>
+                
             
             </ul>
         
@@ -469,6 +475,44 @@
               
                 <h1 id="102-linked-lists">10.2 Linked lists</h1>
 <h2 id="102-1">10.2-1</h2>
+<p>We can implement <code>INSERT</code> in O(1) time, but cannot implement <code>DELETE</code> in O(1) time, it's O(n).</p>
+<h2 id="102-2">10.2-2</h2>
+<pre><code>PUSH(x)
+
+L.insert(x)
+</code></pre>
+
+<pre><code>POP()
+
+if L.head == NIL
+    error &quot;underflow&quot;
+x = L.head
+L.head = L.head.next
+return x
+</code></pre>
+
+<h2 id="102-3">10.2-3</h2>
+<pre><code>ENQUEUE(x)
+
+new = SinglyLinkedNode(x)
+if L.head == NIL
+    L.head = new
+    L.tail = new
+else
+    L.tail.next = new
+    L.tail = new
+</code></pre>
+
+<pre><code>DEQUEUE()
+
+if L.head == NIL
+    error &quot;underflow&quot;
+x = L.head
+L.head = L.head.next
+return x
+</code></pre>
+
+<h2 id="102-4">10.2-4</h2>
               
             </div>
           </div>
