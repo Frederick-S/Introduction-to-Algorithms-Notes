@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,25 +13,25 @@
         
     <url>
      <loc>None/2-Getting-Started/2.1-Insertion-sort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/2-Getting-Started/2.2-Analyzing-algorithms/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/2-Getting-Started/2.3-Designing-algorithms/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/2-Getting-Started/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,19 +41,19 @@
         
     <url>
      <loc>None/3-Growth-of-Functions/3.1-Asymptotic-notation/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/3-Growth-of-Functions/3.2-Standard-notations-and-common-functions/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/3-Growth-of-Functions/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -63,43 +63,43 @@
         
     <url>
      <loc>None/4-Divide-and-Conquer/4.1-The-maximum-subarray-problem/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/4-Divide-and-Conquer/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -109,31 +109,31 @@
         
     <url>
      <loc>None/5-Probabilistic-Analysis-and-Randomized-Algorithms/5.1-The-hiring-problem/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/5-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/5-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -143,37 +143,37 @@
         
     <url>
      <loc>None/6-Heapsort/6.1-Heaps/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/6-Heapsort/6.2-Maintaining-the-heap-property/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/6-Heapsort/6.3-Building-a-heap/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/6-Heapsort/6.4-The-heapsort-algorithm/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/6-Heapsort/6.5-Priority-queues/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/6-Heapsort/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -183,31 +183,31 @@
         
     <url>
      <loc>None/7-Quicksort/7.1-Description-of-quicksort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/7-Quicksort/7.2-Performance-of-quicksort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/7-Quicksort/7.3-A-randomized-version-of-quicksort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/7-Quicksort/7.4-Analysis-of-quicksort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/7-Quicksort/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -217,31 +217,31 @@
         
     <url>
      <loc>None/8-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/8-Sorting-in-Linear-Time/8.2-Counting-sort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/8-Sorting-in-Linear-Time/8.3-Radix-sort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/8-Sorting-in-Linear-Time/8.4-Bucket-sort/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/8-Sorting-in-Linear-Time/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -251,25 +251,25 @@
         
     <url>
      <loc>None/9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/9-Medians-and-Order-Statistics/Problems/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -279,13 +279,13 @@
         
     <url>
      <loc>None/10-Elementary-Data-Structures/10.1-Stacks-and-queues/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/10-Elementary-Data-Structures/10.2-Linked-lists/</loc>
-     <lastmod>2016-06-09</lastmod>
+     <lastmod>2017-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
