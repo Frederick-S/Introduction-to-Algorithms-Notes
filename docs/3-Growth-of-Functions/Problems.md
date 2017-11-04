@@ -169,7 +169,20 @@ This is not true. If $g(n) = O(f(n))$, then there exist positive constants $c_1$
 This is not true. Let $f(n) = n$ and $g(n) = \lg{n}$, it's easy to see $f(n) + g(n) = \Theta(n) \neq \Theta(min(f(n), g(n)))$.
 
 ### c
-This is true. Because $f(n) = O(g(n))$, so there exist positive constants c and $n_0$ such that $0 \leq f(n) \leq cg(n) \text{ for all } n \geq n_0$. So $0\leq \lg{(f(n))} \leq \lg{(cg(n))} = \lg{c} + \lg{(g(n))} = \lg{c} * 1 + \lg{(g(n))} \leq \lg{c} * \lg{(g(n))} + \lg{(g(n))} = (\lg{c} + 1)\lg{(g(n))}$. So we find a positive constant $c_1 = \lg{c} + 1$ such that $0 \leq \lg{(f(n))} \leq c_1\lg{(g(n))} \text{ for all } n \geq n_0$, so $\lg{(f(n))} = O(\lg{(g(n))}$.
+This is true. Because $f(n) = O(g(n))$, so there exist positive constants c and $n_0$ such that $0 \leq f(n) \leq cg(n) \text{ for all } n \geq n_0$. So:
+
+$$
+\begin{eqnarray}
+0 &\leq& \lg{(f(n))} \\\
+&\leq& \lg{(cg(n))} \\\
+&=& \lg{c} + \lg{(g(n))} \\\
+&=& \lg{c} * 1 + \lg{(g(n))} \\\
+&\leq& \lg{c} * \lg{(g(n))} + \lg{(g(n))} \\\
+&=& (\lg{c} + 1)\lg{(g(n))}
+\end{eqnarray}
+$$
+
+So we find a positive constant $c_1 = \lg{c} + 1$ such that $0 \leq \lg{(f(n))} \leq c_1\lg{(g(n))} \text{ for all } n \geq n_0$, so $\lg{(f(n))} = O(\lg{(g(n))}$.
 
 ### d
 This is not true. If $g(n) = O(f(n))$, then there exist positive constants $c_1$ and $n_1$ such that $0 \leq g(n) \leq c_1f(n) \text{ for all } n \geq n_1$. Suppose $2^{f(n)} = O(2^{g(n)})$, then there exist positive constants $c_2$ and $n_2$ such that $0 \leq 2^{f(n)} \leq {c_2}2^{g(n)} \text{ for all } n \geq n_2$. And ${c_2}2^{g(n)} = 2^{\lg{c_2} + g(n)}$. So we have $f(n) \leq \lg{c_2} + g(n)$. But this is not always true, let $f(n) = n + \lg{n}$ and $g(n) = n$, so $f(n) \leq 2g(n) \text{ for all } n \geq 1$. But for any given positive constant $c_2$, we can always find a positive constant $n_3$ such that $n + \lg{n} > \lg{c_2} + n \text{ for all } n \geq n_3$. So $2^{f(n)} \neq O(2^{g(n)})$ in this situation.
@@ -199,9 +212,21 @@ The advantage is that we can describe the relationship of two functions when we 
 If $f(n) = \Theta(g(n))$, then we have $f(n) = O'(g(n))$ and $f(n) = \Omega(g(n))$. If we have $f(n) = O'(g(n))$ and $f(n) = \Omega(g(n))$, $f(n) = \Theta(g(n))$ is also true. Since $f(n) = \Omega(g(n))$ guarantees $f(n) \geq 0$.
 
 ### d
-$\tilde{\Omega}(g(n)) = \lbrace f(n): \text{ there exist positive constants } c, \text{ } k, \text{ and } n_0 \text{ such that } 0 \leq cg(n)\lg^k{n} \leq f(n) \text{ for all } n \geq n_0 \rbrace$.
+$
+\begin{aligned}
+\tilde{\Omega}(g(n)) = 
+& \lbrace f(n): \text{ there exist positive constants } c, \text{ } k, \text{ and } n_0 \text{ such that } \\\
+& 0 \leq cg(n)\lg^k{n} \leq f(n) \text{ for all } n \geq n_0 \rbrace
+\end{aligned}
+$
 
-$\tilde{\Theta}(g(n)) = \lbrace f(n): \text{ there exist positive constants } c_1, \text{ } c_2, \text{ } k_1, \text{ } k_2 \text{ and } n_0 \text{ such that } 0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_0 \rbrace$.
+$
+\begin{aligned}
+\tilde{\Theta}(g(n)) = 
+& \lbrace f(n): \text{ there exist positive constants } c_1, \text{ } c_2, \text{ } k_1, \text{ } k_2 \text{ and } n_0 \text{ such that } \\\
+& 0 \leq c_1g(n)\lg^{k_1}{n} \leq f(n) \leq c_2g(n)\lg^{k_2}{n} \text{ for all } n \geq n_0 \rbrace
+\end{aligned}
+$
 
 Prove Theorem 3.1:
 

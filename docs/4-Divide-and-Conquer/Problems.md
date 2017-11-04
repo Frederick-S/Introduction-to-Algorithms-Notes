@@ -93,7 +93,17 @@ Before it halves the problem size, it needs to do some operations like comparing
 So $T(n) = T(\frac{n}{2}) + \Theta(1)$. Here, we have a = 1, b = 2, and $f(n) = \Theta(1)$, and thus we have that $n^{\log_ba} = n^{\log_2{1}} = 1$. So case 2 applies, thus $T(n) = \Theta(n^{\log_ba}\lg{n}) = \Theta(\lg{n}) = \Theta(\lg{N})$.
 
 #### An array is passed by copying
-Each time it halves the problem size, it needs additional $\Theta(N)$ operation to copy the array. So $T(n) = T(\frac{n}{2}) + \Theta(N) + \Theta(1) = T(\frac{n}{2}) + \Theta(N) = T(\frac{n}{4}) + \Theta(N) + \Theta(N) = \ldots = T(1) + \lg{n}\Theta(N) = \Theta(N\lg{N})$.
+Each time it halves the problem size, it needs additional $\Theta(N)$ operation to copy the array. So:
+
+$$
+\begin{eqnarray}
+T(n) &=& T(\frac{n}{2}) + \Theta(N) + \Theta(1) \\\
+&=& T(\frac{n}{2}) + \Theta(N) \\\
+&=& T(\frac{n}{4}) + \Theta(N) + \Theta(N) \\\
+&=& \ldots = T(1) + \lg{n}\Theta(N) \\\
+&=& \Theta(N\lg{N})
+\end{eqnarray}
+$$.
 
 #### An array is passed by range
 Each time it halves the problem size, it needs additional $\Theta(n)$ operation to copy the array. So $T(n) = T(\frac{n}{2}) + \Theta(n) + \Theta(1) = T(\frac{n}{2}) + \Theta(n)$.
@@ -543,9 +553,22 @@ The "only if" part is easy. If an array is Monge, then for all i, j, k and l suc
 
 Then let's prove the "if" part, we'll use induction separately on rows and columns. Let's get on columns first. The base case is already given, let's assume $A[i, j] + A[i + 1, j + k] \leq A[i, j + k] + A[i + 1, j]$ for $k \geq 1$ and $j + k \leq n$. Then we need to prove $A[i, j] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j]$.
 
-According to the definition, we have $A[i, j + k] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j + k]$, thus $A[i, j] + A[i + 1, j + k] + A[i, j + k] + A[i + 1, j + k + 1] \leq A[i, j + k] + A[i + 1, j] + A[i, j + k + 1] + A[i + 1, j + k]$. So we get $A[i, j] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j]$.
+According to the definition, we have $A[i, j + k] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j + k]$, thus:
+$$\begin{aligned}
+A[i, j] + A[i + 1, j + k] + A[i, j + k] + A[i + 1, j + k + 1] \leq 
+& A[i, j + k] + A[i + 1, j] + \\\
+& A[i, j + k + 1] + A[i + 1, j + k]
+\end{aligned}$$
+So we get $A[i, j] + A[i + 1, j + k + 1] \leq A[i, j + k + 1] + A[i + 1, j]$.
 
-So the induction is correct, and similarly we can prove $A[i, j + 1] + A[i + 1, j + k] \leq A[i, j + k] + A[i + 1, j + 1] \, (j + k \leq n), \ldots, A[i, j + p] + A[i + 1, j + k] \leq A[i, j + k] + A[i + 1, j + p] \, (j + p \leq j + k - 1, j + k \leq n)$, thus we can see that all adjacent rows are Monge arrays. Similarly, we can use the induction on rows, so all adjacent columns are Monge arrays. 
+So the induction is correct, and similarly we can prove: 
+$$
+\begin{eqnarray}
+A[i, j + 1] + A[i + 1, j + k] &\leq& A[i, j + k] + A[i + 1, j + 1] \, (j + k \leq n), \ldots, A[i, j + p] + A[i + 1, j + k] \\\ 
+&\leq& A[i, j + k] + A[i + 1, j + p] \, (j + p \leq j + k - 1, j + k \leq n)
+\end{eqnarray}
+$$
+thus we can see that all adjacent rows are Monge arrays. Similarly, we can use the induction on rows, so all adjacent columns are Monge arrays. 
 
 For any $m_1 x n_1$ array, if $m_1 = 2$ or $n_1 = 2$, then the subarray is a Monge array. And we need to prove the subarray is also a Monge array if $m_1 \geq 3$ and $n_1 \geq 3$.
 

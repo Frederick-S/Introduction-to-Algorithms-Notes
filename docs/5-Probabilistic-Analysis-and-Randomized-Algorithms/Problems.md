@@ -17,7 +17,8 @@ We have:
 
 $$
 \begin{eqnarray}
-E[X_i] &=& 0 * Pr\lbrace \text{the INCREMENT operation doesn't increase the counter} \rbrace + (n_{i + 1} - n_i) * Pr\lbrace \text{the INCREMENT operation increases the counter} \rbrace \\\
+E[X_i] &=& 0 * Pr\lbrace \text{the INCREMENT operation doesn't increase the counter} \rbrace + \\\
+&& (n_{i + 1} - n_i) * Pr\lbrace \text{the INCREMENT operation increases the counter} \rbrace \\\
 &=& 0 * (1 - \frac{1}{n_{i + 1} - n_i}) + (n_{i + 1} - n_i) * \frac{1}{n_{i + 1} - n_i} \\\
 &=& 1
 \end{eqnarray}
@@ -35,7 +36,14 @@ E[X] &=& E[\sum_{i = 1}^{n}X_i] \\\
 $$
 
 ### b
-$Var(X_i) = E[X_i^2] - (E[X_i])^2 = 0^2 * (1 - \frac{1}{n_{i + 1} - n_i}) + (n_{i + 1} - n_i)^2 * \frac{1}{n_{i + 1} - n_i} - 1^2 = 100^2 * \frac{1}{100} - 1^2 = 99$.
+$$
+\begin{eqnarray}
+Var(X_i) &=& E[X_i^2] - (E[X_i])^2 \\\
+&=& 0^2 * (1 - \frac{1}{n_{i + 1} - n_i}) + (n_{i + 1} - n_i)^2 * \frac{1}{n_{i + 1} - n_i} - 1^2 \\\
+&=& 100^2 * \frac{1}{100} - 1^2 \\\
+&=& 99
+\end{eqnarray}
+$$
 
 Because the random variables $X_i$ are uncorrelated, so $Var(X) = Var(\sum_{i = 1}^{n}X_i) = \sum_{i = 1}^{n}Var(X_i) = \sum_{i = 1}^{n}99 = 99n$.
 
