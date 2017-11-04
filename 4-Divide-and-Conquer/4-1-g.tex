@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm}
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+\node (root){$n^2$}
+    child {node {$(n - 2)^2$}
+        child {node {$(n - 4)^2$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=1 of root] {$n^2$}[no edge from this parent]
+    child {node {$(n - 2)^2$}[no edge from this parent]
+        child {node {$(n - 4)^2$}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(1)$}}}}};
+\end{tikzpicture}
+\end{document}

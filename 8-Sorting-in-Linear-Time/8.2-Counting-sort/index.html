@@ -3,33 +3,28 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.2 Counting sort - Introduction to Algorithms</title>
   
-
   <link rel="shortcut icon" href="../../img/favicon.ico">
-
-  
+  <title>8.2 Counting sort - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
-
   
   <script>
     // Current page data
     var mkdocs_page_name = "8.2 Counting sort";
+    var mkdocs_page_input_path = "8-Sorting-in-Linear-Time/8.2-Counting-sort.md";
+    var mkdocs_page_url = "/8-Sorting-in-Linear-Time/8.2-Counting-sort/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
-  <script src="../../js/theme.js"></script> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script src="../../mathjaxconfig.js"></script>
-
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -49,388 +44,258 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Introduction</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Introduction</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2 Getting Started</span>
     <ul class="subnav">
-    <li><span>2 Getting Started</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../2-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../2-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../2-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../2-Getting-Started/Problems/">Problems</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../2-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2-Getting-Started/Problems/">Problems</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3 Growth of Functions</span>
     <ul class="subnav">
-    <li><span>3 Growth of Functions</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../3-Growth-of-Functions/3.1-Asymptotic-notation/">3.1 Asymptotic notation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../3-Growth-of-Functions/3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../3-Growth-of-Functions/Problems/">Problems</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../3-Growth-of-Functions/3.1-Asymptotic-notation/">3.1 Asymptotic notation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3-Growth-of-Functions/3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3-Growth-of-Functions/Problems/">Problems</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4 Divide and Conquer</span>
     <ul class="subnav">
-    <li><span>4 Divide and Conquer</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../4-Divide-and-Conquer/4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/">4.6 Proof of the master theorem</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../4-Divide-and-Conquer/Problems/">Problems</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../4-Divide-and-Conquer/4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/">4.6 Proof of the master theorem</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4-Divide-and-Conquer/Problems/">Problems</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5 Probabilistic Analysis and Randomized Algorithms</span>
     <ul class="subnav">
-    <li><span>5 Probabilistic Analysis and Randomized Algorithms</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.1-The-hiring-problem/">5.1 The hiring problem</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/">5.2 Indicator random variables</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/">Problems</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.1-The-hiring-problem/">5.1 The hiring problem</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/">5.2 Indicator random variables</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/">Problems</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6 Heapsort</span>
     <ul class="subnav">
-    <li><span>6 Heapsort</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../6-Heapsort/6.1-Heaps/">6.1 Heaps</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../6-Heapsort/6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../6-Heapsort/6.3-Building-a-heap/">6.3 Building a heap</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../6-Heapsort/6.4-The-heapsort-algorithm/">6.4 The heapsort algorithm</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../6-Heapsort/6.5-Priority-queues/">6.5 Priority queues</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../6-Heapsort/Problems/">Problems</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../6-Heapsort/6.1-Heaps/">6.1 Heaps</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6-Heapsort/6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6-Heapsort/6.3-Building-a-heap/">6.3 Building a heap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6-Heapsort/6.4-The-heapsort-algorithm/">6.4 The heapsort algorithm</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6-Heapsort/6.5-Priority-queues/">6.5 Priority queues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6-Heapsort/Problems/">Problems</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">7 Quicksort</span>
     <ul class="subnav">
-    <li><span>7 Quicksort</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../7-Quicksort/7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../7-Quicksort/7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../7-Quicksort/7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../7-Quicksort/7.4-Analysis-of-quicksort/">7.4 Analysis of quicksort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../7-Quicksort/Problems/">Problems</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../7-Quicksort/7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7-Quicksort/7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7-Quicksort/7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7-Quicksort/7.4-Analysis-of-quicksort/">7.4 Analysis of quicksort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7-Quicksort/Problems/">Problems</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8 Sorting in Linear Time</span>
     <ul class="subnav">
-    <li><span>8 Sorting in Linear Time</span></li>
+                <li class="">
+                    
+    <a class="" href="../8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">8.2 Counting sort</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#82-counting-sort">8.2 Counting sort</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#82-1">8.2-1</a></li>
+        
+            <li><a class="toctree-l4" href="#82-2">8.2-2</a></li>
+        
+            <li><a class="toctree-l4" href="#82-3">8.2-3</a></li>
+        
+            <li><a class="toctree-l4" href="#82-4">8.2-4</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">8.2 Counting sort</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#82-counting-sort">8.2 Counting sort</a></li>
-                
-                    <li><a class="toctree-l4" href="#82-1">8.2-1</a></li>
-                
-                    <li><a class="toctree-l4" href="#82-2">8.2-2</a></li>
-                
-                    <li><a class="toctree-l4" href="#82-3">8.2-3</a></li>
-                
-                    <li><a class="toctree-l4" href="#82-4">8.2-4</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../8.3-Radix-sort/">8.3 Radix sort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../8.4-Bucket-sort/">8.4 Bucket sort</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Problems/">Problems</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../8.3-Radix-sort/">8.3 Radix sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../8.4-Bucket-sort/">8.4 Bucket sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Problems/">Problems</a>
+                </li>
+    </ul>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">9 Medians and Order Statistics</span>
     <ul class="subnav">
-    <li><span>9 Medians and Order Statistics</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/">9.3 Selection in worst-case linear time</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../9-Medians-and-Order-Statistics/Problems/">Problems</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../9-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../9-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../9-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/">9.3 Selection in worst-case linear time</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../9-Medians-and-Order-Statistics/Problems/">Problems</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-    <li><span>10 Elementary Data Structures</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
         </ul>
       </div>
@@ -470,63 +335,6 @@
               
                 <h1 id="82-counting-sort">8.2 Counting sort</h1>
 <h2 id="82-1">8.2-1</h2>
-<pre><code>\documentclass{standalone}
-
-\usepackage{colortbl}
-\makeatletter
-\newcolumntype{W}{!{\smash{\vrule
-\@width 4\arrayrulewidth
-\@height\dimexpr\ht\@arstrutbox+2pt\relax
-\@depth\dimexpr\dp\@arstrutbox+2pt\relax}}}
-\makeatother
-\definecolor{gray}{rgb}{.5,.5,.5}
-\definecolor{lightgray}{rgb}{.8,.8,.8}
-\begin{document}
-\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
-\multicolumn{1}{c}{}&amp;
-\multicolumn{1}{c}{1}&amp;
-\multicolumn{1}{c}{2}&amp;
-\multicolumn{1}{c}{3}&amp;
-\multicolumn{1}{c}{4}&amp;
-\multicolumn{1}{c}{5}&amp;
-\multicolumn{1}{c}{6}&amp;
-\multicolumn{1}{c}{7}&amp;
-\multicolumn{1}{c}{8}&amp;
-\multicolumn{1}{c}{9}&amp;
-\multicolumn{1}{c}{10}&amp;
-\multicolumn{1}{c}{11}\\
-B&amp;
-\cellcolor{lightgray}0&amp;
-\cellcolor{lightgray}0&amp;
-\cellcolor{lightgray}1&amp;
-\cellcolor{lightgray}1&amp;
-\cellcolor{lightgray}2&amp;
-\cellcolor{lightgray}2&amp;
-\cellcolor{lightgray}3&amp;
-\cellcolor{lightgray}3&amp;
-\cellcolor{lightgray}4&amp;
-\cellcolor{lightgray}6&amp;
-\cellcolor{lightgray}6\\
-\multicolumn{1}{c}{}&amp;
-\multicolumn{1}{c}{0}&amp;
-\multicolumn{1}{c}{1}&amp;
-\multicolumn{1}{c}{2}&amp;
-\multicolumn{1}{c}{3}&amp;
-\multicolumn{1}{c}{4}&amp;
-\multicolumn{1}{c}{5}&amp;
-\multicolumn{1}{c}{6}\\
-C&amp;
-\cellcolor{lightgray}0&amp;
-\cellcolor{lightgray}2&amp;
-\cellcolor{lightgray}4&amp;
-\cellcolor{lightgray}6&amp;
-\cellcolor{lightgray}8&amp;
-\cellcolor{lightgray}9&amp;
-\cellcolor{lightgray}9
-\end{tabular}
-\end{document}
-</code></pre>
-
 <p><img alt="Alt text" src="../8.2-1-a.png" /></p>
 <p><img alt="Alt text" src="../8.2-1-b.png" /></p>
 <p><img alt="Alt text" src="../8.2-1-c.png" /></p>
@@ -570,7 +378,7 @@ return C[b] - C[a - 1]
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../8.3-Radix-sort/" class="btn btn-neutral float-right" title="8.3 Radix sort"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../8.3-Radix-sort/" class="btn btn-neutral float-right" title="8.3 Radix sort">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../8.1-Lower-bounds-for-sorting/" class="btn btn-neutral" title="8.1 Lower bounds for sorting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -587,7 +395,7 @@ return C[b] - C[a - 1]
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -595,7 +403,7 @@ return C[b] - C[a - 1]
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -606,6 +414,12 @@ return C[b] - C[a - 1]
       
     </span>
 </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../mathjaxconfig.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
 
 </body>
 </html>

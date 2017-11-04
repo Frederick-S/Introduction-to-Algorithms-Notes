@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm}
+}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{level 1}=[sibling distance=16mm]
+\tikzstyle{level 2}=[sibling distance=8mm]
+\tikzstyle{level 3}=[sibling distance=4mm]
+
+\node (root){cn}
+    child {node {$c\frac{n}{3}$}
+        child {node {$c\frac{n}{9}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$c\frac{2n}{9}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$c\frac{2n}{3}$}
+        child {node {$c\frac{2n}{9}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$c\frac{4n}{9}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=2 of root] {cn}[no edge from this parent]
+    child {node {cn}[no edge from this parent]
+        child {node {cn}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(?)$}}}}};
+\end{tikzpicture}
+\end{document}
