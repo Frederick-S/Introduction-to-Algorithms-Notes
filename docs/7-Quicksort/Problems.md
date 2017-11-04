@@ -1,51 +1,6 @@
 # Problems
 ## 7-1
 ### a
-```
-\documentclass{standalone}
-
-\usepackage{colortbl}
-\makeatletter
-\newcolumntype{W}{!{\smash{\vrule
-\@width 4\arrayrulewidth
-\@height\dimexpr\ht\@arstrutbox+2pt\relax
-\@depth\dimexpr\dp\@arstrutbox+2pt\relax}}}
-\makeatother
-\definecolor{gray}{rgb}{.5,.5,.5}
-\definecolor{lightgray}{rgb}{.8,.8,.8}
-\begin{document}
-\begin{tabular}{c|c|c|c|c|c|c|c|c|cWc|c|c|c}
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{$p$}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{$ji$}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{}&
-\multicolumn{1}{c}{$r$}&
-\multicolumn{1}{c}{}\\
-&
-\cellcolor{lightgray}6&
-\cellcolor{lightgray}2&
-\cellcolor{lightgray}9&
-\cellcolor{lightgray}5&
-\cellcolor{lightgray}12&
-\cellcolor{lightgray}8&
-\cellcolor{lightgray}7&
-\cellcolor{lightgray}4&
-\cellcolor{lightgray}11&
-\cellcolor{gray}19&
-\cellcolor{gray}13&
-\cellcolor{gray}21&
-\end{tabular}
-\end{document}
-```
-
 ![Alt text](./7-1-a.png)
 
 ![Alt text](./7-1-b.png)

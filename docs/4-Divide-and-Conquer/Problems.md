@@ -21,36 +21,6 @@ Here, we have a = 2, b = 4, and $f(n) = \Theta(\sqrt{n})$, and thus we have that
 ### g
 First let's create a recursion tree for the recurrence $T(n) = T(n - 2) + n^2$.
 
-```
-\documentclass{standalone}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-
-\tikzset{
-    no edge from this parent/.style={
-        every child/.append style={
-        edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm}
-}
-
-\begin{document}
-\begin{tikzpicture}
-
-\node (root){$n^2$}
-    child {node {$(n - 2)^2$}
-        child {node {$(n - 4)^2$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}};
-
-\node[right=1 of root] {$n^2$}[no edge from this parent]
-    child {node {$(n - 2)^2$}[no edge from this parent]
-        child {node {$(n - 4)^2$}[no edge from this parent]
-            child {node {}[no edge from this parent]
-                child {node {$\Theta(1)$}}}}};
-\end{tikzpicture}
-\end{document}
-```
-
 ![Alt text](4.1-g.png)
 
 The number of nodes at depth i is 1. And each node at depth i, for $i = 0, 1, 2, \ldots, \frac{n - 1}{2} - 1$, has a cost of $(n - 2i)^2$. So the total cost over all nodes at depth i, is $(n - 2i)^2$. The bottom level, at depth $\frac{n - 1}{2}$, has 1 node, which contributing cost T(1), for a total cost of T(1), which is $\Theta(1)$. So:
@@ -293,65 +263,6 @@ The solution to recurrence $T(n) = 2T(\frac{n}{2}) + \frac{n}{\lg{n}}$ is $\Thet
 ### f
 First let's create a recursion tree for the recurrence $T(n) = T(\frac{n}{2}) + T(\frac{n}{4}) + T(\frac{n}{8}) + n$ and assume that n is an exact power of 8.
 
-```
-\documentclass{standalone}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-
-\tikzset{
-    no edge from this parent/.style={
-        every child/.append style={
-        edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm}
-}
-
-\begin{document}
-\begin{tikzpicture}
-\tikzstyle{level 1}=[sibling distance=24mm]
-\tikzstyle{level 2}=[sibling distance=8mm]
-\tikzstyle{level 3}=[sibling distance=4mm]
-
-\node (root){n}
-    child {node {$\frac{n}{2}$}
-        child {node {$\frac{n}{2^2}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}
-        child {node {$\frac{n}{2^3}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}
-        child {node {$\frac{n}{2^4}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}}
-    child {node {$\frac{n}{2^2}$}
-        child {node {$\frac{n}{2^3}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}
-        child {node {$\frac{n}{2^4}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}
-        child {node {$\frac{n}{2^5}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}}
-    child {node {$\frac{n}{2^3}$}
-        child {node {$\frac{n}{2^4}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}
-        child {node {$\frac{n}{2^5}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}
-        child {node {$\frac{n}{2^6}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}};
-
-\node[right=4 of root] {n}[no edge from this parent]
-    child {node {$\frac{7n}{8}$}[no edge from this parent]
-        child {node {$(\frac{7}{8})^2n$}[no edge from this parent]
-            child {node {}[no edge from this parent]
-                child {node {$\Theta(?)$}}}}};
-\end{tikzpicture}
-\end{document}
-```
-
 ![Alt text](4.3-f.png)
 
 We've solved similar problems before. Not all branch reaches at the bottom at the same time. The right most branch reaches at the bottom first. The left most branch is the last one that reaches at the bottom.
@@ -419,36 +330,6 @@ Thus $T(n) = \Theta(n)$.
 ### g
 First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \frac{1}{n}$.
 
-```
-\documentclass{standalone}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-
-\tikzset{
-    no edge from this parent/.style={
-        every child/.append style={
-        edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm}
-}
-
-\begin{document}
-\begin{tikzpicture}
-
-\node (root){$\frac{1}{n}$}
-    child {node {$\frac{1}{n - 1}$}
-        child {node {$\frac{1}{n - 2}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}};
-
-\node[right=1 of root] {$\frac{1}{n}$}[no edge from this parent]
-    child {node {$\frac{1}{n - 1}$}[no edge from this parent]
-        child {node {$\frac{1}{n - 2}$}[no edge from this parent]
-            child {node {}[no edge from this parent]
-                child {node {$\Theta(1)$}}}}};
-\end{tikzpicture}
-\end{document}
-```
-
 ![Alt text](4.3-g.png)
 
 The number of nodes at depth i is 1, for $i = 0, 1, 2, \ldots, n - 2$, has a cost of $\frac{1}{n - i}$. The bottom level, at depth n - 1, has 1 node, which contribution cost T(1), for a total cost of T(1), which is $\Theta(1)$. So:
@@ -505,36 +386,6 @@ So $T(n) = O(\lg{n})$, thus $T(n) = \Theta(\lg{n})$.
 ### h
 First let's create a recursion tree for the recurrence $T(n) = T(n - 1) + \lg{n}$.
 
-```
-\documentclass{standalone}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-
-\tikzset{
-    no edge from this parent/.style={
-        every child/.append style={
-        edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm}
-}
-
-\begin{document}
-\begin{tikzpicture}
-
-\node (root){$\lg{n}$}
-    child {node {$\lg{(n - 1)}$}
-        child {node {$\lg{(n - 2)}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}};
-
-\node[right=1 of root] {$\lg{n}$}[no edge from this parent]
-    child {node {$\lg{(n - 1)}$}[no edge from this parent]
-        child {node {$\lg{(n - 2)}$}[no edge from this parent]
-            child {node {}[no edge from this parent]
-                child {node {$\Theta(1)$}}}}};
-\end{tikzpicture}
-\end{document}
-```
-
 ![Alt text](4.3-h.png)
 
 The number of nodes at depth i is 1, for $i = 0, 1, 2, \ldots, n - 2$, has a cost of $\lg({n - i})$. The bottom level, at depth n - 1, has 1 node, which contribution cost T(1), for a total cost of T(1), which is $\Theta(1)$. So:
@@ -585,36 +436,6 @@ So $T(n) = O(n\lg{n})$. Thus $T(n) = \Theta(n\lg{n})$.
 
 ### i
 First let's create a recursion tree for the recurrence $T(n) = T(n - 2) + \frac{1}{\lg{n}}$.
-
-```
-\documentclass{standalone}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-
-\tikzset{
-    no edge from this parent/.style={
-        every child/.append style={
-        edge from parent/.style={draw=none}}},
-    level 4/.style={level distance=6mm}
-}
-
-\begin{document}
-\begin{tikzpicture}
-
-\node (root){$\frac{1}{\lg{n}}$}
-    child {node {$\frac{1}{\lg{(n - 2)}}$}
-        child {node {$\frac{1}{\lg{(n - 4)}}$}
-            child {node {$\vdots$}[no edge from this parent]
-                child {node {T(1)}}}}};
-
-\node[right=1 of root] {$\frac{1}{\lg{n}}$}[no edge from this parent]
-    child {node {$\frac{1}{\lg{(n - 2)}}$}[no edge from this parent]
-        child {node {$\frac{1}{\lg{(n - 4)}}$}[no edge from this parent]
-            child {node {}[no edge from this parent]
-                child {node {$\Theta(1)$}}}}};
-\end{tikzpicture}
-\end{document}
-```
 
 ![Alt text](4.3-i.png)
 

@@ -1,0 +1,56 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm}
+}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{level 1}=[sibling distance=24mm]
+\tikzstyle{level 2}=[sibling distance=8mm]
+\tikzstyle{level 3}=[sibling distance=4mm]
+
+\node (root){n}
+    child {node {$\frac{n}{2}$}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$\frac{n}{2}$}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$\frac{n}{2}$}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{n}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=4 of root] {n}[no edge from this parent]
+    child {node {$\frac{3n}{2}$}[no edge from this parent]
+        child {node {$(\frac{3}{2})^2n$}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(n^{\lg{3}})$}}}}};
+\end{tikzpicture}
+\end{document}

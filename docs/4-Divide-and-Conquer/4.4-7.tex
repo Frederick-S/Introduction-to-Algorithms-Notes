@@ -1,0 +1,78 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    no edge from this parent/.style={
+        every child/.append style={
+        edge from parent/.style={draw=none}}},
+    level 4/.style={level distance=6mm}
+}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{level 1}=[sibling distance=32mm]
+\tikzstyle{level 2}=[sibling distance=8mm]
+\tikzstyle{level 3}=[sibling distance=4mm]
+
+\node (root){cn}
+    child {node {$\frac{cn}{2}$}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$\frac{cn}{2}$}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$\frac{cn}{2}$}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}}
+    child {node {$\frac{cn}{2}$}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}
+        child {node {$\frac{cn}{4}$}
+            child {node {$\vdots$}[no edge from this parent]
+                child {node {T(1)}}}}};
+
+\node[right=7 of root] {cn}[no edge from this parent]
+    child {node {2cn}[no edge from this parent]
+        child {node {4cn}[no edge from this parent]
+            child {node {}[no edge from this parent]
+                child {node {$\Theta(n^2)$}}}}};
+\end{tikzpicture}
+\end{document}
