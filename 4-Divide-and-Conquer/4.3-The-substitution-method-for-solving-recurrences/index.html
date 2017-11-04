@@ -350,9 +350,21 @@
 <p>where the last step holds as long as $c &gt; \frac{1}{2}$ and $n \geq \frac{c}{2c - 1}$.</p>
 <h2 id="43-2">4.3-2</h2>
 <p>We start by assuming that $T(n) \leq c\lg{n}$ holds for all positive m &lt; n, in particular for $m = \lceil \frac{n}{2} \rceil$, yielding $T(\lceil \frac{n}{2} \rceil) \leq c\lg{\lceil \frac{n}{2} \rceil}$. Substituting ino the recurrence yields:</p>
-<p>$$T(n) = T(\lceil \frac{n}{2} \rceil) + 1 \leq c\lg{\lceil \frac{n}{2} \rceil} + 1 \leq c(\lg{(\frac{n + (2 - 1)}{2})}) + 1 \text{ (inequation 3.6) } = c\lg{(n + 1)} - c + 1$$</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; T(\lceil \frac{n}{2} \rceil) + 1 \\ 
+&amp;\leq&amp; c\lg{\lceil \frac{n}{2} \rceil} + 1 \leq c(\lg{(\frac{n + (2 - 1)}{2})}) + 1 \text{ (inequation 3.6) } \\
+&amp;=&amp; c\lg{(n + 1)} - c + 1
+\end{eqnarray}
+$$</p>
 <p>But it's not easy to prove that $c\lg{(n + 1)} - c + 1 \leq c\lg{n}$, so we reguess $T(n) = O(\lg{(n - 1)})$, since if $T(n) = O(\lg{(n - 1)})$, then it's obviously $O(\lg{n})$. Substituting ino the recurrence yields:</p>
-<p>$$T(n) \leq c\lg{(\lceil \frac{n}{2} \rceil -1)} + 1 \leq c\lg{(\frac{n + (2 - 1)}{2} -1)} + 1 = c\lg{(n - 1)} - c + 1 \leq c\lg{(n - 1)} &lt; c\lg{n}$$</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;\leq&amp; c\lg{(\lceil \frac{n}{2} \rceil -1)} + 1 \\
+&amp;\leq&amp; c\lg{(\frac{n + (2 - 1)}{2} -1)} + 1 \\
+&amp;=&amp; c\lg{(n - 1)} - c + 1 \leq c\lg{(n - 1)} &lt; c\lg{n}
+\end{eqnarray}
+$$</p>
 <p>where the last step holds as long as $c \geq 1$.</p>
 <h2 id="43-3">4.3-3</h2>
 <p>We start by assuming that $T(n) \geq cn\lg{n}$ holds for all positive m &lt; n, in particular for $m = \lfloor \frac{n}{2} \rfloor$, yielding $T(\lfloor \frac{n}{2} \rfloor) \geq c\lfloor \frac{n}{2} \rfloor\lg{\lfloor \frac{n}{2} \rfloor}$. Substituting ino the recurrence yields:</p>
