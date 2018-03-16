@@ -1,6 +1,6 @@
-var gulp = require('gulp');
-var ghPages = require('gulp-gh-pages');
+const gulp = require('gulp')
+const ghPages = require('gulp-gh-pages')
 
-gulp.task('deploy', function () {
-    return gulp.src('./site/**/*').pipe(ghPages());
+gulp.task('deploy', () => {
+    return gulp.src('./site/**/*').pipe(ghPages())
 });
