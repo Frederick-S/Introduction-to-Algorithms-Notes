@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "10.2 Linked lists";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.2-Linked-lists.md";
+    var mkdocs_page_input_path = "10-Elementary-Data-Structures/10.2-Linked-lists.md";
     var mkdocs_page_url = "/10-Elementary-Data-Structures/10.2-Linked-lists/";
   </script>
   
@@ -104,7 +104,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen%27s-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
+    <a class="" href="../../4-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
                 </li>
                 <li class="">
                     
@@ -388,6 +388,37 @@ else
 </code></pre>
 
 <h2 id="102-5">10.2-5</h2>
+<pre><code>SEARCH(k)
+
+x = L.search(k)
+
+if x != L.nil
+    return x
+else
+    return NIL
+</code></pre>
+
+<pre><code>INSERT(k, v)
+
+x = SEARCH(k)
+
+if x != L.nil:
+    error &quot;The specified key already exists&quot;
+else:
+    L.insert(k, v)
+</code></pre>
+
+<pre><code>DELETE(k)
+
+x = SEARCH(k)
+
+if x == L.nil:
+    error &quot;The specified key does not exist&quot;
+else:
+    L.delete(k)
+</code></pre>
+
+<p>The running time of <code>INSERT</code>, <code>DELETE</code> and <code>SEARCH</code> are all O(n).</p>
               
             </div>
           </div>

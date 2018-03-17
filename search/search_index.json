@@ -2402,7 +2402,7 @@
         },
         {
             "location": "/10-Elementary-Data-Structures/10.2-Linked-lists/",
-            "text": "10.2 Linked lists\n\n\n10.2-1\n\n\nWe can implement \nINSERT\n in O(1) time, but cannot implement \nDELETE\n in O(1) time, it's O(n).\n\n\n10.2-2\n\n\nPUSH(x)\n\nL.insert(x)\n\n\n\n\nPOP()\n\nif L.head == NIL\n    error \"underflow\"\nx = L.head\nL.head = L.head.next\nreturn x\n\n\n\n\n10.2-3\n\n\nENQUEUE(x)\n\nnew = SinglyLinkedNode(x)\nif L.head == NIL\n    L.head = new\n    L.tail = new\nelse\n    L.tail.next = new\n    L.tail = new\n\n\n\n\nDEQUEUE()\n\nif L.head == NIL\n    error \"underflow\"\nx = L.head\nL.head = L.head.next\nreturn x\n\n\n\n\n10.2-4\n\n\nLIST-SEARCH'(L, k)\n\nx = L.nil.next\nL.nil.key = k\nwhile x.key != k\n    x = x.next\nif x != L.nil\n    return x\nelse\n    return NIL\n\n\n\n\n10.2-5",
+            "text": "10.2 Linked lists\n\n\n10.2-1\n\n\nWe can implement \nINSERT\n in O(1) time, but cannot implement \nDELETE\n in O(1) time, it's O(n).\n\n\n10.2-2\n\n\nPUSH(x)\n\nL.insert(x)\n\n\n\n\nPOP()\n\nif L.head == NIL\n    error \"underflow\"\nx = L.head\nL.head = L.head.next\nreturn x\n\n\n\n\n10.2-3\n\n\nENQUEUE(x)\n\nnew = SinglyLinkedNode(x)\nif L.head == NIL\n    L.head = new\n    L.tail = new\nelse\n    L.tail.next = new\n    L.tail = new\n\n\n\n\nDEQUEUE()\n\nif L.head == NIL\n    error \"underflow\"\nx = L.head\nL.head = L.head.next\nreturn x\n\n\n\n\n10.2-4\n\n\nLIST-SEARCH'(L, k)\n\nx = L.nil.next\nL.nil.key = k\nwhile x.key != k\n    x = x.next\nif x != L.nil\n    return x\nelse\n    return NIL\n\n\n\n\n10.2-5\n\n\nSEARCH(k)\n\nx = L.search(k)\n\nif x != L.nil\n    return x\nelse\n    return NIL\n\n\n\n\nINSERT(k, v)\n\nx = SEARCH(k)\n\nif x != L.nil:\n    error \"The specified key already exists\"\nelse:\n    L.insert(k, v)\n\n\n\n\nDELETE(k)\n\nx = SEARCH(k)\n\nif x == L.nil:\n    error \"The specified key does not exist\"\nelse:\n    L.delete(k)\n\n\n\n\nThe running time of \nINSERT\n, \nDELETE\n and \nSEARCH\n are all O(n).",
             "title": "10.2 Linked lists"
         },
         {
@@ -2432,7 +2432,7 @@
         },
         {
             "location": "/10-Elementary-Data-Structures/10.2-Linked-lists/#102-5",
-            "text": "",
+            "text": "SEARCH(k)\n\nx = L.search(k)\n\nif x != L.nil\n    return x\nelse\n    return NIL  INSERT(k, v)\n\nx = SEARCH(k)\n\nif x != L.nil:\n    error \"The specified key already exists\"\nelse:\n    L.insert(k, v)  DELETE(k)\n\nx = SEARCH(k)\n\nif x == L.nil:\n    error \"The specified key does not exist\"\nelse:\n    L.delete(k)  The running time of  INSERT ,  DELETE  and  SEARCH  are all O(n).",
             "title": "10.2-5"
         }
     ]
