@@ -9,5 +9,5 @@ mkdocs serve
 
 ## Deploy to gh-pages
 ```sh
-mkdocs deploy
+mkdocs gh-deploy
 ```
