@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "10.2 Linked lists";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures/10.2-Linked-lists.md";
+    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.2-Linked-lists.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -292,6 +292,8 @@
         
             <li><a class="toctree-l4" href="#102-5">10.2-5</a></li>
         
+            <li><a class="toctree-l4" href="#102-6">10.2-6</a></li>
+        
         </ul>
     
 
@@ -420,6 +422,15 @@ else:
 </code></pre>
 
 <p>The running time of <code>INSERT</code>, <code>DELETE</code> and <code>SEARCH</code> are all O(n).</p>
+<h2 id="102-6">10.2-6</h2>
+<p>We can use two singly linked lists to represent <code>s1</code> and <code>s2</code>. In order to union <code>s1</code> and <code>s2</code>, we simply let the tail of <code>s1</code> points to the head of <code>s2</code>, and let the tail of <code>s2</code> be the tail of <code>s1</code>.</p>
+<pre><code>SET-UNION(s1, s2)
+
+s1.tail.next = s2.head
+s1.tail = s2.tail
+
+return s1
+</code></pre>
               
             </div>
           </div>
