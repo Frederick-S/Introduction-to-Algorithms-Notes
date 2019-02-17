@@ -1,4 +1,4 @@
-# Introduction-to-Algorithms-Notes
+# Introduction to Algorithms
 Solutions to Introduction to Algorithms, third edition.
 
 ## Preview
