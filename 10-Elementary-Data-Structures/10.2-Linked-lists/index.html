@@ -294,6 +294,8 @@
         
             <li><a class="toctree-l4" href="#102-6">10.2-6</a></li>
         
+            <li><a class="toctree-l4" href="#102-7">10.2-7</a></li>
+        
         </ul>
     
 
@@ -430,6 +432,24 @@ s1.tail.next = s2.head
 s1.tail = s2.tail
 
 return s1
+</code></pre>
+
+<h2 id="102-7">10.2-7</h2>
+<pre><code>REVERSE-SINGLY-LINKED-LIST()
+
+prev = L.head
+current = prev.next if prev != nil else nil
+
+while current != nil
+    next = current.next
+    current.next = prev
+    prev = current
+    current = next
+
+L.head.next = nil
+temp = L.head
+L.head = L.tail
+L.tail = temp
 </code></pre>
               
             </div>
