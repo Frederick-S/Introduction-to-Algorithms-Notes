@@ -1,0 +1,19 @@
+environment:
+  matrix:
+    - PYTHON: "C:\\Python33"
+    - PYTHON: "C:\\Python34"
+    - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python36"
+    - PYTHON: "C:\\Python37"
+    - PYTHON: "C:\\Python33-x64"
+    - PYTHON: "C:\\Python34-x64"
+    - PYTHON: "C:\\Python35-x64"
+    - PYTHON: "C:\\Python36-x64"
+    - PYTHON: "C:\\Python37-x64"
+build: off
+install:
+  - "%PYTHON%\\python.exe -m pip install pycodestyle"
+before_test:
+  - "%PYTHON%\\Scripts\\pycodestyle.exe ."
+test_script:
+  - "%PYTHON%\\python.exe setup.py test"
