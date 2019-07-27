@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>2.2 Analyzing algorithms - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "2.2 Analyzing algorithms";
+    var mkdocs_page_input_path = "02-Getting-Started\\2.2-Analyzing-algorithms.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,19 +59,37 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
+    <a class="" href="../2.1-Insertion-sort/">2.1 Insertion sort</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">2.2 Analyzing algorithms</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#22-analyzing-algorithms">2.2 Analyzing algorithms</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#22-1">2.2-1</a></li>
+        
+            <li><a class="toctree-l4" href="#22-2">2.2-2</a></li>
+        
+            <li><a class="toctree-l4" href="#22-3">2.2-3</a></li>
+        
+            <li><a class="toctree-l4" href="#22-4">2.2-4</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+    <a class="" href="../2.3-Designing-algorithms/">2.3 Designing algorithms</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../02-Getting-Started/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +287,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +320,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>2 Getting Started &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>2.2 Analyzing algorithms</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +334,123 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
+                <h1 id="22-analyzing-algorithms">2.2 Analyzing algorithms</h1>
+<h2 id="22-1">2.2-1</h2>
+<p>$\Theta(n^3)$.</p>
+<h2 id="22-2">2.2-2</h2>
+<p>Pseudocode:</p>
+<pre><code>SELECTION-SORT (A)
 
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
+1 for i = 1 to A.length - 1
+2     min_index = i
+3
+4     for j = i + 1 to A.length
+5         if A[min_index] &gt; A[j]
+6             min_index = j
+7
+8     if i != min_index:
+9         temp = A[i]
+10        A[i] = A[min_index]
+11        A[min_index] = temp
 </code></pre>
 
-<pre><code>DEQUEUE(Q)
-
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
-</code></pre>
-
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
-
-return DQ.left == 0 and DQ.right == DQ.size
-</code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+<p>Loop invariant:</p>
+<p><strong>At the start of each iteration of the outer for loop, the subarray A[1..i - 1] consists of elements that are in sorted order</strong>.</p>
+<p>Why does it need to run for only the first n - 1 elements, rather than for all n elements?</p>
+<p>When i equals to A.length - 1, only the last two elements may not be in sorted order, and we need to find the A.length - 1 smallest element, so we compare A[A.length - 1] and A[A.length]. We put the smaller element at the index of A.length - 1, and put the larger element at the index of A.length. So after this iteration, the last element of the array is already the largest number. So it's not necessary to run for the nth element.</p>
+<p>Give the best-case and worst-case running times of selection sort in $\Theta$ notation.</p>
+<p>Let's first see the cost of each statement and the number of times each statement is executed. We let $t_i$ denote the number of times the operation in line 6 is executed for that value of i, and let $p_i$ denote the number of times the operation in line 9/10/11 is executed for that value of i.</p>
+<table>
+<thead>
+<tr>
+<th>Line number</th>
+<th align="center">Cost</th>
+<th align="right">Times</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td align="center">$c_1$</td>
+<td align="right">$n$</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">$c_2$</td>
+<td align="right">$n - 1$</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">$c_4$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} (n - i + 1) = \frac{n(n + 1)}{2} - 1$</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">$c_5$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} (n - i) = \frac{n(n - 1)}{2}$</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">$c_6$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} t_i$</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">$c_8$</td>
+<td align="right">$n - 1$</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">$c_9$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} p_i$</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">$c_{10}$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} p_i$</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">$c_{11}$</td>
+<td align="right">$\sum_{i = 1}^{n - 1} p_i$</td>
+</tr>
+</tbody>
+</table>
+<p>So the running time of selection sort is:</p>
+<p>$$T(n) = c_1n + c_2(n - 1) + c_4(\frac{n(n + 1)}{2} - 1) + c_5\frac{n(n - 1)}{2} + c_6\sum_{i = 1}^{n - 1} t_i + c_8(n - 1) + \\\
+(c_9 + c_{10} + c_{11})\sum_{i = 1}^{n - 1} p_i$$</p>
+<p>Now let's see the best-case. The best-case occurs if the array is already sorted. Thus $t_i$ and $p_i$ are both 0, and the best-case running time is:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; c_1n + c_2(n - 1) + c_4(\frac{n(n + 1)}{2} - 1) + c_5\frac{n(n - 1)}{2} + c_8(n - 1)       \\\
+  &amp;=&amp; (\frac{c_4}{2} + \frac{c_5}{2})n^2 + (c_1 + c_2 + \frac{c_4}{2} - \frac{c_5}{2} + c_8)n - (c_2 + c_4 + c_8)  \\\
+  &amp;=&amp; \Theta(n^2)
+\end{eqnarray}
+$$</p>
+<p>And the worst-case occurs if the array is in reverse sorted order. Thus in the iteration of j, line 6 is executed from i + 1 to A.length - (i - 1) (because after the first iteration of i, the largest element is at the index of A.length, after the second iteration of i, the second largest element is at the index of A.length - 1, so the last i - 1 elements are bigger than the previous elements), so $t_i = n - i - (i - 1) = n - 2i + 1$. So the times of line 6 is $c_6\sum_{i = 1}^{n - 1} (n - 2i + 1)$, notice that $n - 2i + 1$ will be 0, when it's 0, it's not necessary to sum it, to make it simple, let's assume it stops when $i = \frac{n}{2}$. So:</p>
+<p>$$
+\begin{eqnarray}
+\sum_{i = 1}^{n - 1} (n - 2i + 1) &amp;=&amp; (n - 1) + (n - 3) + \ldots + 1 \\\
+&amp;=&amp; n * \frac{n}{2} - (1 + 3 + 5 + \ldots + (2 * \frac{n}{2} - 1)) \\\
+&amp;=&amp; \frac{n^2}{2} - \frac{\frac{n}{2}(1 + n - 1)}{2} \\\
+&amp;=&amp; \frac{n^2}{4}
+\end{eqnarray}
+$$</p>
+<p>Now let's see $p_i$, we already assume that line 6 will not be executed when $i \geq \frac{n}{2}$, which also means line 9 to line 11 will not be executed. So $\sum_{i = 1}^{n - 1} p_i$ should be $\frac{n}{2}$. So the running time of worst-case is:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; c_1n + c_2(n - 1) + c_4(\frac{n(n + 1)}{2} - 1) + c_5\frac{n(n - 1)}{2} + c_6\frac{n^2}{4} + c_8(n - 1) + \frac{c_9 + c_{10} + c_{11}}{2}n \\\
+  &amp;=&amp; (\frac{c_4}{2} + \frac{c_5}{2} + \frac{c_6}{4})n^2 + (c_1 + c_2 + \frac{c_4}{2} - \frac{c_5}{2} + c_8 + \frac{c_9 + c_{10} + c_{11}}{2})n - (c_2 + c_4 + c_8)  \\\
+  &amp;=&amp; \Theta(n^2)
+\end{eqnarray}
+$$</p>
+<h2 id="22-3">2.2-3</h2>
+<p>How many elements of the input sequence need to be checked on the average?</p>
+<p>Since the element being searched for is equally likely to be any element in the array, so the probability of finding the target value at index i is $1 / n$, and it will check i elements. So the average checks is:</p>
+<p>$$\frac{1}{n}(1 + 2 + 3 + \ldots + n - 1 + n) = \frac{1}{n}\frac{n(n + 1)}{2}=\frac{n + 1}{2}$$</p>
+<p>And the worst case will check n elements. The running time of average case and worst case are both $\Theta(n)$.</p>
+<h2 id="22-4">2.2-4</h2>
+<p>We can check if the input is a best-case first, if it is true, then we can return a predefined solution for that best-case. For example, in a sorting algorithm, if the input is sorted, then we can return the array directly.</p>
               
             </div>
           </div>
@@ -487,10 +458,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../2.3-Designing-algorithms/" class="btn btn-neutral float-right" title="2.3 Designing algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../2.1-Insertion-sort/" class="btn btn-neutral" title="2.1 Insertion sort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +487,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../2.1-Insertion-sort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../2.3-Designing-algorithms/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

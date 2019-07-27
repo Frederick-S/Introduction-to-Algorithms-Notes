@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>2.3 Designing algorithms - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "2.3 Designing algorithms";
+    var mkdocs_page_input_path = "02-Getting-Started\\2.3-Designing-algorithms.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,19 +59,43 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
+    <a class="" href="../2.1-Insertion-sort/">2.1 Insertion sort</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+    <a class="" href="../2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">2.3 Designing algorithms</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#23-designing-algorithms">2.3 Designing algorithms</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#23-1">2.3-1</a></li>
+        
+            <li><a class="toctree-l4" href="#23-2">2.3-2</a></li>
+        
+            <li><a class="toctree-l4" href="#23-3">2.3-3</a></li>
+        
+            <li><a class="toctree-l4" href="#23-4">2.3-4</a></li>
+        
+            <li><a class="toctree-l4" href="#23-5">2.3-5</a></li>
+        
+            <li><a class="toctree-l4" href="#23-6">2.3-6</a></li>
+        
+            <li><a class="toctree-l4" href="#23-7">2.3-7</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../02-Getting-Started/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +293,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +326,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>2 Getting Started &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>2.3 Designing algorithms</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +340,155 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
+                <h1 id="23-designing-algorithms">2.3 Designing algorithms</h1>
+<h2 id="23-1">2.3-1</h2>
+<p><img alt="Alt text" src="../2.3-2.png" /></p>
+<h2 id="23-2">2.3-2</h2>
+<pre><code>MERGE(A, p, q, r)
 
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
+n1 = q - p + 1
+n2 = r - q
+let L[1..n1] and R[1..n2] be new arrays
+for i = 1 to n1
+    L[i] = A[p + i - 1]
+for j = 1 to n2
+    R[j] = A[q + j]
+i = 1
+j = 1
+for k = p to r
+    if i &gt; n1:
+        A[k] = R[j]
+        j = j + 1
+    else if j &gt; n2:
+        A[k] = L[i]
+        i = i + 1
+    else if L[i] &lt;= R[j]:
+        A[k] = L[i]
+        i = i + 1
+    else
+        A[k] = R[j]
+        j = j + 1
 </code></pre>
 
-<pre><code>DEQUEUE(Q)
+<h2 id="23-3">2.3-3</h2>
+<p>Because n is an exact power of 2, so the sequence of n is $2, 4, 8, 16, \ldots, 2^k$. First, let's see the base case, the base case is $n = 2$. And we have $T(n) = 2 = 2\lg{2}$. So the statement holds true for $n = 2$.</p>
+<p>Second, let's see the inductive step. We assume $T(n) = n\lg{n}$ is true when $n = 2^k, k &gt; 1$, and we want to prove it also holds true for the $n + 1$ element, which is $2^{k + 1}$.</p>
+<p>When $n = 2^{k + 1}$, we have:</p>
+<p>$$
+\begin{eqnarray}
+T(2^{k + 1}) &amp;=&amp; 2T(\frac{2^{k + 1}}{2}) + 2^{k + 1} \\\
+&amp;=&amp; 2T(2^k) + 2^{k + 1} \\\
+&amp;=&amp; 2 * 2^k\lg{2^k} + 2^{k + 1} \\\
+&amp;=&amp; 2^{k + 1}\lg{2^k} + 2^{k + 1} \\\
+&amp;=&amp; 2^{k + 1}(\lg{2^k} + 1) \\\
+&amp;=&amp; 2^{k + 1}(\lg{2^k} + \lg{2}) \\\
+&amp;=&amp; 2^{k + 1}\lg{2^{k + 1}}
+\end{eqnarray}
+$$</p>
+<p>So $T(n) = n\lg{n}$ is true for all $n = 2^k, k \geq 1$.</p>
+<h2 id="23-4">2.3-4</h2>
+<p>The pseudocode would be like this:</p>
+<pre><code>INSERT(A, end)
 
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
+key = A[end]
+i = end - 1
+
+while i &gt; 0 and A[i] &gt; key
+    A[i + 1] = A[i]
+    i = i - 1
+
+A[i + 1] = key
 </code></pre>
 
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
+<pre><code>RECURSIVE-INSERTION-SORT(A, end)
 
-return DQ.left == 0 and DQ.right == DQ.size
+if end &gt; 1:
+    RECURSIVE-INSERTION-SORT(A, end - 1)
+    INSERT(A, end)
 </code></pre>
 
-<pre><code>IS-FULL(DQ)
+<p>And here is the recurrence for the running time (let $I(n)$ denotes the running time of inserting $A[n]$ to $A[1..n - 1]$):</p>
+<p>$$
+T(n) =
+\begin{cases}
+\Theta(1) &amp; if\ n = 1, \\\
+T(n - 1) + I(n) &amp; if\ n \geq 2
+\end{cases}
+$$</p>
+<h2 id="23-5">2.3-5</h2>
+<p>Pseudocode:</p>
+<pre><code>ITERATIVE-BINARY-SEARCH(A, v)
 
-return DQ.right - DQ.left == 1
+low = 1
+high = n
+
+while low &lt;= high
+    middle = (low + high) / 2
+
+    if A[middle] &lt; v
+        low = middle + 1
+    else if A[middle] &gt; v
+        high = middle - 1
+    else
+        return middle
+
+return NIL
 </code></pre>
 
-<pre><code>APPEND(DQ, x)
+<pre><code>RECURSIVE-BINARY-SEARCH(A, v, low, high)
 
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
+if low &lt;= high
+    middle = (low + high) / 2
+
+    if A[middle] &lt; v
+        return RECURSIVE-BINARY-SEARCH(A, v, middle + 1, high)
+    else if A[middle] &gt; v
+        return RECURSIVE-BINARY-SEARCH(A, v, low, middle - 1)
+    else
+        return middle
+
+return NIL
 </code></pre>
 
-<pre><code>POP(DQ)
+<p>From the pseudocode we can see either iterative or recursive binary search will halve the size of problem in each step when the middle element doesn't match the target value. So we have:</p>
+<p>$$
+T(n) =
+\begin{cases}
+C &amp; if\ n = 1, \\\
+T(n / 2) + C &amp; if\ n \geq 2
+\end{cases}
+$$</p>
+<p>And we can rewrite $T(n)$ like:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; T(n / 2) + C \\\
+&amp;=&amp; T(n / 2^2) + C + C \\\
+&amp;=&amp; T(n / 2^3) + C + C + C \\\
+&amp;=&amp; ... \\\
+&amp;=&amp; T(1) + C\lg{n} \\\
+&amp;=&amp; C(\lg{n} + 1) \\\
+&amp;=&amp; \Theta(\lg{n})
+\end{eqnarray}
+$$</p>
+<p>So the worst-case running time of binary search is $\Theta(\lg{n})$.</p>
+<h2 id="23-6">2.3-6</h2>
+<p>No, we cannot. The running time of finding the position to insert the new element is $\Theta(\lg{n})$, but we still need $\Theta(n)$ time to insert that element into the array. So the worst-case running time is still $\Theta(n^2)$.</p>
+<h2 id="23-7">2.3-7</h2>
+<pre><code>TWO-SUM(S, x)
 
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
+MERGE-SORT(S)
+
+for i = 1 to S.length
+    index = BINARY-SEARCH(S, x - S[i])
+
+    if index != NIL and index != i
+        return true
+
+return false
 </code></pre>
 
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+<p>First we sort S by merge sort, and the running time is $\Theta(n\lg{n})$. Then we iterate S, for each element in S, if this element is one of the two elements whose sum is exactly x, then we know x minus this element should be also in S. We can use binary search to search it. If the search result is not NIL and not equal to i, then we return true.</p>
+<p>The running time of binary search is $\Theta(\lg{n})$, and in the worst-case, we will run it for $n$ times, and the running time is $\Theta(n\lg{n})$. So the worst-case running time of this algorithm is $\Theta(n\lg{n}) + \Theta(n\lg{n})$, which is still $\Theta(n\lg{n})$.</p>
               
             </div>
           </div>
@@ -487,10 +496,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Problems/" class="btn btn-neutral float-right" title="Problems">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../2.2-Analyzing-algorithms/" class="btn btn-neutral" title="2.2 Analyzing algorithms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +525,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../2.2-Analyzing-algorithms/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Problems/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>4.6 Proof of the master theorem - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "4.6 Proof of the master theorem";
+    var mkdocs_page_input_path = "04-Divide-and-Conquer\\4.6-Proof-of-the-master-theorem.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -101,31 +101,47 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../04-Divide-and-Conquer/4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
+    <a class="" href="../4.1-The-maximum-subarray-problem/">4.1 The maximum-subarray problem</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../04-Divide-and-Conquer/4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
+    <a class="" href="../4.2-Strassen's-algorithm-for-matrix-multiplication/">4.2 Strassen's algorithm for matrix multiplication</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../04-Divide-and-Conquer/4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
+    <a class="" href="../4.3-The-substitution-method-for-solving-recurrences/">4.3 The substitution method for solving recurrences</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../04-Divide-and-Conquer/4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
+    <a class="" href="../4.4-The-recursion-tree-method-for-solving-recurrences/">4.4 The recursion-tree method for solving recurrences</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../04-Divide-and-Conquer/4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
+    <a class="" href="../4.5-The-master-method-for-solving-recurrences/">4.5 The master method for solving recurrences</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">4.6 Proof of the master theorem</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#46-proof-of-the-master-theorem">4.6 Proof of the master theorem</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#46-1">4.6-1</a></li>
+        
+            <li><a class="toctree-l4" href="#46-2">4.6-2</a></li>
+        
+            <li><a class="toctree-l4" href="#46-3">4.6-3</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../04-Divide-and-Conquer/4.6-Proof-of-the-master-theorem/">4.6 Proof of the master theorem</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../04-Divide-and-Conquer/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +285,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +318,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>4 Divide and Conquer &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>4.6 Proof of the master theorem</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +332,50 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
-
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
-</code></pre>
-
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
-
-return DQ.left == 0 and DQ.right == DQ.size
-</code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+                <h1 id="46-proof-of-the-master-theorem">4.6 Proof of the master theorem</h1>
+<h2 id="46-1">4.6-1</h2>
+<p>Let's prove that if b is a positive integer, then $\lceil \lceil \frac{n}{b} \rceil \frac{1}{b} \rceil = \lceil \frac{n}{b^2} \rceil$.</p>
+<p>Since $\lceil \frac{n}{b} \rceil \geq \frac{n}{b}$, so $\lceil \frac{n}{b} \rceil \frac{1}{b} \geq \frac{n}{b}\frac{1}{b} = \frac{n}{b^2}$, thus $\lceil \lceil \frac{n}{b} \rceil \frac{1}{b} \rceil \geq \lceil \frac{n}{b^2} \rceil$.</p>
+<p>And we have $\frac{n}{b}\frac{1}{b} \leq \lceil\frac{n}{b}\frac{1}{b} \rceil = \lceil\frac{n}{b^2} \rceil$, hence $\frac{n}{b} \leq b\lceil \frac{n}{b^2} \rceil$. Because both b and $\lceil \frac{n}{b^2} \rceil$ are integers, so $b\lceil \frac{n}{b^2} \rceil$ is also a integer. So $\lceil \frac{n}{b} \rceil \leq b\lceil \frac{n}{b^2} \rceil$. So $\lceil \frac{n}{b} \rceil\frac{1}{b} \leq \lceil \frac{n}{b^2} \rceil$, so $\lceil \lceil \frac{n}{b} \rceil\frac{1}{b} \rceil \leq \lceil \frac{n}{b^2} \rceil$.</p>
+<p>Thus $\lceil \lceil \frac{n}{b} \rceil\frac{1}{b} \rceil = \lceil \frac{n}{b^2} \rceil$, so $n_j = \lceil \frac{n}{b^{j - 1}} \rceil$ if j &gt; 0. If j = 0, $n_j = n$, so we can get a more simpler expression, $n_j = \lceil \frac{n}{b^j} \rceil$.</p>
+<p>You can get some useful lemmas <a href="http://www.russinoff.com/libman/text/node6.html">here</a>.</p>
+<h2 id="46-2">4.6-2</h2>
+<p>From lemma 4.2 we know $T(n) = \Theta(n^{\log_b{a}}) + \sum_{j = 0}^{\log_b{n - 1}} a^jf(\frac{n}{b^j})$.</p>
+<p>$$
+\begin{eqnarray}
+\sum_{j = 0}^{\log_b{n - 1}} a^jf(\frac{n}{b^j}) &amp;=&amp; \sum_{j = 0}^{\log_b{n - 1}} a^jf(\frac{n}{b^j}) \\
+&amp;=&amp; \sum_{j = 0}^{\log_b{n - 1}} a^j\Theta((\frac{n}{b^j})^{\log_b{a}}\lg^k{\frac{n}{b^j}}) \\
+&amp;=&amp; \sum_{j = 0}^{\log_b{n - 1}} a^j\Theta(\frac{n^{\log_b{a}}}{(b^{\log_b{a}})^j}\lg^k{\frac{n}{b^j}}) \\
+&amp;=&amp; \sum_{j = 0}^{\log_b{n - 1}} a^j\Theta(\frac{n^{\log_b{a}}}{a^j}\lg^k{\frac{n}{b^j}}) \\
+&amp;=&amp; \sum_{j = 0}^{\log_b{n - 1}}\Theta(n^{\log_b{a}}\lg^k{\frac{n}{b^j}}) \\
+&amp;=&amp; n^{\log_b{a}}\sum_{j = 0}^{\log_b{n - 1}}\Theta(\lg^k{\frac{n}{b^j}}) \\
+&amp;=&amp; n^{\log_b{a}}\sum_{j = 0}^{\log_b{n - 1}}\Theta((\lg{n} - j\lg{b})^k)
+\end{eqnarray}
+$$</p>
+<p>We have:</p>
+<p>$$
+\begin{eqnarray}
+\sum_{j = 0}^{\log_b{n - 1}}\Theta((\lg{n} - j\lg{b})^k) &amp;\leq&amp; \sum_{j = 0}^{\log_b{n - 1}}\lg^k{n} \\
+&amp;=&amp; \log_b{n}\lg^k{n} \\
+&amp;=&amp; \frac{\lg^{k + 1}{n}}{\lg{b}} \\
+&amp;=&amp; O(\lg^{k + 1}{n})
+\end{eqnarray}
+$$</p>
+<p>But I don't know how to prove $\sum_{j = 0}^{\log_b{n - 1}}\Theta((\lg{n} - j\lg{b})^k) = \Omega(\lg^{k + 1}{n})$.</p>
+<h2 id="46-3">4.6-3</h2>
+<p>We have $af(\frac{n}{b}) \leq cf(n)$, so $f(n) \geq \frac{a}{c}f(\frac{n}{b})$, and:</p>
+<p>$$
+\begin{eqnarray}
+f(n) &amp;\geq&amp; \frac{a}{c}f(\frac{n}{b}) \\
+&amp;\geq&amp; (\frac{a}{c})^2f(\frac{n}{b^2}) \\
+&amp;\geq&amp; \ldots \\
+&amp;\geq&amp; (\frac{a}{c})^{\log_b{n}}f(1) \\
+&amp;=&amp; n^{\log_b{\frac{a}{c}}}f(1) \\
+&amp;=&amp; n^{\log_b{a + \epsilon}}f(1) \text{ (c &lt; 1)} \\
+&amp;=&amp; \Omega(n^{\log_b{a + \epsilon}})
+\end{eqnarray}
+$$</p>
+<p>So $f(n) = \Omega(n^{\log_b{a + \epsilon}})$.</p>
               
             </div>
           </div>
@@ -487,10 +383,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Problems/" class="btn btn-neutral float-right" title="Problems">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../4.5-The-master-method-for-solving-recurrences/" class="btn btn-neutral" title="4.5 The master method for solving recurrences"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +412,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../4.5-The-master-method-for-solving-recurrences/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Problems/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

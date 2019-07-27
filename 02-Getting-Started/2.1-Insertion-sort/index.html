@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>2.1 Insertion sort - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "2.1 Insertion sort";
+    var mkdocs_page_input_path = "02-Getting-Started\\2.1-Insertion-sort.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,21 +57,39 @@
 		
     <span class="caption-text">2 Getting Started</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../02-Getting-Started/2.1-Insertion-sort/">2.1 Insertion sort</a>
+    <a class="current" href="./">2.1 Insertion sort</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#21-insertion-sort">2.1 Insertion sort</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#21-1">2.1-1</a></li>
+        
+            <li><a class="toctree-l4" href="#21-2">2.1-2</a></li>
+        
+            <li><a class="toctree-l4" href="#21-3">2.1-3</a></li>
+        
+            <li><a class="toctree-l4" href="#21-4">2.1-4</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
+    <a class="" href="../2.2-Analyzing-algorithms/">2.2 Analyzing algorithms</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/2.3-Designing-algorithms/">2.3 Designing algorithms</a>
+    <a class="" href="../2.3-Designing-algorithms/">2.3 Designing algorithms</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../02-Getting-Started/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +287,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +320,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>2 Getting Started &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>2.1 Insertion sort</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +334,58 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
+                <h1 id="21-insertion-sort">2.1 Insertion sort</h1>
+<h2 id="21-1">2.1-1</h2>
+<p><img alt="Alt text" src="../2.1-1.png" /></p>
+<h2 id="21-2">2.1-2</h2>
+<pre><code>INSERTION-SORT (A) (Decreasing order)
 
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
+for j = 2 to A.length
+    key = A[j]
+    // Insert A[j] into the sorted sequence A[1..j - 1]
+    i = j - 1
+    while i &gt; 0 and A[i] &lt; key
+        A[i + 1] = A[i]
+        i = i - 1
+    A[i + 1] = key
 </code></pre>
 
-<pre><code>DEQUEUE(Q)
+<h2 id="21-3">2.1-3</h2>
+<p>Pseudocode:</p>
+<pre><code>LINEAR-SEARCH (A)
 
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
+for i = 1 to A.length
+    if A[i] == v
+        return i
+
+return NIL
 </code></pre>
 
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
+<p>Loop invariant:</p>
+<p><strong>At the start of each iteration of the for loop, v doesn't exist in the subarray A[1..i - 1]</strong>.</p>
+<p>And let's see how the loop invariant fulfills the three necessary properties.</p>
+<p><strong>Initialization</strong>: in the first loop iteration, i = 1, the subarray A[1..i - 1] is an empty array, therefore, v doesn't exist
+int A[1..i - 1]. So it shows that the loop invariant holds prior to the first iteration of the loop.</p>
+<p><strong>Maintenance</strong>: at the start of each iteration of the for loop, we suppose it is true that v doesn't exist in the subarray A[1..i - 1]. Then we check if A[i] == v, if it is true, then we are done, we found v. If it is not true, then it means v doesn't exist in the subarray A[1..i], which holds the loop invariant before the i + 1 iteration.</p>
+<p><strong>Termination</strong>: when the for loop is terminated, i might be some number between 1 and A.length, or i equals to A.length + 1. If i equals to A.length + 1, we have that the subarray A[1..A.length] doesn't contain v, and since the subarray A[1..A.length] is the entire array, we know v doesn't exist in the entir array and it returns NIL, the algorithm is correct. And if i is some number between 1 and A.length, then we know v is found during the for loop, the algorithm is also correct.</p>
+<h2 id="21-4">2.1-4</h2>
+<p>The problem description:</p>
+<p><strong>Input</strong>: a sequence of n numbers $A = \langle a_1, a_2, \ldots, a_n \rangle, a_i \in \langle0, 1\rangle$, and a sequence of n numbers $B = \langle b_1, b_2, \ldots, b_n \rangle, b_i \in \langle0, 1\rangle$. A and B represent the binay form of two integers.</p>
+<p><strong>Output</strong>: a sequence of n + 1 numbers C, the binary integer represented by C is the sum of the binary integers represented by A and B.</p>
+<p>Pseudocode:</p>
+<pre><code>BINARY-SUM(A, B)
 
-return DQ.left == 0 and DQ.right == DQ.size
+carry = 0
+C = [0] * (A.length + 1)
+
+for i = A.length to 1
+    C[i] = (A[i] + B[i] + carry) % 2
+    carry = (A[i] + B[i] + carry) / 2
+
+C[1] = carry
+
+return C
 </code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
               
             </div>
           </div>
@@ -487,10 +393,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../2.2-Analyzing-algorithms/" class="btn btn-neutral float-right" title="2.2 Analyzing algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../.." class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +422,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../2.2-Analyzing-algorithms/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

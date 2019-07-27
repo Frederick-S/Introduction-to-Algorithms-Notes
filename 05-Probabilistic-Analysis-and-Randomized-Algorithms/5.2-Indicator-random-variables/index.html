@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>5.2 Indicator random variables - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "5.2 Indicator random variables";
+    var mkdocs_page_input_path = "05-Probabilistic-Analysis-and-Randomized-Algorithms\\5.2-Indicator-random-variables.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -136,23 +136,43 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../05-Probabilistic-Analysis-and-Randomized-Algorithms/5.1-The-hiring-problem/">5.1 The hiring problem</a>
+    <a class="" href="../5.1-The-hiring-problem/">5.1 The hiring problem</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">5.2 Indicator random variables</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#52-indicator-random-variables">5.2 Indicator random variables</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#52-1">5.2-1</a></li>
+        
+            <li><a class="toctree-l4" href="#52-2">5.2-2</a></li>
+        
+            <li><a class="toctree-l4" href="#52-3">5.2-3</a></li>
+        
+            <li><a class="toctree-l4" href="#52-4">5.2-4</a></li>
+        
+            <li><a class="toctree-l4" href="#52-5">5.2-5</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../05-Probabilistic-Analysis-and-Randomized-Algorithms/5.2-Indicator-random-variables/">5.2 Indicator random variables</a>
+    <a class="" href="../5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../05-Probabilistic-Analysis-and-Randomized-Algorithms/5.3-Randomized-algorithms/">5.3 Randomized algorithms</a>
+    <a class="" href="../5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../05-Probabilistic-Analysis-and-Randomized-Algorithms/5.4-Probabilistic-analysis-and-further-uses-of-indicator-random-variables/">5.4 Probabilistic analysis and further uses of indicator random variables</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../05-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +289,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +322,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>5 Probabilistic Analysis and Randomized Algorithms &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>5.2 Indicator random variables</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +336,93 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
-
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
-</code></pre>
-
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
-
-return DQ.left == 0 and DQ.right == DQ.size
-</code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+                <h1 id="52-indicator-random-variables">5.2 Indicator random variables</h1>
+<h2 id="52-1">5.2-1</h2>
+<p>We hire exactly one time when the first candidate is the best. So the first candidate has a probability of $\frac{1}{n}$ of being better qualified than other n - 1 candidates. Thus the probability of hiring exactly one time is $\frac{1}{n}$.</p>
+<p>We hire n times when each candidate is better than the previous candidate. In each turn, the candidate i has a probability of $\frac{1}{i}$ of being better than the previous i - 1 candidates. Thus the probability is $1 * \frac{1}{2} * \frac{1}{3} * \ldots * \frac{1}{n} = \frac{1}{n!}$.</p>
+<h2 id="52-2">5.2-2</h2>
+<p>We hire exactly twice when the first candidate is not the best candidate, and the best candidate comes before all the candidates who are better than the first candidate.</p>
+<p>Let's assume the first candidate has a rank k among the candidates (k &lt; n, bigger is better). So there are n - k candidates that are better than the first candidate, including the best candidate. So the best candidate could only appear through position 2 to k + 1, which are k + 1 - 2 + 1 = k positions. And the best candidate has a probability of $\frac{1}{k}$ to apppear in those k positions.</p>
+<p>Because each candidate has a probability of $\frac{1}{n}$ to appear in the first position, thus the probability of hiring twice is $\frac{1}{n}\frac{1}{1} + \frac{1}{n}\frac{1}{2} + \frac{1}{n}\frac{1}{3} \ldots \frac{1}{n}\frac{1}{n - 1} = \frac{1}{n}\sum_{k = 1}^{n - 1}\frac{1}{k} = \frac{\ln{(n - 1)} + O(1)}{n}$.</p>
+<h2 id="52-3">5.2-3</h2>
+<p>Let's define $X_i$ be the indicator random variable indicates the value of ith dice. Thus,</p>
+<p>$$
+\begin{eqnarray}
+X_i &amp;=&amp; I\lbrace\text{the number of dice is k}\rbrace \\
+&amp;=&amp; \begin{cases}
+      1, &amp; \text{if k = 1} \\
+      2, &amp; \text{if k = 2} \\
+      3, &amp; \text{if k = 3} \\
+      4, &amp; \text{if k = 4} \\
+      5, &amp; \text{if k = 5} \\
+      6, &amp; \text{if k = 6} \\
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<p>and $X = X_1 + X_2 + \ldots + X_n$.</p>
+<p>Thus the expected value in one dice is:</p>
+<p>$$
+\begin{eqnarray}
+E[X_i] &amp;=&amp; E[I\lbrace \text{the number of dice is k} \rbrace] \\
+&amp;=&amp; \sum_{k = 1}^6 kPr\lbrace X_i = k \rbrace \\
+&amp;=&amp; \frac{1}{6}(1 + 2 + 3 + 4 + 5 + 6) \\
+&amp;=&amp; 3.5
+\end{eqnarray}
+$$</p>
+<p>Thus, the expected value of the sum of n dice is:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; E\big[\sum_{i = 1}^n X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^nE\big[X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^n 3.5 \\
+&amp;=&amp; 3.5n
+\end{eqnarray}
+$$</p>
+<h2 id="52-4">5.2-4</h2>
+<p>Each person gets his own hat with probability $\frac{1}{n}$. Let's define $X_i$ be the indicator random variable associated with the event in which the ith customer gets his own hat. Thus,</p>
+<p>$$
+\begin{eqnarray}
+X_i &amp;=&amp; I\lbrace\text{customer i gets his own hat}\rbrace \\
+&amp;=&amp; \begin{cases}
+      1, &amp; \text{if customer i gets his own hat} \\
+      0, &amp; \text{if customer i doesn't get his own hat}
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<p>and $X = X_1 + X_2 + \ldots + X_n$.</p>
+<p>Thus the expected number of customers who get back their own hat is:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; E\big[\sum_{i = 1}^n X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^nE\big[X_i\big] \\
+&amp;=&amp; \sum_{i = 1}^n \frac{1}{n} * 1 \\
+&amp;=&amp; 1
+\end{eqnarray}
+$$</p>
+<h2 id="52-5">5.2-5</h2>
+<p>Let's define $X_{ij}$ be the the indicator random variable associated with the event that if i &lt; j, then A[i] &gt; A[j]. Thus,</p>
+<p>$$
+\begin{eqnarray}
+X_{ij} &amp;=&amp; I\lbrace A[i] &gt; A[j]\rbrace \\
+&amp;=&amp; \begin{cases}
+      1, &amp; A[i] &gt; A[j] \\
+      0, &amp; A[i] \leq A[j]
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<p>and $Pr\lbrace A[i] &gt; A[j] \rbrace = Pr\lbrace A[i] \leq A[j] \rbrace = \frac{1}{2}$.</p>
+<p>Thus the expected number of inversions is:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; E\big[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ij}\big] \\
+&amp;=&amp; \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n E\big[X_{ij}\big] \\
+&amp;=&amp; \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n (\frac{1}{2} * 1 + 0) \\
+&amp;=&amp; \frac{1}{2}\sum_{i = 1}^{n - 1} (n - i) \\
+&amp;=&amp; \frac{1}{2}\sum_{i = 1}^{n - 1} i \\
+&amp;=&amp; \frac{1}{2}\frac{(1 + n - 1)(n - 1)}{2} \\
+&amp;=&amp; \frac{n(n - 1)}{4}
+\end{eqnarray}
+$$</p>
               
             </div>
           </div>
@@ -487,10 +430,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../5.3-Randomized-algorithms/" class="btn btn-neutral float-right" title="5.3 Randomized algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../5.1-The-hiring-problem/" class="btn btn-neutral" title="5.1 The hiring problem"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +459,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../5.1-The-hiring-problem/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../5.3-Randomized-algorithms/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

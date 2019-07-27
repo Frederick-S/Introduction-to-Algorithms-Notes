@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>9.3 Selection in worst-case linear time - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "9.3 Selection in worst-case linear time";
+    var mkdocs_page_input_path = "09-Medians-and-Order-Statistics\\9.3-Selection-in-worst-case-linear-time.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -248,49 +248,38 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../09-Medians-and-Order-Statistics/9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
+    <a class="" href="../9.1-Minimum-and-maximum/">9.1 Minimum and maximum</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../09-Medians-and-Order-Statistics/9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
+    <a class="" href="../9.2-Selection-in-expected-linear-time/">9.2 Selection in expected linear time</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../09-Medians-and-Order-Statistics/9.3-Selection-in-worst-case-linear-time/">9.3 Selection in worst-case linear time</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../09-Medians-and-Order-Statistics/Problems/">Problems</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">10 Elementary Data Structures</span>
-    <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
+    <a class="current" href="./">9.3 Selection in worst-case linear time</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
+    <li class="toctree-l3"><a href="#93-selection-in-worst-case-linear-time">9.3 Selection in worst-case linear time</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
+            <li><a class="toctree-l4" href="#93-1">9.3-1</a></li>
         
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
+            <li><a class="toctree-l4" href="#93-2">9.3-2</a></li>
         
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
+            <li><a class="toctree-l4" href="#93-3">9.3-3</a></li>
         
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
+            <li><a class="toctree-l4" href="#93-4">9.3-4</a></li>
         
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
+            <li><a class="toctree-l4" href="#93-5">9.3-5</a></li>
         
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
+            <li><a class="toctree-l4" href="#93-6">9.3-6</a></li>
         
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
+            <li><a class="toctree-l4" href="#93-7">9.3-7</a></li>
+        
+            <li><a class="toctree-l4" href="#93-8">9.3-8</a></li>
+        
+            <li><a class="toctree-l4" href="#93-9">9.3-9</a></li>
         
         </ul>
     
@@ -299,7 +288,22 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../Problems/">Problems</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">10 Elementary Data Structures</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +330,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>9 Medians and Order Statistics &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>9.3 Selection in worst-case linear time</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +344,116 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
+                <h1 id="93-selection-in-worst-case-linear-time">9.3 Selection in worst-case linear time</h1>
+<h2 id="93-1">9.3-1</h2>
+<p>Let's assume the input elements are divided into groups of k. Similar like the analysis in the book, at least half of the $\lceil \frac{n}{k} \rceil$ groups contribute at least $\lceil \frac{k}{2} \rceil$ elements that are greater than x, except for the one group that has fewer than k elements if k does not divide n exactly, and the one group containing x itself. Discounting these two groups, it follows that the number of elements greater than x is at least $\lceil \frac{k}{2} \rceil(\lceil \frac{1}{2} \lceil \frac{n}{k} \rceil \rceil - 2) \geq \frac{k}{2}(\frac{1}{2}\frac{n}{k} - 2) = \frac{n}{4} - k$.</p>
+<p>Similarly, at least $\frac{n}{4} - k$ elements are less than x. Thus, in the worst case, step 5 calls SELECT recursively on at most $\frac{3n}{4} + k$ elements.</p>
+<p>So when n is greater than some constant, we have $T(n) \leq T(\lceil \frac{n}{k} \rceil) + T(\frac{3n}{4} + k) + O(n)$. We assume T(n) runs in linear time, substituting it into the recurrence yields:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;\leq&amp; T(\lceil \frac{n}{k} \rceil) + T(\frac{3n}{4} + k) + O(n) \\
+&amp;\leq&amp; T(\lceil \frac{n}{k} \rceil) + T(\frac{3n}{4} + k) + an \\
+&amp;\leq&amp; c\frac{n}{k} + c(\frac{3n}{4} + k) + an \\
+&amp;=&amp; cn + (\frac{c}{k}n + an - \frac{c}{4}n + ck) \\
+&amp;\leq&amp; cn
+\end{eqnarray}
+$$</p>
+<p>where the last step holds as long as $\frac{c}{k}n + an - \frac{c}{4}n + ck \leq 0$. So we need to find some k such that there exists constants c and a such that $\frac{c}{k}n + an - \frac{c}{4}n + ck \leq 0$.</p>
+<p>We have $\frac{c}{k}n + an - \frac{c}{4}n + ck = c(\frac{n}{k} - \frac{n}{4} + k) + an \leq 0$. Because both c and a are positive, so it could only be $\frac{n}{k} - \frac{n}{4} + k \leq 0$. Let $f(k) = \frac{n}{k} - \frac{n}{4} + k$, so $f(4) = 4 &gt; 0, f(5) = -\frac{n}{20} + 5 \leq 0 \text{ when } n \geq 100$. So we can always find a $n_0$ such that $f(k) \leq 0$ when $k \geq 5$.</p>
+<p>Thus the algorithm work in linear time if the input elements are divided into groups of 7, but doesn't run in linear time if they are divided into groups of 3.</p>
+<h2 id="93-2">9.3-2</h2>
+<p>We already know that there are at least $\frac{3n}{10} - 6$ elements are less (greater) than x, because $\lceil \frac{n}{4} \rceil &lt; \frac{n}{4} + 1$, let $\frac{3n}{10} - 6 \geq \frac{n}{4} + 1$, we get $n \geq 140$.</p>
+<h2 id="93-3">9.3-3</h2>
+<p>In the previous question, we already know that if $n \geq 140$, then at least $\lceil \frac{n}{4} \rceil$ elements are less (greater) than x. So the partition procedure splits the problem size to $\frac{n}{4}$ and $\frac{3n}{4}$ in quicksort. Thus, $T(n) = T(\frac{n}{4}) + T(\frac{3n}{4}) + \Theta(n)$. And the solution is $T(n) = \Theta(n\lg{n})$, which is solved in exercise 4.4-9.</p>
+<h2 id="93-4">9.3-4</h2>
+<h2 id="93-5">9.3-5</h2>
+<p>The idea is similar.</p>
+<pre><code>SELECT(A, p, r, i)
 
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
+if p == r
+    return A[p]
+median = BLACK-BOX-MEDIAN(A, p, r)
+q = PARTITION(A, p, r, median)
+k = q - p + 1
+if i == k
+    return A[q]
+elseif i &lt; k
+    return SELECT(A, p, q - 1, i)
 else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
+    return SELECT(A, q + 1, r, i - k)
 </code></pre>
 
-<pre><code>DEQUEUE(Q)
+<p>First we find the median of the array, and use that median as pivot to partition the array. Then we recursively call the procedure to get the ith element. Now let's analysis the running time. The <code>BLAK-BOX-MEDIAN</code> takes O(n), and partition method also takes O(n), then it at least reduces the problem size to $\frac{n}{2}$, thus we have $T(n) = T(\frac{n}{2}) + O(n)$.</p>
+<p>We guess T(n) = O(n), substituting it to the recurrence yielding:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; T(\frac{n}{2}) + O(n) \\
+&amp;\leq&amp; c\frac{n}{2} + dn \\
+&amp;=&amp; (\frac{c}{2} + d)n \\
+&amp;=&amp; O(n)
+\end{eqnarray}
+$$</p>
+<p>So the algorithm solves the problem in linear time.</p>
+<h2 id="93-6">9.3-6</h2>
+<p>The k quantiles of an n-element set are $A[\lceil \frac{n}{k} \rceil], A[2\lceil \frac{n}{k} \rceil], \ldots, A[(k - 1)\lceil \frac{n}{k} \rceil]$. And the idea is simple, first we divide the elements into two parts, one part contains $\lceil \frac{k}{2} \rceil$ quantiles, and the other part contains $ k - \lceil \frac{k}{2} \rceil$ quantiles. Then we recursively call the procedure on the two parts. In order to divide the elements into two parts, we use the <code>SELECT</code> procedure to get the $\lceil \frac{k}{2} \rceil\lceil \frac{n}{k} \rceil$th smallest element, which is the last element of the $\lceil \frac{k}{2} \rceil$ quantiles.</p>
+<pre><code>KTH-QUANTILES(A, p, r, k)
 
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
+if k == 1
+    return
+else:
+    i = MATH.CEIL(k / 2) * SIZE-OF-ELEMENTS-IN-EACH-QUANTILE
+    index, quantile = SELECT(A, p, r, i)
+    OUTPUT quantile
+    KTH-QUANTILES(A, p, index, MATH.CEIL(k / 2))
+    KTH-QUANTILES(A, index + 1, r, k - MATH.CEIL(k / 2))
 </code></pre>
 
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
+<p>Now let's analysis the running time. We have $T(n, k) = 2T(\frac{n}{2}, \frac{k}{2}) + O(n)$. If we draw a recursion tree, we can see that each level of the tree costs O(n) and the depth of tree is $\lg{k}$, thus the running time is $O(n\lg{k})$.</p>
+<h2 id="93-7">9.3-7</h2>
+<p>First, we find the median of the set, it costs O(n), then we create another array that contains the absolute distance between the median and each element. Then we use the <code>SELECT</code> procedure to select the kth smallest element p in the new array, at last, we compare each element in S with median, if the distance between element and median is not greater than p, then the element one of the k closest elements. Each step costs O(n), so the algorithm runs in O(n).</p>
+<pre><code>K-CLOSEST(A, k)
 
-return DQ.left == 0 and DQ.right == DQ.size
+i = MATH.CEIL(A.length / 2)
+median = SELECT(A, i)
+let B[1..n] be a new array
+for j = 1 to n
+    B[j] = MATH.ABS(A[j] - median)
+kth = SELECT(B, k)
+let C be a new array
+for j = 1 to n
+    if MATH.ABS(A[j] - median) &lt; kth
+        add A[j] to C
+for j = 1 to n
+    MATH.ABS(A[j] - median) == kth
+        add A[j] to C
+    if C.length &gt;= k
+        break
+return C
 </code></pre>
 
-<pre><code>IS-FULL(DQ)
+<p>Because the elements in <code>A</code> are all distinct, so each element in <code>B</code> have at most 1 duplicate. The reason to scan <code>A</code> twice to get <code>C</code> is that <code>A</code> is not sorted, if we combine the last two loops together, it is possible we cannot get the correct k closest elements to the median.</p>
+<h2 id="93-8">9.3-8</h2>
+<p>We can first get the medians of x and y, if the median of x is smaller than the median of y, then the median of all is in x's right part and y's left part, if the median of x is larger than the median of y, then the median of all is in x's left part and y's right part. So we can recursively solves the problem.</p>
+<pre><code>MEDIAN-OF-TWO-SORTED-ARRAYS(X, px, rx, Y, py, ry)
 
-return DQ.right - DQ.left == 1
+if rx - px == 1
+    if X[px] &lt;= Y[py]
+        return MATH.MIN(X[rx], Y[py])
+    else:
+        return MATH.MIN(X[px], Y[ry])
+median-index-of-x = MATH.FLOOR((px + rx) / 2)
+median-index-of-y = MATH.FLOOR((py + ry) / 2)
+if X[index] &lt; Y[median-index-of-y]
+    return MEDIAN-OF-TWO-SORTED-ARRAYS(X, index, rx, Y, py, median-index-of-y)
+elif X[index] &gt; Y[median-index-of-y]
+    return MEDIAN-OF-TWO-SORTED-ARRAYS(X, px, index, Y, median-index-of-y, ry)
+else:
+    return X[index]
 </code></pre>
 
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+<p>Each recursive procedure reduces the problem size to $\frac{n}{2}$, so we have $T(n) = T(\frac{n}{2}) + \Theta(1)$. Let's solve the recurrence by the master method. Here we have a = 1, b = 2, $f(n) = \Theta(1)$. so $n^{\log_b{a}} = 1$, thus $f(n) = \Theta(n^{\log_b{a}})$, so $T(n) = \Theta(n^{\log_b{a}}\lg{n}) = \Theta(\lg{n})$.</p>
+<h2 id="93-9">9.3-9</h2>
+<p>Suppose the n wells have y-coordinates $y_1, y_2, \ldots, y_n$, and we need to find $y_0$ such that the value $\sum_{i = 1}^{n}|y_i - y_0|$ is minimum. This is the 1-dimensional case of <a href="https://en.wikipedia.org/wiki/Geometric_median">Geometric median</a>, and the median minimize the sum. <a href="https://math.stackexchange.com/questions/318381/on-a-1-d-line-the-point-that-minimizes-the-sum-of-the-distances-is-the-median">Explanation</a>.</p>
               
             </div>
           </div>
@@ -487,10 +461,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Problems/" class="btn btn-neutral float-right" title="Problems">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../9.2-Selection-in-expected-linear-time/" class="btn btn-neutral" title="9.2 Selection in expected linear time"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +490,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../9.2-Selection-in-expected-linear-time/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Problems/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

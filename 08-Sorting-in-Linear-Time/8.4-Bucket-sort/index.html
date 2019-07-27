@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>8.4 Bucket sort - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "8.4 Bucket sort";
+    var mkdocs_page_input_path = "08-Sorting-in-Linear-Time\\8.4-Bucket-sort.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -221,23 +221,43 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../08-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
+    <a class="" href="../8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../08-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
+    <a class="" href="../8.2-Counting-sort/">8.2 Counting sort</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../08-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
+    <a class="" href="../8.3-Radix-sort/">8.3 Radix sort</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">8.4 Bucket sort</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#84-bucket-sort">8.4 Bucket sort</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#84-1">8.4-1</a></li>
+        
+            <li><a class="toctree-l4" href="#84-2">8.4-2</a></li>
+        
+            <li><a class="toctree-l4" href="#84-3">8.4-3</a></li>
+        
+            <li><a class="toctree-l4" href="#84-4">8.4-4</a></li>
+        
+            <li><a class="toctree-l4" href="#84-5">8.4-5</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../08-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../08-Sorting-in-Linear-Time/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +289,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +322,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>8 Sorting in Linear Time &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>8.4 Bucket sort</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +336,42 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
-
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
-</code></pre>
-
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
-
-return DQ.left == 0 and DQ.right == DQ.size
-</code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+                <h1 id="84-bucket-sort">8.4 Bucket sort</h1>
+<h2 id="84-1">8.4-1</h2>
+<p><img alt="Alt text" src="../8.4-1.png" /></p>
+<h2 id="84-2">8.4-2</h2>
+<p>The worst-case can happen when it takes too long to sort list <code>B[i]</code>. Because the worst-case running time of insertion sort is $\Theta(n^2)$, if for a given <code>B[i]</code>, which happens to contain all elements, then the insertion sort takes $\Theta(n^2)$, thus the worst-case running time becomes $\Theta(n^2)$.</p>
+<p>We can use another sort algorithm to sort <code>B[i]</code>, for example, the mergesort algorithm.</p>
+<h2 id="84-3">8.4-3</h2>
+<p>We have:</p>
+<p>$$
+\begin{eqnarray}
+X &amp;=&amp; I\lbrace\text{the number of heads in two flips of a fair coin}\rbrace \\
+&amp;=&amp; \begin{cases}
+      0 \\
+      1 \\
+      2 \\
+    \end{cases}
+\end{eqnarray}
+$$</p>
+<p>And $Pr\lbrace \text{the number of heads in two flips is } 0\rbrace = \frac{1}{4}$, $Pr\lbrace \text{the number of heads in two flips is } 1\rbrace = \frac{1}{2}$, $Pr\lbrace\text{the number of heads in two flips is } 2\rbrace = \frac{1}{4}$.</p>
+<p>So $E[X] = 0 * \frac{1}{4} + 1 * \frac{1}{2} + 2 * \frac{1}{4} = 1$. Thus $E[X^2] = 0^2 * \frac{1}{4} + 1^2 * \frac{1}{2} + 2^2 * \frac{1}{4} = \frac{3}{2}$, $(E[X])^2 = 1$.</p>
+<h2 id="84-4">8.4-4</h2>
+<p>Since the points are uniformly distributed, the probability of finding a point in any region of the circle is proportional to the area of that region. We can divide the unit circle into n parts, each part has area $\frac{\pi}{n}$.</p>
+<p>To make it simple, we can create n - 1 concentric circles inside the unit circle. Let $a_1$ be the first circle, so the unit circle is $a_n$. The area of $a_1$ is $\frac{\pi}{n}$, so we have $r_{a_1} = \frac{1}{\sqrt{n}}$. Notice that $\pi{r_{a_k}^2} - \pi{r_{a_{k - 1}}^2} = \frac{\pi}{n}$, so:</p>
+<p>$$
+\begin{eqnarray}
+r_{a_2}^2 - r_{a_1}^2 &amp;=&amp; \frac{1}{n} \\
+r_{a_3}^2 - r_{a_2}^2 &amp;=&amp; \frac{1}{n} \\
+\ldots \\
+r_{a_k}^2 - r_{a_{k - 1}}^2 &amp;=&amp; \frac{1}{n}
+\end{eqnarray}
+$$</p>
+<p>So we add the equations together and have $r_{a_k}^2 - r_{a_1}^2 = \frac{k - 1}{n}$, thus $r_{a_k} = \sqrt{\frac{k}{n}}, 1 \leq k \leq n$.</p>
+<p>Now we can create the buckets $[0, \sqrt{\frac{1}{n}}), [\sqrt{\frac{1}{n}}, \sqrt{\frac{2}{n}}), \ldots, [\sqrt{\frac{n - 1}{n}}, 1]$. In order to sort the n points by their distance $d_i = \sqrt{x_i^2 + y_i^2}$, let array A contains the n points ($A[i] = d_i$), then create an empty array B, and insert <code>A[i]</code> into $B[\lfloor nA[i] \rfloor]$, at last, we sort <code>B[i]</code> and concatenate the lists <code>B[i]</code>.</p>
+<h2 id="84-5">8.4-5</h2>
+<p>It's similar like bucket sort. We have $P(x) = \text{Pr}\lbrace X \leq x \rbrace$, so $P(1) = \text{Pr}\lbrace X \leq 1 \rbrace, P(2) = \text{Pr}\lbrace X \leq 2 \rbrace, \ldots, P(n) = \text{Pr}\lbrace X \leq n \rbrace$. Thus $P(n) - P(n - 1) = \text{Pr}\lbrace n - 1 &lt; X \leq n \rbrace$. So we can create the buckets $[0, P(1)), [P(1), P(2)), \ldots, [P(n - 1), P(n)]$.</p>
+<p>In order to apply bucket sort, we let $A[i] = P(X_i)$, thus, we can use the bucket sort. At last, we have a list of sorted $P(X_i)$, which is also a list of sorted $X_i$.</p>
               
             </div>
           </div>
@@ -487,10 +379,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Problems/" class="btn btn-neutral float-right" title="Problems">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../8.3-Radix-sort/" class="btn btn-neutral" title="8.3 Radix sort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +408,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../8.3-Radix-sort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Problems/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

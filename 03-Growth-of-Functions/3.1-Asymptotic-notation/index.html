@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>3.1 Asymptotic notation - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "3.1 Asymptotic notation";
+    var mkdocs_page_input_path = "03-Growth-of-Functions\\3.1-Asymptotic-notation.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -80,17 +80,43 @@
 		
     <span class="caption-text">3 Growth of Functions</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../03-Growth-of-Functions/3.1-Asymptotic-notation/">3.1 Asymptotic notation</a>
+    <a class="current" href="./">3.1 Asymptotic notation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#31-asymptotic-notation">3.1 Asymptotic notation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#31-1">3.1-1</a></li>
+        
+            <li><a class="toctree-l4" href="#31-2">3.1-2</a></li>
+        
+            <li><a class="toctree-l4" href="#31-3">3.1-3</a></li>
+        
+            <li><a class="toctree-l4" href="#31-4">3.1-4</a></li>
+        
+            <li><a class="toctree-l4" href="#31-5">3.1-5</a></li>
+        
+            <li><a class="toctree-l4" href="#31-6">3.1-6</a></li>
+        
+            <li><a class="toctree-l4" href="#31-7">3.1-7</a></li>
+        
+            <li><a class="toctree-l4" href="#31-8">3.1-8</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../03-Growth-of-Functions/3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
+    <a class="" href="../3.2-Standard-notations-and-common-functions/">3.2 Standard notations and common functions</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../03-Growth-of-Functions/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +295,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +328,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>3 Growth of Functions &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>3.1 Asymptotic notation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +342,56 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
-
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
-</code></pre>
-
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
-
-return DQ.left == 0 and DQ.right == DQ.size
-</code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+                <h1 id="31-asymptotic-notation">3.1 Asymptotic notation</h1>
+<h2 id="31-1">3.1-1</h2>
+<p>According to the basic definition of $\Theta$-notation, if $max(f(n), g(n)) = \Theta(f(n) + g(n))$, then there exist positive constants $c_1$, $c_2$ and $n_0$ such that:</p>
+<p>$$0 \leq c_1(f(n) + g(n)) \leq max(f(n), g(n)) \leq c_2(f(n) + g(n)),\ for \ all \ n \geq n_0$$</p>
+<p>Because f(n) and g(n) are nongenative, so it's obvious that $max(f(n), g(n)) \leq f(n) + g(n)$, so we can let $c_2$ be 1.</p>
+<p>And we also know that $max(f(n), g(n)) \geq f(n)$ and $max(f(n), g(n)) \geq g(n)$, so $2max(f(n), g(n)) \geq f(n) + g(n)$, thus $max(f(n), g(n)) \geq \frac{f(n) + g(n)}{2}$. So we can let $c_1$ be $\frac{1}{2}$.</p>
+<p>Because $0 \leq \frac{f(n) + g(n)}{2} \leq max(f(n), g(n)) \leq f(n) + g(n)$ is true for all n, so we can let $n_0$ be 1.</p>
+<p>So we've found positive constants $c_1$, $c_2$ and $n_0$, thus $max(f(n), g(n)) = \Theta(f(n) + g(n))$.</p>
+<h2 id="31-2">3.1-2</h2>
+<p>According to <a href="https://en.wikipedia.org/wiki/Binomial_theorem">Newton's generalised binomial theorem</a>, we have:</p>
+<p>$$(n + a)^b = \sum_{k = 0}^{\infty} \binom{b}{k}n^{b - k}a^k = n^b + bn^{b - 1}a + \frac{b(b - 1)}{2!}n^{b - 2}a^2 + \dots$$</p>
+<p>Since $n^b$ grows faster than others, so $(n + a)^b = \Theta(n^b)$.</p>
+<h2 id="31-3">3.1-3</h2>
+<p>The O-notation denotes a upper bound, so we can not say "at least".</p>
+<h2 id="31-4">3.1-4</h2>
+<p>$2^{n + 1} = O(2^n)$, because there exist positive constants c = 2 and $n_0 = 1$ such that $0 \leq 2^{n + 1} \leq 2 * 2^n\ for\ all\ n \geq n_0$.</p>
+<p>$2^{2n} \neq O(2^n)$. Suppose $2^{2n} = O(2^n)$, then there exist positive constants c and $n_0$ such that $0 \leq 2^{2n} \leq c2^n\ for\ all\ n \geq n_0$, which means $0 \leq 2^n \leq c\ for\ all\ n \geq n_0$. No matter how big c is, $2^n$ will be bigger than c after a specific $n_1$, so you cannot find a $n_0$ like that.</p>
+<h2 id="31-5">3.1-5</h2>
+<p>If $f(n) = O(g(n))$ and $f(n) = \Omega(g(n))$, then there exist positive constants $c_1$ and $n_1$ such that $0 \leq f(n) \leq c_1g(n)\ for\ all\ n \geq n_1$, and there exist positive constants $c_2$ and $n_2$ such that $0 \leq c_2g(n) \leq f(n)\ for\ all\ n \geq n_2$. We can choose $n_0 = max(n_1, n_2)$, and combine the two inequations we have $0 \leq c_2g(n) \leq f(n) \leq c_1g(n)\ for\ all\ n \geq n_0$, which is the definition for $f(n) = \Theta(g(n))$. So we proved if $f(n) = O(g(n))$ and $f(n) = \Omega(g(n))$, then $f(n) = \Theta(g(n))$.</p>
+<p>Now lets' suppose $f(n) = O(g(n))$ and $f(n) = \Omega(g(n))$ is not true (either one of them is wrong or both are wrong), but $f(n) = \Theta(g(n))$ is ture. And let's prove this hypothesis is not correct.</p>
+<p>If we have $f(n) = \Theta(g(n))$, we know there exist positive constants c and $n_0$ such that $0 \leq c_1g(n) \leq f(n) \leq c_2g(n)\ for\ all\ n \geq n_0$. So we can separate it into two inequations:</p>
+<p>$$0 \leq f(n) \leq c_2g(n)\ for\ all\ n \geq n_0$$
+$$0 \leq c_1g(n) \leq f(n)\ for\ all\ n \geq n_0$$</p>
+<p>which are the definitions of $f(n) = O(g(n))$ and $f(n) = \Omega(g(n))$. So we proved the hypothesis is wrong, thus we proved the "only if" part.</p>
+<h2 id="31-6">3.1-6</h2>
+<p>It's similiar to 3.1-5, the worst-case and best-case running time denote the upper bound and lower bound, which are $O(g(n))$ and $\Omega(g(n))$. So the proof is similar.</p>
+<h2 id="31-7">3.1-7</h2>
+<p>Let's let $f(n) = o(g(n))$ and $h(n) = \omega(g(n))$. According to the definition, for any positive constants $c_1$, $c_2$, there exist positive constants $n_1$, $n_2$ such that:</p>
+<p>$$0 \leq f(n) &lt; c_1g(n)\ for\ all\ n \geq n_1$$
+$$0 \leq c_2g(n) &lt; h(n)\ for\ all\ n \geq n_2$$</p>
+<p>Suppose $o(g(n)) \cap \omega(g(n))$ is not empty, so at least we have one f(n) and one h(n) such that f(n) = h(n), because $c_1$ and $c_2$ are any positive constants, so we let $c_1 = c_2 = c$,
+and let $n_0 = max(n_1, n_2)$, so we have:</p>
+<p>$$0 \leq f(n) &lt; cg(n)\ for\ all\ n \geq n_0$$
+$$0 \leq cg(n) &lt; f(n)\ for\ all\ n \geq n_0$$</p>
+<p>which also means:</p>
+<p>$$0 \leq cg(n) &lt; f(n)\ &lt; cg(n)\ for\ all\ n \geq n_0$$</p>
+<p>And we know the above inequation is impossible. So the hypothesis is wrong, thus $o(g(n)) \cap \omega(g(n))$ is empty.</p>
+<h2 id="31-8">3.1-8</h2>
+<p>$$\begin{aligned}
+\Omega(g(n, m)) = 
+&amp; \lbrace f(n, m): \text {there exist positive constants } c, n_0, \text {and } m_0 \text{ such that } \\ 
+&amp; 0 \leq cg(n, m) \leq f(n, m) \text{ for all } n \geq n_0 \text{ or } m \geq m_0 \rbrace
+\end{aligned}$$</p>
+<p>$$
+\begin{aligned}
+\Theta(g(n, m)) = 
+&amp; \lbrace f(n, m): \text {there exist positive constants } c_1, c_2, n_0, \text {and } m_0 \text{ such that } \\
+&amp; 0 \leq c_1g(n, m) \leq f(n, m) \leq c_2g(n, m) \text{ for all } n \geq n_0 \text{ or } m \geq m_0 \rbrace
+\end{aligned}
+$$</p>
               
             </div>
           </div>
@@ -487,10 +399,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../3.2-Standard-notations-and-common-functions/" class="btn btn-neutral float-right" title="3.2 Standard notations and common functions">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../02-Getting-Started/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +428,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../02-Getting-Started/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../3.2-Standard-notations-and-common-functions/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

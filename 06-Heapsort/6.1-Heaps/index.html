@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>6.1 Heaps - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "6.1 Heaps";
+    var mkdocs_page_input_path = "06-Heapsort\\6.1-Heaps.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -161,29 +161,53 @@
 		
     <span class="caption-text">6 Heapsort</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../06-Heapsort/6.1-Heaps/">6.1 Heaps</a>
+    <a class="current" href="./">6.1 Heaps</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#61-heaps">6.1 Heaps</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#61-1">6.1-1</a></li>
+        
+            <li><a class="toctree-l4" href="#61-2">6.1-2</a></li>
+        
+            <li><a class="toctree-l4" href="#61-3">6.1-3</a></li>
+        
+            <li><a class="toctree-l4" href="#61-4">6.1-4</a></li>
+        
+            <li><a class="toctree-l4" href="#61-5">6.1-5</a></li>
+        
+            <li><a class="toctree-l4" href="#61-6">6.1-6</a></li>
+        
+            <li><a class="toctree-l4" href="#61-7">6.1-7</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../06-Heapsort/6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
+    <a class="" href="../6.2-Maintaining-the-heap-property/">6.2 Maintaining the heap property</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../06-Heapsort/6.3-Building-a-heap/">6.3 Building a heap</a>
+    <a class="" href="../6.3-Building-a-heap/">6.3 Building a heap</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../06-Heapsort/6.4-The-heapsort-algorithm/">6.4 The heapsort algorithm</a>
+    <a class="" href="../6.4-The-heapsort-algorithm/">6.4 The heapsort algorithm</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../06-Heapsort/6.5-Priority-queues/">6.5 Priority queues</a>
+    <a class="" href="../6.5-Priority-queues/">6.5 Priority queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../06-Heapsort/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +293,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +326,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>6 Heapsort &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>6.1 Heaps</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +340,24 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
-
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
-</code></pre>
-
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
-
-return DQ.left == 0 and DQ.right == DQ.size
-</code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+                <h1 id="61-heaps">6.1 Heaps</h1>
+<h2 id="61-1">6.1-1</h2>
+<p>The height of a heap is defined to be the height of its root. The heap has minimum number of elements when height h contains only one element, and the heap has maximum number of elements when height contains $2^h$ elements.</p>
+<p>So the minimum number of elements is $1 + 2^1 + 2^2 + \ldots + 2^{h - 1} + 1 = 2^h$.</p>
+<p>The maximum number of elements below root is $1 + 2^1 + 2^2 + \ldots + 2^h = 2^{h + 1} - 1$.</p>
+<h2 id="61-2">6.1-2</h2>
+<p>In the previous question we have proved if a heap has height h, then the number of elements n satisfies $2^h \leq n \leq 2^{h + 1} - 1$. So $2^h \leq n &lt; 2^{h + 1}$, thus $h \leq \lg{n} &lt; h + 1$, so $h = \lfloor \lg{n} \rfloor$.</p>
+<h2 id="61-3">6.1-3</h2>
+<p>In a max-heap, for every node i other than the root, $A[PARENT(i)] \geq A[i]$. So the root of a subtree contains the value that is greater than its left and right children. Since the left and right children are also the root of their own subtree, their values are greater than their own children's values. Thus, the root of the subtree contains the largest value occurring anywhere in that subtree.</p>
+<h2 id="61-4">6.1-4</h2>
+<p>It cannot be a root of subtree, it must be a leaf.</p>
+<h2 id="61-5">6.1-5</h2>
+<p>If the array is in increasing order, then for any index $i \leq j$, we have $A[i] \leq A[j]$, thus for any root index i of a subtree in heap, the left child index is 2i, and the right child index is 2i + 1, it's obvious that i &lt; 2i and i &lt; 2i + 1, thus $A[i] \leq A[2i]$ and $A[i] \leq A[2i + 1]$, so it's a min-heap.</p>
+<p>But if the array is in descending order, it's not a min-heap.</p>
+<h2 id="61-6">6.1-6</h2>
+<p>The subtree root index of 4 has right child with index 9, but A[4] &lt; A[9]. So it's not a max-heap.</p>
+<h2 id="61-7">6.1-7</h2>
+<p>If a root of subtree has index i, then its left child index is 2i, and its right child index is 2i + 1. So it must satisfy $2i \leq n$, $i \leq \lfloor \frac{n}{2} \rfloor$. So the maximum index of subtree root is $\lfloor \frac{n}{2} \rfloor$, so the leaves are the nodes indexed by $\lfloor \frac{n}{2} \rfloor + 1, \lfloor \frac{n}{2} \rfloor + 2, \ldots, n$.</p>
               
             </div>
           </div>
@@ -487,10 +365,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../6.2-Maintaining-the-heap-property/" class="btn btn-neutral float-right" title="6.2 Maintaining the heap property">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../05-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +394,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../05-Probabilistic-Analysis-and-Randomized-Algorithms/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../6.2-Maintaining-the-heap-property/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

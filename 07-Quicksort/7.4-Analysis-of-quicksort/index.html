@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>10.1 Stacks and queues - Introduction to Algorithms</title>
+  <title>7.4 Analysis of quicksort - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10.1 Stacks and queues";
-    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.1-Stacks-and-queues.md";
+    var mkdocs_page_name = "7.4 Analysis of quicksort";
+    var mkdocs_page_input_path = "07-Quicksort\\7.4-Analysis-of-quicksort.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -194,23 +194,45 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../07-Quicksort/7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
+    <a class="" href="../7.1-Description-of-quicksort/">7.1 Description of quicksort</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../07-Quicksort/7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
+    <a class="" href="../7.2-Performance-of-quicksort/">7.2 Performance of quicksort</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../07-Quicksort/7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
+    <a class="" href="../7.3-A-randomized-version-of-quicksort/">7.3 A randomized version of quicksort</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">7.4 Analysis of quicksort</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#74-analysis-of-quicksort">7.4 Analysis of quicksort</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#74-1">7.4-1</a></li>
+        
+            <li><a class="toctree-l4" href="#74-2">7.4-2</a></li>
+        
+            <li><a class="toctree-l4" href="#74-3">7.4-3</a></li>
+        
+            <li><a class="toctree-l4" href="#74-4">7.4-4</a></li>
+        
+            <li><a class="toctree-l4" href="#74-5">7.4-5</a></li>
+        
+            <li><a class="toctree-l4" href="#74-6">7.4-6</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../07-Quicksort/7.4-Analysis-of-quicksort/">7.4 Analysis of quicksort</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../07-Quicksort/Problems/">Problems</a>
+    <a class="" href="../Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -269,37 +291,13 @@
 		
     <span class="caption-text">10 Elementary Data Structures</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">10.1 Stacks and queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#101-stacks-and-queues">10.1 Stacks and queues</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#101-1">10.1-1</a></li>
-        
-            <li><a class="toctree-l4" href="#101-2">10.1-2</a></li>
-        
-            <li><a class="toctree-l4" href="#101-3">10.1-3</a></li>
-        
-            <li><a class="toctree-l4" href="#101-4">10.1-4</a></li>
-        
-            <li><a class="toctree-l4" href="#101-5">10.1-5</a></li>
-        
-            <li><a class="toctree-l4" href="#101-6">10.1-6</a></li>
-        
-            <li><a class="toctree-l4" href="#101-7">10.1-7</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
     </ul>
 	    </li>
@@ -326,11 +324,11 @@
     
       
         
-          <li>10 Elementary Data Structures &raquo;</li>
+          <li>7 Quicksort &raquo;</li>
         
       
     
-    <li>10.1 Stacks and queues</li>
+    <li>7.4 Analysis of quicksort</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,146 +338,70 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="101-stacks-and-queues">10.1 Stacks and queues</h1>
-<h2 id="101-1">10.1-1</h2>
-<p><img alt="Alt text" src="../10.1-1.png" /></p>
-<h2 id="101-2">10.1-2</h2>
-<p>The first stack <code>S1</code> starts at the first index, when pushing element into <code>S1</code>, we let <code>S1.top += 1</code>, and the second stack <code>S2</code> starts at the last index, when pushing element into <code>S2</code>, we let <code>S2.top -= 1</code>, when <code>S1.top &gt; S2.top</code>, it overflows.</p>
-<h2 id="101-3">10.1-3</h2>
-<p><img alt="Alt text" src="../10.1-3.png" /></p>
-<h2 id="101-4">10.1-4</h2>
-<p>Initially, we let <code>Q.head = 0</code> and <code>Q.tail = 1</code>.</p>
-<pre><code>ENQUEUE(Q, x)
-
-if Q.head == Q.tail
-    error &quot;overflow&quot;
-Q[Q.tail] = x
-if Q.tail == Q.length
-    Q.tail = 1
-else
-    Q.tail = Q.tail + 1
-if Q.head == 0
-    Q.head = 1
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if Q.head == 0
-    error &quot;underflow&quot;
-x = Q[Q.head]
-if Q.head = Q.length
-    Q.head = 1
-else Q.head = Q.head + 1
-if Q.head == Q.tail
-    Q.head = 0
-    Q.tail = 1
-return x
-</code></pre>
-
-<h2 id="101-5">10.1-5</h2>
-<pre><code>IS-EMPTY(DQ)
-
-return DQ.left == 0 and DQ.right == DQ.size
-</code></pre>
-
-<pre><code>IS-FULL(DQ)
-
-return DQ.right - DQ.left == 1
-</code></pre>
-
-<pre><code>APPEND(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.right = DQ.right - 1
-if DQ.right == 0
-    DQ.right = DQ.size
-DQ[DQ.right] = x
-</code></pre>
-
-<pre><code>POP(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.right == DQ.size + 1
-    DQ.right = 1
-x = DQ[DQ.right]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.right = (DQ.right + 1) % DQ.size
-return x
-</code></pre>
-
-<pre><code>APPEND-LEFT(DQ, x)
-
-if IS-FULL(DQ)
-    error &quot;overflow&quot;
-DQ.left = DQ.left + 1
-if DQ.left == DQ.size + 1
-    DQ.left = 1
-DQ[DQ.left] = x
-</code></pre>
-
-<pre><code>SHIFT(DQ)
-
-if IS-EMPTY(DQ)
-    error &quot;underflow&quot;
-if DQ.left == 0
-    DQ.left = DQ.size
-x = DQ[DQ.left]
-if DQ.left == DQ.right
-    DQ.left = 0
-    DQ.right = DQ.size + 1
-else
-    DQ.left = DQ.left - 1
-    if DQ.left == 0
-        DQ.left = DQ.size
-return x
-</code></pre>
-
-<h2 id="101-6">10.1-6</h2>
-<pre><code>ENQUEUE(Q, x)
-
-if stack-a.count + stack-b.count == n
-    error &quot;overflow&quot;
-stack-a.push(x)
-</code></pre>
-
-<pre><code>DEQUEUE(Q)
-
-if stack-a.count == 0 and stack-b.count == 0
-    error &quot;underflow&quot;
-if stack-b.count == 0
-    while stack-a.count != 0
-        stack-b.push(stack-a.pop())
-return stack-b.pop()
-</code></pre>
-
-<p>We create two stacks <code>stack-a</code> and <code>stack-b</code>, the <code>ENQUEUE</code> operation push <code>x</code> to <code>stack-a</code>, the <code>DEQUEUE</code> operation checks if <code>stack-b</code> is empty first, if it's empty, then pop every elements from <code>stack-a</code>, and push them to <code>stack-b</code>. Then call pop on <code>stack-b</code>.</p>
-<p>The running time of <code>ENQUEUE</code> is O(1), but the running time of <code>DEQUEUE</code> is O(n).</p>
-<h2 id="101-7">10.1-7</h2>
-<pre><code>PUSH(S, x)
-if queue.count == n
-    error &quot;overflow&quot;
-queue.enqueue(x)
-</code></pre>
-
-<pre><code>POP(S)
-if queue.count == 0
-    error &quot;underflow&quot;
-while not queue.count == 0
-    x = queue.dequeue()
-
-    if not queue.count == 0
-        queue-auxiliary.enqueue(x)
-exchange queue with queue-auxiliary
-return x
-</code></pre>
-
-<p>We create two queues <code>queue</code> and <code>queue-auxiliary</code>, the <code>PUSH</code> operation insert <code>x</code> to <code>queue</code>, and the <code>POP</code> operation moves all elements except the last one into <code>queue-auxiliary</code>, and exchange <code>queue</code> with <code>queue-auxiliary</code>, then return <code>x</code>.</p>
-<p>The running time of <code>PUSH</code> is O(1), but the running time of <code>POP</code> is O(n).</p>
+                <h1 id="74-analysis-of-quicksort">7.4 Analysis of quicksort</h1>
+<h2 id="74-1">7.4-1</h2>
+<p>We guess that $T(n) \geq cn^2$ for some constant c. Substituting this guess into recurrence, we obtain:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;=&amp; \max_{0 \leq q \leq n - 1}(T(q) + T(n - q - 1)) + \Theta(n) \\
+&amp;\geq&amp; \max_{0 \leq q \leq n - 1}(cq^2 + c(n - q - 1)^2) + \Theta(n) \\
+&amp;=&amp; c\max_{0 \leq q \leq n - 1}(q^2 + (n - q - 1)^2) + \Theta(n) \\
+&amp;=&amp; c\max_{0 \leq q \leq n - 1}(2q^2 - 2(n - 1)q + (n - 1)^2) + \Theta(n)
+\end{eqnarray}
+$$</p>
+<p>$f(q) = 2q^2 - 2(n - 1)q + (n - 1)^2$ is monotonically decreasing at $[0, \frac{n - 1}{2}]$, and monotonically increasing at $[\frac{n - 1}{2}, n - 1]$. So $\max_{0 \leq q \leq n - 1}(2q^2 - 2(n - 1)q + (n - 1)^2) = f(0) = f(n) = (n - 1)^2$. Thus:</p>
+<p>$$
+\begin{eqnarray}
+T(n) &amp;\geq&amp; c(n - 1)^2 + \Theta(n) \\
+&amp;=&amp; c(n - 1)^2 + dn \\
+&amp;=&amp; cn^2 + (d - 2c)n + c \\
+&amp;&gt;&amp; cn^2
+\end{eqnarray}
+$$</p>
+<p>where the last step holds as long as $ d \geq 2c$.</p>
+<p>So $T(n) = \Omega(n^2)$</p>
+<h2 id="74-2">7.4-2</h2>
+<p>The recurrence for the best-case is $T(n) = 2T(\frac{n}{2}) + \Theta(n)$. Let's solve it with the master method. We have $a = 2, b = 2, f(n) = \Theta(n)$, and thus we have that $n^{\log_b{a}} = n^{\log_2{2}} = n = \Theta(n)$. Since $f(n) = \Theta(n)$, we can apply case 2 of the master theorem and conclude that the solution is $T(n) = \Theta(n\lg{n})$. Thus, $T(n) = \Omega(n\lg{n})$.</p>
+<h2 id="74-3">7.4-3</h2>
+<p>We've already knew it in the first exercise.</p>
+<h2 id="74-4">7.4-4</h2>
+<p>We have:</p>
+<p>$$
+\begin{eqnarray}
+E[X] &amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n \frac{2}{j - i + 1} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{n - i} \frac{2}{k + 1} \\
+&amp;\geq&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{n - i} \frac{2}{2k} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{n - i} \frac{1}{k} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}\sum_{k = 1}^{i} \frac{1}{k} \\
+&amp;=&amp; \sum_{i = 1}^{n - 1}(\ln{i} + O(1)) &amp; \text{(A.7)} \\
+&amp;=&amp; \ln{((n - 1)!)} + (n - 1)O(1) \\
+&amp;=&amp; \Omega(n\lg{n}) + O(n) &amp; \text{(Exercise 3.2-3)} \\
+&amp;=&amp; \Omega(n\lg{n})
+\end{eqnarray}
+$$</p>
+<h2 id="74-5">7.4-5</h2>
+<p>Quicksort splits the array into two parts, let's say $T(n) = T(\alpha{n}) + T((1 - \alpha)n) + \Theta(n)$. In exercise 7.2-5, we know when $0 \leq \alpha \leq \frac{1}{2}$, the minimum depth of a leaf is $\log_{\alpha}{\frac{1}{n}}$ and the maximum depth is $\log_{1 - \alpha}{\frac{1}{n}}$, when $\frac{1}{2} &lt; \alpha &lt; 1$, it's opposite. To make it simple, let the recursion tree depth be $\log_{\beta}n$, since the new algorithm terminates when a subarray contains fewer than k elements, so we have $\frac{n}{\beta^{i}} = k$ and $i = \log_{\beta}{\frac{n}{k}}$, so the depth is $O(\lg{\frac{n}{k}})$. Since each recursion tree level costs $O(n)$, the running time of quicksort is $O(n\lg{\frac{n}{k}})$.</p>
+<p>The last step is sorting the array by insertion sort. Let's assume n is exactly divisible by k, thus, after quicksort, the $\frac{n}{k}$ subarrays (each with length $\frac{n}{k}$) is sorted, but it's not sorted within the subarray. It requires $O(k^2)$ to sort each subarray, so it requires $\frac{n}{k}k^2 = nk$ to sort entir array.</p>
+<p>So the running time is $O(nk + n\lg{\frac{n}{k}})$.</p>
+<p>In order to beat quicksort, we need to find a k such that $O(nk + n\lg{\frac{n}{k}}) &lt; O(n\lg{n})$, let's compare $nk + n\lg{\frac{n}{k}}$ and $n\lg{n}$.</p>
+<p>$$
+\begin{eqnarray}
+nk + n\lg{\frac{n}{k}} - n\lg{n} &amp;=&amp; nk + n\lg{\frac{1}{k}} \\
+&amp;=&amp; nk - n\lg{k} \\
+&amp;=&amp; n(k - \lg{k})
+\end{eqnarray}
+$$</p>
+<p>But k grows faster than $\lg{k}$, so we cannot pick a good k here. Thus we can multiply a constant c to $n\lg{n}$. Thus:</p>
+<p>$$
+\begin{eqnarray}
+nk + n\lg{\frac{n}{k}} - cn\lg{n} &amp;=&amp; nk + n\lg{n} - n\lg{k} - cn\lg{n} \\
+&amp;=&amp; n(\lg{2^k} + \lg{n} - \lg{k} - \lg{n^c}) \\
+&amp;=&amp; n\lg{\frac{2^k}{kn^{c - 1}}}
+\end{eqnarray}
+$$</p>
+<p>So we only need to find a k that satifies $\frac{2^k}{kn^{c - 1}} &lt; 1$, which is possible.</p>
+<p>In practice, we need to do some tests to find a proper k.</p>
+<h2 id="74-6">7.4-6</h2>
               
             </div>
           </div>
@@ -487,10 +409,10 @@ return x
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../10.2-Linked-lists/" class="btn btn-neutral float-right" title="10.2 Linked lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Problems/" class="btn btn-neutral float-right" title="Problems">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../09-Medians-and-Order-Statistics/Problems/" class="btn btn-neutral" title="Problems"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../7.3-A-randomized-version-of-quicksort/" class="btn btn-neutral" title="7.3 A randomized version of quicksort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -516,10 +438,10 @@ return x
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../09-Medians-and-Order-Statistics/Problems/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../7.3-A-randomized-version-of-quicksort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../10.2-Linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Problems/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
