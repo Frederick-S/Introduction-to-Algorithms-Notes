@@ -15,15 +15,15 @@ class OnePointerDoublyLinkedList(object):
 
     def search(self, key):
         node = self.head
-        prev = 0
+        prev_pointer = 0
 
         while node is not None and node.key != key:
             if node == self.tail:
                 return None
 
-            new_prev = id(node)
-            node = ctypes.cast(node.np ^ prev, ctypes.py_object).value
-            prev = new_prev
+            new_prev_pointer = id(node)
+            node = ctypes.cast(node.np ^ prev_pointer, ctypes.py_object).value
+            prev_pointer = new_prev_pointer
 
         return node
 
@@ -79,5 +79,4 @@ class OnePointerDoublyLinkedList(object):
         self.nodes.pop(id(node), None)
 
     def reverse(self):
-        # self.head.np, self.tail.np = self.tail.np, self.head.np
         self.head, self.tail = self.tail, self.head
