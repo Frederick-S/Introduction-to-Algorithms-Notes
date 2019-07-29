@@ -346,38 +346,38 @@
 <h2 id="102-1">10.2-1</h2>
 <p>We can implement <code>INSERT</code> in O(1) time, but cannot implement <code>DELETE</code> in O(1) time, it's O(n).</p>
 <h2 id="102-2">10.2-2</h2>
-<pre><code>PUSH(x)
+<pre><code>PUSH(S, x)
 
-L.insert(x)
+S.L.insert(x)
 </code></pre>
 
-<pre><code>POP()
+<pre><code>POP(S)
 
-if L.head == NIL
+if S.L.head == NIL
     error &quot;underflow&quot;
-x = L.head
-L.head = L.head.next
+x = S.L.head
+S.L.head = S.L.head.next
 return x
 </code></pre>
 
 <h2 id="102-3">10.2-3</h2>
-<pre><code>ENQUEUE(x)
+<pre><code>ENQUEUE(Q, x)
 
-new = SinglyLinkedNode(x)
-if L.head == NIL
-    L.head = new
-    L.tail = new
+new = SINGLY-LINKED-NODE(x)
+if Q.L.head == NIL
+    Q.L.head = new
+    Q.L.tail = new
 else
-    L.tail.next = new
-    L.tail = new
+    Q.L.tail.next = new
+    Q.L.tail = new
 </code></pre>
 
-<pre><code>DEQUEUE()
+<pre><code>DEQUEUE(Q)
 
-if L.head == NIL
+if Q.L.head == NIL
     error &quot;underflow&quot;
-x = L.head
-L.head = L.head.next
+x = Q.L.head
+Q.L.head = Q.L.head.next
 return x
 </code></pre>
 
@@ -395,34 +395,34 @@ else
 </code></pre>
 
 <h2 id="102-5">10.2-5</h2>
-<pre><code>SEARCH(k)
+<pre><code>SEARCH(D, k)
 
-x = L.search(k)
+x = D.L.search(k)
 
-if x != L.nil
+if x != D.L.nil
     return x
 else
     return NIL
 </code></pre>
 
-<pre><code>INSERT(k, v)
+<pre><code>INSERT(D, k, v)
 
-x = SEARCH(k)
+x = SEARCH(D, k)
 
-if x != L.nil:
+if x != D.L.nil:
     error &quot;The specified key already exists&quot;
 else:
-    L.insert(k, v)
+    INSERT(D.L, k, v)
 </code></pre>
 
-<pre><code>DELETE(k)
+<pre><code>DELETE(D, k)
 
-x = SEARCH(k)
+x = SEARCH(D, k)
 
-if x == L.nil:
+if x == D.L.nil:
     error &quot;The specified key does not exist&quot;
 else:
-    L.delete(k)
+    DELETE(D.L, k)
 </code></pre>
 
 <p>The running time of <code>INSERT</code>, <code>DELETE</code> and <code>SEARCH</code> are all O(n).</p>
@@ -437,24 +437,40 @@ return s1
 </code></pre>
 
 <h2 id="102-7">10.2-7</h2>
-<pre><code>REVERSE-SINGLY-LINKED-LIST()
+<pre><code>REVERSE-SINGLY-LINKED-LIST(L)
 
 prev = L.head
-current = prev.next if prev != nil else nil
+current = prev.next if prev != NIL else NIL
 
-while current != nil
+while current != NIL
     next = current.next
     current.next = prev
     prev = current
     current = next
 
-L.head.next = nil
+L.head.next = NIL
 temp = L.head
 L.head = L.tail
 L.tail = temp
 </code></pre>
 
 <h2 id="102-8">10.2-8</h2>
+<p>We can use the memory addresses of the pointers as the k-bit integers, so <code>x.np = memory-address(x.next) XOR memory-address(x.pre)</code>.</p>
+<pre><code>SEARCH(L, k)
+
+node = L.head
+prev-pointer = 0
+
+while node != NIL and node.key != k:
+    if node == L.tail:
+        return NIL
+
+    new-prev-pointer = memory-address(node)
+    node = value-at-memory-address(node.np ^ prev-pointer)
+    prev-pointer = new-prev-pointer
+
+return node
+</code></pre>
               
             </div>
           </div>
