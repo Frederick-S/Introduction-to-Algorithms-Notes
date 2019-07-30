@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>8.2 Counting sort - Introduction to Algorithms</title>
+  <title>10.3 Implementing pointers and objects: - Introduction to Algorithms</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "8.2 Counting sort";
-    var mkdocs_page_input_path = "08-Sorting-in-Linear-Time\\8.2-Counting-sort.md";
+    var mkdocs_page_name = "10.3 Implementing pointers and objects:";
+    var mkdocs_page_input_path = "10-Elementary-Data-Structures\\10.3-Implementing-pointers-and-objects.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -221,41 +221,23 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">8.2 Counting sort</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#82-counting-sort">8.2 Counting sort</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#82-1">8.2-1</a></li>
-        
-            <li><a class="toctree-l4" href="#82-2">8.2-2</a></li>
-        
-            <li><a class="toctree-l4" href="#82-3">8.2-3</a></li>
-        
-            <li><a class="toctree-l4" href="#82-4">8.2-4</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../08-Sorting-in-Linear-Time/8.1-Lower-bounds-for-sorting/">8.1 Lower bounds for sorting</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../8.3-Radix-sort/">8.3 Radix sort</a>
+    <a class="" href="../../08-Sorting-in-Linear-Time/8.2-Counting-sort/">8.2 Counting sort</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../8.4-Bucket-sort/">8.4 Bucket sort</a>
+    <a class="" href="../../08-Sorting-in-Linear-Time/8.3-Radix-sort/">8.3 Radix sort</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Problems/">Problems</a>
+    <a class="" href="../../08-Sorting-in-Linear-Time/8.4-Bucket-sort/">8.4 Bucket sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../08-Sorting-in-Linear-Time/Problems/">Problems</a>
                 </li>
     </ul>
 	    </li>
@@ -289,15 +271,21 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../10-Elementary-Data-Structures/10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
+    <a class="" href="../10.1-Stacks-and-queues/">10.1 Stacks and queues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../10-Elementary-Data-Structures/10.2-Linked-lists/">10.2 Linked lists</a>
+    <a class="" href="../10.2-Linked-lists/">10.2 Linked lists</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../10-Elementary-Data-Structures/10.3-Implementing-pointers-and-objects/">10.3 Implementing pointers and objects:</a>
+    <a class="current" href="./">10.3 Implementing pointers and objects:</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#103-implementing-pointers-and-objects">10.3 Implementing pointers and objects</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -324,11 +312,11 @@
     
       
         
-          <li>8 Sorting in Linear Time &raquo;</li>
+          <li>10 Elementary Data Structures &raquo;</li>
         
       
     
-    <li>8.2 Counting sort</li>
+    <li>10.3 Implementing pointers and objects:</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -338,44 +326,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="82-counting-sort">8.2 Counting sort</h1>
-<h2 id="82-1">8.2-1</h2>
-<p><img alt="Alt text" src="../8.2-1-a.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-b.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-c.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-d.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-e.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-f.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-g.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-h.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-i.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-j.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-k.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-l.png" /></p>
-<p><img alt="Alt text" src="../8.2-1-m.png" /></p>
-<h2 id="82-2">8.2-2</h2>
-<p>Suppose for two indices i &lt; j, we have A[i] = A[j]. And we scan A from n to 1, so we met A[j] first, and then we put A[j] in B and subtract 1 from C[A[j]], so when we met A[i], it will be put before A[j], so the numbers with the same value appear in the output array in the same order as they do in the input array, <code>COUNTING-SORT</code> is stable.</p>
-<h2 id="82-3">8.2-3</h2>
-<p>The new algorithm works properly because it only affects the output of the elements that have same value, the relative order of distinct elements is not affected.</p>
-<p>But the algorithm is not stable, because the numbers with the same value appear in the output array in the opposite order now.</p>
-<h2 id="82-4">8.2-4</h2>
-<p>We can reuse the code from line 1 to 8 in <code>COUNTING-SORT</code>. C[i] contains the number of elements less than or equal to i, so the number of elements fall into the range [a..b] is <code>C[b] - C[a - 1]</code>. We assume <code>C[i] = 0</code> when i is negative.</p>
-<pre><code>PREPROCESS(A, k)
-let C[0..k] be a new array
-for i = 0 to k
-    C[i] = 0
-for j = 1 to A.length
-    C[A[j]] = C[A[j]] + 1
-for i = 1 to k
-    C[i] = C[i] + C[i - 1]
-
-QUERY(a, b)
-if a - 1 &lt; 0
-    return C[b]
-return C[b] - C[a - 1]
-</code></pre>
-
-<p>As discussed in the book, the running time to preprocess is $\Theta(n + k)$.</p>
+                <h1 id="103-implementing-pointers-and-objects">10.3 Implementing pointers and objects</h1>
               
             </div>
           </div>
@@ -383,10 +334,8 @@ return C[b] - C[a - 1]
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../8.3-Radix-sort/" class="btn btn-neutral float-right" title="8.3 Radix sort">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../8.1-Lower-bounds-for-sorting/" class="btn btn-neutral" title="8.1 Lower bounds for sorting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../10.2-Linked-lists/" class="btn btn-neutral" title="10.2 Linked lists"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -412,10 +361,8 @@ return C[b] - C[a - 1]
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../8.1-Lower-bounds-for-sorting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../10.2-Linked-lists/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../8.3-Radix-sort/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
