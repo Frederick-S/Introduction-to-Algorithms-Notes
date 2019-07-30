@@ -40,7 +40,7 @@ class OnePointerDoublyLinkedList(object):
             self.head.np = (self.head.np ^ 0) ^ id(new)
             self.head = new
 
-        # Keep reference of each node
+        # Keep reference of each node, so we can get the node by its identity
         self.nodes[id(new)] = new
 
     def delete(self, key):
