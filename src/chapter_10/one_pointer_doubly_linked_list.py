@@ -76,6 +76,7 @@ class OnePointerDoublyLinkedList(object):
             next.np = (next.np ^ id(node)) ^ prev_pointer
             prev_node.np = (prev_node.np ^ id(node)) ^ id(next)
 
+        # Remove the reference of node
         self.nodes.pop(id(node), None)
 
     def reverse(self):
