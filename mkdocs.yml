@@ -53,3 +53,4 @@ nav:
 - '10 Elementary Data Structures':
     - '10.1 Stacks and queues': '10-Elementary-Data-Structures/10.1-Stacks-and-queues.md'
     - '10.2 Linked lists': '10-Elementary-Data-Structures/10.2-Linked-lists.md'
+    - '10.3 Implementing pointers and objects:': '10-Elementary-Data-Structures/10.3-Implementing-pointers-and-objects.md'
