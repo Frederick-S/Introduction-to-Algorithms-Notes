@@ -1,6 +1,11 @@
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [['$', '$']],
-        displayMath: [['$$', '$$']]
+window.MathJax = {
+    tex: {
+        inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)']
+        ]
+    },
+    svg: {
+        fontCache: 'global'
     }
-});
+}
