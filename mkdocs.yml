@@ -1,6 +1,6 @@
 site_name: Introduction to Algorithms
 theme: readthedocs
-extra_javascript: ['https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG', 'mathjax-config.js']
+extra_javascript: ['mathjax-config.js', 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js']
 nav:
 - 'Introduction': 'index.md'
 - '2 Getting Started':
